@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">aMuse</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_section1">Foto</string>
+    <string name="title_section2">Story</string>
+    <string name="title_section3">QR Code</string>
+    <string name="title_activity_camera">Camera</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_story">Story</string>
+    <string name="title_activity_qr_code">QrCode</string>
+    <string name="title_activity_camera_preview">CameraPreview</string>
+    <color name="grey">#777777</color>
+
+</resources>
