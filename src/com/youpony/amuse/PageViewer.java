@@ -5,6 +5,7 @@ import java.util.Locale;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class PageViewer extends FragmentActivity implements ActionBar.TabListener {
@@ -28,8 +30,8 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
-	
-    /**
+
+	/**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
      * {@link android.support.v4.app.FragmentPagerAdapter} derivative, which
@@ -121,8 +123,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a DummySectionFragment (defined as a static inner class
-            // below) with the page number as its lone argument.
+            // 
             if(position==0){
             	camera = new CameraTab();
             	return camera;
@@ -186,7 +187,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         }
     }
 	
-
+    
 	
     
 }

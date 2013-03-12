@@ -41,6 +41,10 @@
             android:name="com.youpony.amuse.CameraTab"
             android:label="@string/title_activity_camera" >
         </activity>
+        <activity
+            android:name="com.youpony.amuse.CameraPreview"
+            android:label="@string/title_activity_camera_preview" >
+        </activity>
     </application>
 
 </manifest>
