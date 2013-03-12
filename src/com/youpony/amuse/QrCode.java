@@ -30,8 +30,8 @@ public class QrCode extends Fragment {
                 View rootView = inflater.inflate(R.layout.activity_qr_code, container, false);
                 //IMPORTANT : fix this
                 //put camera preview inside frame layout
-                //FrameLayout prev = (FrameLayout) getView().findViewById(R.id.qr_frame);
-                //mPreview = new CameraPreview(this.getActivity(), mCamera);
+                //FrameLayout prev = (FrameLayout) rootView.findViewById(R.id.qr_frame);
+                //mPreview = new CameraPreview(getActivity(), mCamera);
                 //prev.addView(mPreview);
                 return rootView;
             }
