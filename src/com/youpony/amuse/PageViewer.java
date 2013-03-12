@@ -26,7 +26,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class PageViewer extends FragmentActivity implements ActionBar.TabListener {
-	
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
@@ -104,6 +103,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    	
     }
 
     @Override
@@ -187,7 +187,6 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         }
     }
 	
-    
-	
+  
     
 }

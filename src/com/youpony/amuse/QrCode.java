@@ -1,6 +1,9 @@
 package com.youpony.amuse;
 
+import java.io.Console;
+
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.SurfaceView;
 import android.view.View;
@@ -17,10 +20,11 @@ import android.os.Bundle;
 
 public class QrCode extends Fragment {
 	
-		Camera mCamera;
+		private Camera mCamera;
 		private CameraPreview mPreview;
 		
         public QrCode(){
+        	
         }
         
 
@@ -30,11 +34,20 @@ public class QrCode extends Fragment {
                 View rootView = inflater.inflate(R.layout.activity_qr_code, container, false);
                 //IMPORTANT : fix this
                 //put camera preview inside frame layout
-                //FrameLayout prev = (FrameLayout) rootView.findViewById(R.id.qr_frame);
-                //mPreview = new CameraPreview(getActivity(), mCamera);
-                //prev.addView(mPreview);
+                FrameLayout prev = (FrameLayout) rootView.findViewById(R.id.qr_frame);
+                mPreview =  new CameraPreview(getActivity(), mCamera);
+                Log.d("creato", "il qr");
+                prev.addView(mPreview);
                 return rootView;
             }
         	
-        	
+        public void release(){
+        	mCamera.release();
         }
+        
+        @Override
+        public void onDestroy(){
+        	super.onDestroy();
+        	Log.d("distrutto", "il qr");
+        }
+ }
