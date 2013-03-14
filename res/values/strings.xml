@@ -11,6 +11,10 @@
     <string name="title_activity_story">Story</string>
     <string name="title_activity_qr_code">QrCode</string>
     <string name="title_activity_camera_preview">CameraPreview</string>
+
     <color name="grey">#777777</color>
+
+    <string name="title_activity_qr_code_button">QrCodeButton</string>
+    <string name="title_activity_qr_code_preview">QrCodePreview</string>
 
 </resources>

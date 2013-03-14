@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -99,15 +100,24 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
+        
+        if (tab.getPosition() == 2){
+        	//qrcode.attachCamera();
+        }
+        Log.d("","Tab is selected - orrudebug");
     }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    	
+    	if (tab.getPosition() == 2){
+    		qrcode.detachCamera();
+    	}
+    	Log.d("", "Tab is UNselected - orrudebug");
     }
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    	Log.d("", "Tab is REselected - orrudebug");
     }
 
     /**
@@ -187,6 +197,6 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         }
     }
 	
-  
+    
     
 }

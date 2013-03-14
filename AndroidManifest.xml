@@ -10,6 +10,8 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
@@ -43,7 +45,7 @@
         </activity>
         <activity
             android:name="com.youpony.amuse.CameraPreview"
-            android:label="@string/title_activity_camera_preview">
+            android:label="@string/title_activity_camera_preview" >
         </activity>
     </application>
 
