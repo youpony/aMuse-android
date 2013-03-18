@@ -47,6 +47,12 @@
             android:name="com.youpony.amuse.CameraPreview"
             android:label="@string/title_activity_camera_preview" >
         </activity>
+        <activity
+            android:name="com.youpony.amuse.QrResult"
+            android:label="@string/title_activity_qr_result" 
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleTheme">
+        </activity>
     </application>
 
 </manifest>

@@ -36,7 +36,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
 	public QrCode qrcode;
 	
 	private static Context context;
-	
+	public final static String EXTRA_MESSAGE = "qrCode RESULT";
 	
 
 	/**
@@ -52,7 +52,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    ViewPager mViewPager;
+    public static ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,9 +215,14 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
     	return PageViewer.context;
     }
     
+    //manage QR Code results
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
   	  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
   	  if (scanResult != null) {
+  		Intent qrResult = new Intent(this, QrResult.class);
+  		String resultString = scanResult.toString();
+  		qrResult.putExtra(EXTRA_MESSAGE, resultString);
+  		startActivity(qrResult);
   	    Log.d("orrudebug", scanResult.toString());
   	  }
   	  else{
