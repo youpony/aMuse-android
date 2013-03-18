@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
+	
+	private static Context context;
+	
+	
 
 	/**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -50,7 +55,8 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_viewer);
-
+        PageViewer.context = getApplicationContext();
+        
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -197,6 +203,9 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         }
     }
 	
+    public static Context getAppContext(){
+    	return PageViewer.context;
+    }
     
     
 }

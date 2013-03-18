@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.hardware.Camera;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 /*
@@ -22,11 +23,11 @@ import android.os.Bundle;
 
 public class QrCode extends Fragment {
 	
-		private Camera mCamera;
-		private CameraPreview mPreview;
+		Camera mCamera;
+		CameraPreview mPreview;
 		private SurfaceHolder mHolder;
 		private static View rootView;
-		private FrameLayout prev;
+		FrameLayout prev;
 		private Button start_qr;
 		
         public QrCode(){
@@ -56,15 +57,17 @@ public class QrCode extends Fragment {
         
         // camera on
         public void attachCamera(){
-            mPreview =  new CameraPreview(getActivity(), mCamera);;
-            prev.addView(mPreview);
-            Log.d("orrudebug", "camera is attached - orrudebug");
+        	mPreview = new CameraPreview(getActivity(), mCamera);
+			prev.addView(mPreview);
+            start_qr.setText("Get Item");
+			Log.d("orrudebug", "camera is attached - orrudebug");
         }
         
         // camera off
         public void detachCamera(){
         	prev.removeView(mPreview);
         	mPreview = null;
+        	start_qr.setText("Start QrReader");
         	Log.d("orrudebug", "camera is detached - orrudebug");
         }
         
@@ -91,5 +94,23 @@ public class QrCode extends Fragment {
         	super.onDestroy();
         	//release();
         	Log.d("distrutto", "il qr");
+        }
+        
+        /*
+         * Implement this to load camera preview in background, and
+         * then attach to the surfaceView without the loading blank page.
+         */
+        private class CameraLoader extends AsyncTask<Void,Void,Void>{
+        	protected void onPreExecute(){
+        		}
+        	protected Void doInBackground(Void... params) {
+				//mPreview = new CameraPreview(PageViewer.getAppContext(), mCamera);
+				return null;
+			}
+			
+        	protected void onPostExectue(){
+        		//prev.addView(mPreview);
+            	
+        	}
         }
  }
