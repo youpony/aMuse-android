@@ -2,6 +2,9 @@ package com.youpony.amuse;
 
 import java.util.Locale;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -106,18 +109,23 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
-        
-        if (tab.getPosition() == 2){
-        	//qrcode.attachCamera();
-        }
+        /*
+         * Not used right now
+         */
+        //if (tab.getPosition() == 0){
+        	//camera.attachCamera();
+        //}
         Log.d("","Tab is selected - orrudebug");
     }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    	if (tab.getPosition() == 2){
-    		qrcode.detachCamera();
-    	}
+    	/*
+    	 * Not used right now
+    	 */
+    	//if (tab.getPosition() == 0){
+    		//camera.detachCamera();
+    	//}
     	Log.d("", "Tab is UNselected - orrudebug");
     }
 
@@ -207,5 +215,13 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
     	return PageViewer.context;
     }
     
-    
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+  	  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+  	  if (scanResult != null) {
+  	    Log.d("orrudebug", scanResult.toString());
+  	  }
+  	  else{
+  	  	Log.d("orrudebug", "orrudebug - QR non va");
+  	  }
+  	}
 }

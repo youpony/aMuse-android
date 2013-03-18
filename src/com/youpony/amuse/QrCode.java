@@ -2,6 +2,9 @@ package com.youpony.amuse;
 
 import java.io.Console;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,12 +26,8 @@ import android.os.Bundle;
  */
 
 public class QrCode extends Fragment {
-	
-		Camera mCamera;
-		CameraPreview mPreview;
-		private SurfaceHolder mHolder;
+		
 		private static View rootView;
-		FrameLayout prev;
 		private Button start_qr;
 		
         public QrCode(){
@@ -39,37 +39,20 @@ public class QrCode extends Fragment {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
                 rootView = inflater.inflate(R.layout.activity_qr_code, container, false);
-                //IMPORTANT : fix this
-                //put camera preview inside frame layout
-                prev = (FrameLayout) rootView.findViewById(R.id.qr_frame);
                 start_qr = (Button) rootView.findViewById(R.id.button1);
                 start_qr.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if (mPreview == null){
-                        	attachCamera();
-                        	
-                        }
+                        IntentIntegrator integrator = new IntentIntegrator(getActivity());
+                    	integrator.initiateScan();
+                        
                     }
                 });
                 Log.d("creato", "il qr");
                 return rootView;
             }
         
-        // camera on
-        public void attachCamera(){
-        	mPreview = new CameraPreview(getActivity(), mCamera);
-			prev.addView(mPreview);
-            start_qr.setText("Get Item");
-			Log.d("orrudebug", "camera is attached - orrudebug");
-        }
         
-        // camera off
-        public void detachCamera(){
-        	prev.removeView(mPreview);
-        	mPreview = null;
-        	start_qr.setText("Start QrReader");
-        	Log.d("orrudebug", "camera is detached - orrudebug");
-        }
+        
         
         @Override
         public void onPause(){
@@ -96,21 +79,5 @@ public class QrCode extends Fragment {
         	Log.d("distrutto", "il qr");
         }
         
-        /*
-         * Implement this to load camera preview in background, and
-         * then attach to the surfaceView without the loading blank page.
-         */
-        private class CameraLoader extends AsyncTask<Void,Void,Void>{
-        	protected void onPreExecute(){
-        		}
-        	protected Void doInBackground(Void... params) {
-				//mPreview = new CameraPreview(PageViewer.getAppContext(), mCamera);
-				return null;
-			}
-			
-        	protected void onPostExectue(){
-        		//prev.addView(mPreview);
-            	
-        	}
-        }
+       
  }
