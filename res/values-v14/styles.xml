@@ -15,6 +15,8 @@
         <!-- this seems not to work, damn -->
         <!-- <item name="android:windowNoTitle">true</item>-->
     </style>
+    
+    <style name="resultTheme" parent="android:Theme.Holo.Light.NoActionBar"></style>
    
 
 

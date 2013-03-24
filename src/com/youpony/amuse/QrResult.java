@@ -3,6 +3,7 @@ package com.youpony.amuse;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.View;
@@ -12,17 +13,19 @@ import android.widget.TextView;
 
 public class QrResult extends Activity {
 
+	String id, exib;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_qr_result);
 		Intent intent = getIntent();
-		String message = intent.getStringExtra(PageViewer.EXTRA_MESSAGE);
-		
+		setApi(intent);
+		PageViewer.mViewPager.postInvalidate();
 		//display qrCode content as textView
-		TextView textView = (TextView) findViewById(R.id.stringa);
-		textView.setText(message);
+		TextView t = (TextView) findViewById(R.id.stringa);
+		t.setText("localhost:8000/" + id + "/" + exib);
 		
 		//manage Confirm button action
 		Button confirm = (Button) findViewById(R.id.confirm);
@@ -33,7 +36,8 @@ public class QrResult extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				finish();
+				
+				QrResult.this.finish();
 				PageViewer.mViewPager.setCurrentItem(1);
 				
 			}
@@ -46,6 +50,15 @@ public class QrResult extends Activity {
 		getMenuInflater().inflate(R.menu.qr_result, menu);
 		
 		return true;
+	}
+	
+	private void setApi(Intent intent){
+		String message = intent.getStringExtra(PageViewer.EXTRA_MESSAGE);
+		String tmp[];
+		String del = "&";
+		tmp = message.split(del, 2);
+		id = tmp[0];
+		exib = tmp[1];
 	}
 
 }

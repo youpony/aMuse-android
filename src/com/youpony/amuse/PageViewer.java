@@ -98,6 +98,14 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
     }
 
     @Override
+    public void onResume(){
+    	super.onResume();
+    	mViewPager.invalidate();
+    	Log.d("orrudebug", "onResume on mViewPager");
+    }
+    
+    
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.page_viewer, menu);
@@ -220,7 +228,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
   	  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
   	  if (scanResult != null) {
   		Intent qrResult = new Intent(this, QrResult.class);
-  		String resultString = scanResult.toString();
+  		String resultString = scanResult.getContents();
   		qrResult.putExtra(EXTRA_MESSAGE, resultString);
   		startActivity(qrResult);
   	    Log.d("orrudebug", scanResult.toString());

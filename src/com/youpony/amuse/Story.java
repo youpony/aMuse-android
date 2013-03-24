@@ -24,7 +24,7 @@ public class Story extends Fragment {
 		View sView = inflater.inflate(R.layout.activity_story, container, false);
 		//set custom text view for fragment
 		TextView storyTextView = (TextView) sView.findViewById(R.id.section_label);
-        storyTextView.setText("Questo è un Orrù");
+        storyTextView.setText("Questa è la tab dove comparirà la Story.");
         
         return sView;
     }
