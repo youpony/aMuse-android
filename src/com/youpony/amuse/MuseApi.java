@@ -10,7 +10,7 @@ import android.os.AsyncTask;
  */
 public class MuseApi extends AsyncTask<String, Void, String>{
 
-	public final static String BASEURL = "192.168.1.103/";
+	public final static String BASEURL = "http://10.23.11.217:8000/";
 	private String url;
 	
 	@Override

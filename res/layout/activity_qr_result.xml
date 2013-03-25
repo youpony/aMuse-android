@@ -26,13 +26,5 @@
         android:layout_alignParentLeft="true"
         android:text="Cancel" />
 
-    <WebView
-        android:id="@+id/webresult"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/confirm"
-        android:layout_alignLeft="@+id/cancel"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/confirm" />
-
+   
 </RelativeLayout>

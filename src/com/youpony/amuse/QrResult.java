@@ -1,10 +1,15 @@
 package com.youpony.amuse;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +21,13 @@ public class QrResult extends Activity {
 
 	String id, exib;
 	MuseApi api;
+	private static String url;
+	
+	//set JSON object fields
+	private static final String author = "author";
+	private static final String year = "year";
+	private static final String name = "name";
+	private static final String desc = "desc";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +41,20 @@ public class QrResult extends Activity {
 		api = new MuseApi();
 		
 		
-		//display qrCode content as textView
-		WebView w = (WebView) findViewById(R.id.webresult);
-		String url = api.BASEURL + "api" + "/" + "o" + "/" + exib;
-		
-		w.loadUrl(url);
-		
+		//get JSON
+		url = api.BASEURL + "api" + "/" + "o" + "/" + exib;
+		// Creating JSON Parser instance
+		JSONParser jParser = new JSONParser();
+		// getting JSON string from URL
+		JSONObject json = jParser.getJSONFromUrl(url);
+		/*try {
+			
+			//String APIauthor = json.getString(author);
+			Log.i("orrudebug", "ecco le API");//APIauthor);
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}*/
 		//manage Confirm button action
 		Button confirm = (Button) findViewById(R.id.confirm);
 		
