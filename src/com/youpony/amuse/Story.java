@@ -48,58 +48,6 @@ public class Story extends Fragment {
 
         lv1.setAdapter(files);
         
-        /*
-        
-        lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-        	@Override
-        	public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id) {
-        	        return onLongListItemClick(v,pos,id);
-        	}
-        	protected boolean onLongListItemClick(View v, final int pos, long id) {
-        	        String str=files.getItem(pos).toString();
-        	        Log.i("ListView", "onLongListItemClick stirng=" + str);
-        	        AlertDialog.Builder builder = new  
-        	                AlertDialog.Builder(EmailReceiversActivity.this);
-        	            builder.setMessage("Are you sure you want to delete?")
-        	            .setCancelable(false)
-        	            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-        	                       public void onClick(DialogInterface dialog, int id) {
-        	                    	   values.remove(pos);
-        	                    	   files.notifyDataSetChanged();
-        	                       }
-        	                   })
-        	                   .setNegativeButton("No", new DialogInterface.OnClickListener() {
-        	                       public void onClick(DialogInterface dialog, int id) {
-        	                            dialog.cancel();
-        	                       }
-        	                   });
-        	            AlertDialog alert = builder.create();
-        	            alert.show();
-        	            return true;
-        	        }
-
-        	    }); */
-
-        /*
-        lv1.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<String> a, View v, int position, long id) {
-                AlertDialog.Builder adb=new AlertDialog;
-                adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete " + position);
-                final int positionToRemove = position;
-                adb.setNegativeButton("Cancel", null);
-                adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        MyDataObject.remove(positionToRemove);
-                        files.notifyDataSetChanged();
-                    }});
-                adb.show();
-                } 
-        });
-        */
-        
-        
-        
         lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
         	
         	@Override
@@ -107,7 +55,7 @@ public class Story extends Fragment {
                 AlertDialog.Builder adb=new AlertDialog.Builder(getActivity());
                 
                 adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete " + position);
+                adb.setMessage("Are you sure you want to delete " + values.get(position));
                 final int positionToRemove = position;
                 adb.setNegativeButton("Cancel", null);
                 adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
