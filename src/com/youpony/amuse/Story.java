@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /*
@@ -22,10 +23,9 @@ public class Story extends Fragment {
             Bundle savedInstanceState) {
         //inflate the layout to fragment
 		View sView = inflater.inflate(R.layout.activity_story, container, false);
-		//set custom text view for fragment
-		TextView storyTextView = (TextView) sView.findViewById(R.id.section_label);
-        storyTextView.setText("Questa è la tab dove comparirà la Story.");
-        
+		//set custom list view for fragment
+		ListView lista;
+		
         return sView;
     }
 	
