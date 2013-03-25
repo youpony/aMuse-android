@@ -42,6 +42,7 @@ public class QrResult extends Activity {
 	String APIauthor;
 	public static JSONObject json;
 	TextView t;
+	Boolean stop = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +58,13 @@ public class QrResult extends Activity {
 		setApi(intent);
 		PageViewer.mViewPager.postInvalidate();
 		
-		new JSONParsing(){
-			protected void onPostExecute(JSONObject jData){
-				updateExhibitions(jData);
-			}
-		}.execute(JSONParsing.ITEM + id + "/");
+		if(stop == false){
+			new JSONParsing(){
+				protected void onPostExecute(JSONObject jData){
+					updateExhibitions(jData);
+				}
+			}.execute(JSONParsing.ITEM + id + "/");
+		}
 		
 		//manage Confirm button action
 		Button confirm = (Button) findViewById(R.id.confirm);
@@ -73,8 +76,7 @@ public class QrResult extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				QrResult.this.finish();
-				PageViewer.mViewPager.setCurrentItem(1);
+				close();
 				
 			}
 		});
@@ -85,6 +87,18 @@ public class QrResult extends Activity {
 		t.setText(jData.toString());
 	}
 
+	void close(){
+		QrResult.this.finish();
+		PageViewer.mViewPager.setCurrentItem(1);
+	}
+	
+	void wrongQr(){
+		stop = true;
+		QrResult.this.finish();
+		PageViewer.mViewPager.setCurrentItem(2);
+		QrCode.start_qr.setText("wrong QrCode, try again!");
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -97,9 +111,35 @@ public class QrResult extends Activity {
 		String message = intent.getStringExtra(PageViewer.EXTRA_MESSAGE);
 		String tmp[];
 		String del = "&";
-		tmp = message.split(del, 2);
-		exib = tmp[0];
-		id = tmp[1];
+		if(message != null){
+			Log.i("orrudebug", "scan presente!");
+			if(message.contains("&")){
+				tmp = message.split(del, 2);
+				try { 
+					int check = Integer.parseInt(tmp[0]);
+					exib = tmp[0];
+					} 
+				catch(NumberFormatException nFE) { 
+					wrongQr();
+				}
+				try { 
+					int check = Integer.parseInt(tmp[1]);
+					id = tmp[1];
+					} 
+				catch(NumberFormatException nFE) { 
+					wrongQr();
+				}
+			}
+			else{
+				stop = true;
+				wrongQr();
+			}
+		}
+		else{
+			Log.i("orrudebug", "scan nullo!");
+			stop = true;
+			close();
+		}
 	}
 
 }

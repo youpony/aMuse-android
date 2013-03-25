@@ -28,7 +28,8 @@ import android.os.Bundle;
 public class QrCode extends Fragment {
 		
 		private static View rootView;
-		private Button start_qr;
+		public static Button start_qr;
+		public static String BASE_TEXT = "Start QrCode!";
 		
         public QrCode(){
         	
@@ -40,6 +41,7 @@ public class QrCode extends Fragment {
                 Bundle savedInstanceState) {
                 rootView = inflater.inflate(R.layout.activity_qr_code, container, false);
                 start_qr = (Button) rootView.findViewById(R.id.button1);
+                start_qr.setText(BASE_TEXT);
                 start_qr.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         IntentIntegrator integrator = new IntentIntegrator(getActivity());

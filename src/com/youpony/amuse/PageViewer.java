@@ -123,6 +123,9 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         //if (tab.getPosition() == 0){
         	//camera.attachCamera();
         //}
+        if(tab.getPosition() == 2){
+        	QrCode.start_qr.setText(QrCode.BASE_TEXT);
+        }
         Log.d("","Tab is selected - orrudebug");
     }
 
@@ -231,7 +234,6 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
   		String resultString = scanResult.getContents();
   		qrResult.putExtra(EXTRA_MESSAGE, resultString);
   		startActivity(qrResult);
-  	    Log.d("orrudebug", scanResult.toString());
   	  }
   	  else{
   	  	Log.d("orrudebug", "orrudebug - QR non va");
