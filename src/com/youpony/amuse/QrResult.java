@@ -8,12 +8,14 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class QrResult extends Activity {
 
 	String id, exib;
+	MuseApi api;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +25,15 @@ public class QrResult extends Activity {
 		Intent intent = getIntent();
 		setApi(intent);
 		PageViewer.mViewPager.postInvalidate();
+		
+		api = new MuseApi();
+		
+		
 		//display qrCode content as textView
-		TextView t = (TextView) findViewById(R.id.stringa);
-		t.setText("localhost:8000/" + id + "/" + exib);
+		WebView w = (WebView) findViewById(R.id.webresult);
+		String url = api.BASEURL + "api" + "/" + "o" + "/" + exib;
+		
+		w.loadUrl(url);
 		
 		//manage Confirm button action
 		Button confirm = (Button) findViewById(R.id.confirm);
