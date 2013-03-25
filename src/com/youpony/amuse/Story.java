@@ -3,19 +3,15 @@ package com.youpony.amuse;
 import java.util.ArrayList;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 /*
  * fragment containing Story.
@@ -26,7 +22,7 @@ public class Story extends Fragment {
 	}
 	
 	ListView lv1;
-	ArrayList<String> values;
+	ArrayList<Item> values;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,14 +31,20 @@ public class Story extends Fragment {
 		View sView = inflater.inflate(R.layout.activity_story, container, false);
 		//set custom list view for fragment
 		lv1 = (ListView) sView.findViewById(R.id.listView1);    
-	    values = new ArrayList<String>();
-	          
-	    values.add("Android");
-	    values.add("iPhone");
-	    values.add("Windows");
-
+	    values = new ArrayList<Item>();
+	    
+	    Item os1 = new Item();
+	    os1.nome=("Android");
+	    values.add(os1);
+	    Item os2 = new Item();
+	    os2.nome=("iPhone");
+	    values.add(os2);
+	    Item os3 = new Item();
+	    os3.nome=("Windows Phone");
+	    values.add(os3);
+	    
  
-        final ArrayAdapter<String> files = new ArrayAdapter<String>(getActivity(), 
+        final ArrayAdapter<Item> files = new ArrayAdapter<Item>(getActivity(), 
                  android.R.layout.simple_list_item_1, 
                  values);
 
