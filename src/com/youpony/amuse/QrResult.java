@@ -1,9 +1,20 @@
 package com.youpony.amuse;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +31,6 @@ import android.widget.TextView;
 public class QrResult extends Activity {
 
 	String id, exib;
-	MuseApi api;
 	private static String url;
 	
 	//set JSON object fields
@@ -29,32 +39,30 @@ public class QrResult extends Activity {
 	private static final String name = "name";
 	private static final String desc = "desc";
 	
+	String APIauthor;
+	public static JSONObject json;
+	TextView t;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_qr_result);
+		
+		//set TextView
+		t = new TextView(this);
+		t = (TextView) findViewById(R.id.JSONResult);
+		
 		Intent intent = getIntent();
 		setApi(intent);
 		PageViewer.mViewPager.postInvalidate();
 		
-		api = new MuseApi();
+		new JSONParsing(){
+			protected void onPostExecute(JSONObject jData){
+				updateExhibitions(jData);
+			}
+		}.execute(JSONParsing.ITEM + id + "/");
 		
-		
-		//get JSON
-		url = api.BASEURL + "api" + "/" + "o" + "/" + exib;
-		// Creating JSON Parser instance
-		JSONParser jParser = new JSONParser();
-		// getting JSON string from URL
-		JSONObject json = jParser.getJSONFromUrl(url);
-		/*try {
-			
-			//String APIauthor = json.getString(author);
-			Log.i("orrudebug", "ecco le API");//APIauthor);
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
 		//manage Confirm button action
 		Button confirm = (Button) findViewById(R.id.confirm);
 		
@@ -72,6 +80,11 @@ public class QrResult extends Activity {
 		});
 	}
 
+	protected void updateExhibitions(JSONObject jData) {
+		Log.i("orrudebug", "doinBackground :" + jData.toString());
+		t.setText(jData.toString());
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -85,8 +98,8 @@ public class QrResult extends Activity {
 		String tmp[];
 		String del = "&";
 		tmp = message.split(del, 2);
-		id = tmp[0];
-		exib = tmp[1];
+		exib = tmp[0];
+		id = tmp[1];
 	}
 
 }

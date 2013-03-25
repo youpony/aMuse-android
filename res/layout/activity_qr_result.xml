@@ -26,5 +26,14 @@
         android:layout_alignParentLeft="true"
         android:text="Cancel" />
 
+    <TextView
+        android:id="@+id/JSONResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/confirm"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/confirm"
+        android:text="TextView" />
    
 </RelativeLayout>
