@@ -2,11 +2,14 @@ package com.youpony.amuse;
 
 public class Item {
 	
-	String nome;
+	String name, author, year, description ;
 	
-	
-	public String toString() {
-		return nome;
+	Item(){
+		/*name = new String();
+		author = new String();
+		year = new String();
+		description = new String();*/
 	}
+	
 
 }

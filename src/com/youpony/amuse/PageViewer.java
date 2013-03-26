@@ -1,5 +1,6 @@
 package com.youpony.amuse;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -38,6 +39,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
 	private static Context context;
 	public final static String EXTRA_MESSAGE = "qrCode RESULT";
 	
+	public static ArrayList<Item> values;
 
 	/**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -60,6 +62,8 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         setContentView(R.layout.activity_page_viewer);
         PageViewer.context = getApplicationContext();
         
+        values = new ArrayList<Item>();
+    	
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

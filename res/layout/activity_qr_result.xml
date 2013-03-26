@@ -33,7 +33,6 @@
         android:layout_above="@+id/confirm"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/confirm"
-        android:text="TextView" />
+        android:layout_alignRight="@+id/confirm"/>
    
 </RelativeLayout>

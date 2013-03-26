@@ -32,24 +32,27 @@ public class QrResult extends Activity {
 
 	String id, exib;
 	private static String url;
+	String a, n, y, d;
 	
 	//set JSON object fields
 	private static final String author = "author";
 	private static final String year = "year";
 	private static final String name = "name";
-	private static final String desc = "desc";
+	private static final String description = "desc";
 	
 	String APIauthor;
 	public static JSONObject json;
 	TextView t;
 	Boolean stop = false;
+	Item oggetto;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		setContentView(R.layout.activity_qr_result);
 		
+		oggetto = new Item();
 		//set TextView
 		t = new TextView(this);
 		t = (TextView) findViewById(R.id.JSONResult);
@@ -68,6 +71,17 @@ public class QrResult extends Activity {
 		
 		//manage Confirm button action
 		Button confirm = (Button) findViewById(R.id.confirm);
+		confirm.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				PageViewer.values.add(oggetto);
+				Story.files.notifyDataSetChanged();
+				close();
+				
+			}
+		});
 		
 		//manage Cancel button action
 		Button cancel = (Button) findViewById(R.id.cancel);
@@ -81,9 +95,47 @@ public class QrResult extends Activity {
 			}
 		});
 	}
-
+	
+	//and now let's get some JSON
 	protected void updateExhibitions(JSONObject jData) {
 		Log.i("orrudebug", "doinBackground :" + jData.toString());
+		try{
+			JSONObject c = jData.getJSONObject("data");
+				try {
+					n = c.getString(name);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+				try {
+					a = c.getString(author);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+				try {
+					d = c.getString(description);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+				try {
+					y = c.getString(year);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+		}
+		catch (JSONException e){
+			e.printStackTrace();
+		}
+
+		
+		oggetto.author = a;
+		oggetto.name = n;
+		oggetto.year = y;
+		oggetto.description = d;
+		
 		t.setText(jData.toString());
 	}
 

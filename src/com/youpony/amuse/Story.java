@@ -22,7 +22,8 @@ public class Story extends Fragment {
 	}
 	
 	ListView lv1;
-	ArrayList<Item> values;
+	public static ArrayAdapter<Item> files;
+	
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,22 +32,27 @@ public class Story extends Fragment {
 		View sView = inflater.inflate(R.layout.activity_story, container, false);
 		//set custom list view for fragment
 		lv1 = (ListView) sView.findViewById(R.id.listView1);    
-	    values = new ArrayList<Item>();
+	    
+	    
+	    //only for debugging purposes (and Orrù trolling too)7
 	    
 	    Item os1 = new Item();
-	    os1.nome=("Android");
-	    values.add(os1);
-	    Item os2 = new Item();
-	    os2.nome=("iPhone");
+	    os1.name=("Android");
+	    os1.description=("OSX di Google");
+	    os1.author=("Google");
+	    os1.year=("2004");
+	    PageViewer.values.add(os1);
+	    /*Item os2 = new Item();
+	    os2.name=("iPhone");
 	    values.add(os2);
 	    Item os3 = new Item();
-	    os3.nome=("Windows Phone");
+	    os3.name=("Windows Phone");
 	    values.add(os3);
-	    
+	    */
  
-        final ArrayAdapter<Item> files = new ArrayAdapter<Item>(getActivity(), 
+        files = new ArrayAdapter<Item>(getActivity(), 
                  android.R.layout.simple_list_item_1, 
-                 values);
+                 PageViewer.values);
 
         lv1.setAdapter(files);
         
@@ -57,12 +63,12 @@ public class Story extends Fragment {
                 AlertDialog.Builder adb=new AlertDialog.Builder(getActivity());
                 
                 adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete " + values.get(position));
+                adb.setMessage("Are you sure you want to delete " + PageViewer.values.get(position));
                 final int positionToRemove = position;
                 adb.setNegativeButton("Cancel", null);
                 adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        values.remove(positionToRemove);
+                        PageViewer.values.remove(positionToRemove);
                         files.notifyDataSetChanged();
                     }});
                 adb.show();
