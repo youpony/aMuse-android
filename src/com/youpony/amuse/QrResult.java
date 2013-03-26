@@ -45,17 +45,16 @@ public class QrResult extends Activity {
 	TextView t;
 	Boolean stop = false;
 	Item oggetto;
+	Button confirm, cancel;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.activity_qr_result);
 		
 		oggetto = new Item();
 		//set TextView
 		t = new TextView(this);
-		t = (TextView) findViewById(R.id.JSONResult);
 		
 		Intent intent = getIntent();
 		setApi(intent);
@@ -64,45 +63,62 @@ public class QrResult extends Activity {
 		if(stop == false){
 			new JSONParsing(){
 				protected void onPostExecute(JSONObject jData){
-					updateExhibitions(jData);
-				}
+							updateExhibitions(jData);
+							Boolean check = Story.findName(oggetto.name);
+							int position = Story.findPos(oggetto.name);
+							if(check == true){
+								close();
+								Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
+								info.putExtra("pos", position);
+								startActivity(info);
+							}
+							else if(oggetto.name == null){
+								wrongQr();
+							}
+							else{
+								//instantiate layout
+								setContentView(R.layout.activity_qr_result);
+								t = (TextView) findViewById(R.id.JSONResult);
+								
+								//display object infos
+								t.setText("autore: " + oggetto.author + "\n"+ "nome: " + oggetto.name + "\n" + "anno: " + oggetto.year + "\n" + "descrizione: " + oggetto.description);
+								
+								//manage Confirm button action
+								confirm = (Button) findViewById(R.id.confirm);
+								confirm.setOnClickListener(new OnClickListener() {
+									@Override
+									public void onClick(View v) {
+										PageViewer.values.add(oggetto);
+										Story.files.notifyDataSetChanged();
+										close();
+									}
+								});
+								
+								//manage Cancel button action
+								cancel = (Button) findViewById(R.id.cancel);
+								cancel.setOnClickListener(new OnClickListener() {
+									@Override
+									public void onClick(View v) {
+										close();
+									}
+								});
+							}
+						}
+				
+				
 			}.execute(JSONParsing.ITEM + id + "/");
 		}
-		
-		//manage Confirm button action
-		Button confirm = (Button) findViewById(R.id.confirm);
-		confirm.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				PageViewer.values.add(oggetto);
-				Story.files.notifyDataSetChanged();
-				close();
-				
-			}
-		});
-		
-		//manage Cancel button action
-		Button cancel = (Button) findViewById(R.id.cancel);
-		cancel.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				close();
-				
-			}
-		});
 	}
+		
 	
 	//and now let's get some JSON
 	protected void updateExhibitions(JSONObject jData) {
-		Log.i("orrudebug", "doinBackground :" + jData.toString());
+		//Log.i("orrudebug", "doinBackground :" + jData.toString());
 		try{
 			JSONObject c = jData.getJSONObject("data");
 				try {
 					n = c.getString(name);
+					
 				} catch (JSONException e) {
 					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
 					e.printStackTrace();
@@ -135,7 +151,6 @@ public class QrResult extends Activity {
 		oggetto.name = n;
 		oggetto.year = y;
 		oggetto.description = d;
-		t.setText("autore: " + a + "\n"+ "nome: " + n + "\n" + "anno: " + y + "\n" + "descrizione: " + d);
 		//t.setText(jData.toString());
 	}
 

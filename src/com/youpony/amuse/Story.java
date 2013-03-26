@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -97,6 +98,28 @@ public class Story extends Fragment {
         return sView;
     }
 
+
+	public static boolean findName(String name) {
+		//Log.i("orrudebug", "size : " + PageViewer.values.size());
+		for(int i=0; i<PageViewer.values.size(); i++){
+			//Log.i("orrudebug", name + " " + PageViewer.values.get(i));
+			if(PageViewer.values.get(i).name.equals(name)){
+				//Log.i("orrudebug", "sto iterando, ho trovato");
+				
+				return true;
+			}
+		}
+		return false;
+	}
+	public static int findPos(String name){
+		for(int i=0; i<PageViewer.values.size(); i++){
+			//Log.i("orrudebug", name + " " + PageViewer.values.get(i));
+			if(PageViewer.values.get(i).name.equals(name)){
+				return i;
+			}
+		}
+		return 0;
+	}
 	
 	
 }
