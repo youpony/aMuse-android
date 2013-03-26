@@ -1,22 +1,12 @@
 <resources>
 
     <!--
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
+        Currently displaying Theme.Holo.Light.NoActionBar.Fullscreen for fullscreen swiping, 
+        if you want to use clickable tabs with action bar, change ALL themes to Theme.Holo.Light!
     -->
-    <style name="AppBaseTheme" 
-           parent="android:Theme.Holo.Light">
-    </style>
-    
-    <!-- Custom theme without titleBar -->
-    <!-- IMPORTANT-NEED TO BE FIXED -->
-    <style name="NoTitleTheme" parent="android:Theme.Holo.Light">
-        <!-- this seems not to work, damn -->
-        <!-- <item name="android:windowNoTitle">true</item>-->
-    </style>
-    
-    <style name="resultTheme" parent="android:Theme.Holo.Light"></style>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen"></style>
+    <style name="NoTitleTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen"></style>
+    <style name="resultTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen"></style>
    
 
 

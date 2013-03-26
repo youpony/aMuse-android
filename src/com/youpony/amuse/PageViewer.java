@@ -31,7 +31,14 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-public class PageViewer extends FragmentActivity implements ActionBar.TabListener {
+/**
+ * 	CURRENTLY IMPLEMENTS FULLSCREEN SWIPE WITHOUT CLICKABLE TABS!
+ *	if you want to switch back to clickable tabs remove the /**//**
+ *	comments! And don't forget to change styles back to Theme.Holo.Light!
+ **/
+
+
+public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
@@ -64,10 +71,12 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         
         values = new ArrayList<Item>();
     	
+        /*
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
+		*/
+        
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the app.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -79,15 +88,15 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         // When swiping between different sections, select the corresponding
         // tab. We can also use ActionBar.Tab#select() to do this if we have
         // a reference to the Tab.
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        /*mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
             }
         });
-
+		*/
         // For each of the sections in the app, add a tab to the action bar.
-        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+        /*for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
             // Create a tab with text corresponding to the page title defined by
             // the adapter. Also specify this Activity object, which implements
             // the TabListener interface, as the callback (listener) for when
@@ -97,7 +106,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
-        
+        */
         mViewPager.setCurrentItem(1);
     }
 
@@ -115,15 +124,13 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
         getMenuInflater().inflate(R.menu.page_viewer, menu);
         return true;
     }
-    
+    /*
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
         mViewPager.setCurrentItem(tab.getPosition());
-        /*
-         * Not used right now
-         */
+        
         //if (tab.getPosition() == 0){
         	//camera.attachCamera();
         //}
@@ -135,9 +142,7 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    	/*
-    	 * Not used right now
-    	 */
+    	
     	//if (tab.getPosition() == 0){
     		//camera.detachCamera();
     	//}
@@ -148,7 +153,8 @@ public class PageViewer extends FragmentActivity implements ActionBar.TabListene
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     	Log.d("", "Tab is REselected - orrudebug");
     }
-
+	*/
+    
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

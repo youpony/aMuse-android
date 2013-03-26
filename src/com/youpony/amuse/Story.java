@@ -36,23 +36,6 @@ public class Story extends Fragment {
 		//set custom list view for fragment
 		lv1 = (ListView) sView.findViewById(R.id.listView1);    
 	    
-	    
-	    //only for debugging purposes (and Orrù trolling too)
-	    /*
-	    Item os1 = new Item();
-	    os1.name=("Android");
-	    os1.description=("OSX di Google");
-	    os1.author=("Google");
-	    os1.year=("2004");
-	    PageViewer.values.add(os1);
-	    Item os2 = new Item();
-	    os2.name=("iPhone");
-	    values.add(os2);
-	    Item os3 = new Item();
-	    os3.name=("Windows Phone");
-	    values.add(os3);
-	    */
- 
         files = new ArrayAdapter<Item>(getActivity(), 
                  android.R.layout.simple_list_item_1, 
                  PageViewer.values);
