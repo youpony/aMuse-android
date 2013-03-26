@@ -53,6 +53,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/resultTheme" >
         </activity>
+        <activity
+            android:name="com.youpony.amuse.ItemInfo"
+            android:label="@string/title_activity_item_info"
+            android:theme="@style/resultTheme" >
+        </activity>
     </application>
 
 </manifest>

@@ -11,5 +11,10 @@ public class Item {
 		description = new String();*/
 	}
 	
+	@Override
+	public String toString(){
+		return name;
+	}
+	
 
 }

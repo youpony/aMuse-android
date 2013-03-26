@@ -135,8 +135,8 @@ public class QrResult extends Activity {
 		oggetto.name = n;
 		oggetto.year = y;
 		oggetto.description = d;
-		
-		t.setText(jData.toString());
+		t.setText("autore: " + a + "\n"+ "nome: " + n + "\n" + "anno: " + y + "\n" + "descrizione: " + d);
+		//t.setText(jData.toString());
 	}
 
 	void close(){

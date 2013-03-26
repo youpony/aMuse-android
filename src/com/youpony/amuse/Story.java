@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,15 +36,15 @@ public class Story extends Fragment {
 		lv1 = (ListView) sView.findViewById(R.id.listView1);    
 	    
 	    
-	    //only for debugging purposes (and Orrù trolling too)7
-	    
+	    //only for debugging purposes (and Orrù trolling too)
+	    /*
 	    Item os1 = new Item();
 	    os1.name=("Android");
 	    os1.description=("OSX di Google");
 	    os1.author=("Google");
 	    os1.year=("2004");
 	    PageViewer.values.add(os1);
-	    /*Item os2 = new Item();
+	    Item os2 = new Item();
 	    os2.name=("iPhone");
 	    values.add(os2);
 	    Item os3 = new Item();
@@ -78,6 +80,19 @@ public class Story extends Fragment {
 		
         });
 
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				Intent info = new Intent(getActivity() ,ItemInfo.class);
+				info.putExtra("pos", arg2);
+				startActivity(info);
+				
+			}
+        	
+        });
         
         return sView;
     }
