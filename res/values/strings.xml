@@ -19,5 +19,6 @@
     <string name="title_activity_qr_result">QrResult</string>
     <string name="title_activity_jsonparser">JSONParser</string>
     <string name="title_activity_item_info">ItemInfo</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
 
 </resources>
