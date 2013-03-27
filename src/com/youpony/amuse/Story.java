@@ -26,6 +26,8 @@ public class Story extends Fragment {
 	
 	ListView lv1;
 	public static ArrayAdapter<Item> files;
+	public static int id_mostra;
+	public static boolean start = true;
 	
 	
 	@Override

@@ -1,14 +1,12 @@
 package com.youpony.amuse;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable{
 	
-	String name, author, year, description ;
-	
+	String name, author, year, description, mostra ;
+	int e_id;
 	Item(){
-		/*name = new String();
-		author = new String();
-		year = new String();
-		description = new String();*/
 	}
 	
 	@Override

@@ -32,13 +32,16 @@ public class QrResult extends Activity {
 
 	String id, exib;
 	private static String url;
-	String a, n, y, d;
+	String a, n, y, d, m;
+	int i;
 	
 	//set JSON object fields
 	private static final String author = "author";
 	private static final String year = "year";
 	private static final String name = "name";
 	private static final String description = "desc";
+	private static final String ex_id = "id";
+	private static final String ex_name = "name";
 	
 	String APIauthor;
 	public static JSONObject json;
@@ -66,47 +69,62 @@ public class QrResult extends Activity {
 							updateExhibitions(jData);
 							Boolean check = Story.findName(oggetto.name);
 							int position = Story.findPos(oggetto.name);
-							if(check == true){
+							
+							if( Story.start == false && Story.id_mostra != oggetto.e_id){
+								Intent change = new Intent(PageViewer.getAppContext(), ExhibitionChange.class);
+								Bundle pass_obj = new Bundle();
+								pass_obj.putSerializable("item_value", oggetto);
+								change.putExtras(pass_obj);
+								startActivity(change);
 								close();
-								Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
-								info.putExtra("pos", position);
-								startActivity(info);
-							}
-							else if(oggetto.name == null){
-								wrongQr();
 							}
 							else{
-								//instantiate layout
-								setContentView(R.layout.activity_qr_result);
-								t = (TextView) findViewById(R.id.JSONResult);
-								
-								//display object infos
-								t.setText("autore: " + oggetto.author + "\n"+ "nome: " + oggetto.name + "\n" + "anno: " + oggetto.year + "\n" + "descrizione: " + oggetto.description);
-								
-								//manage Confirm button action
-								confirm = (Button) findViewById(R.id.confirm);
-								confirm.setOnClickListener(new OnClickListener() {
-									@Override
-									public void onClick(View v) {
-										PageViewer.values.add(oggetto);
-										Story.files.notifyDataSetChanged();
+									if(check == true){
 										close();
+										Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
+										info.putExtra("pos", position);
+										startActivity(info);
 									}
-								});
-								
-								//manage Cancel button action
-								cancel = (Button) findViewById(R.id.cancel);
-								cancel.setOnClickListener(new OnClickListener() {
-									@Override
-									public void onClick(View v) {
-										close();
+									else if(oggetto.name == null){
+										wrongQr();
 									}
-								});
+									else{
+										//instantiate layout
+										setContentView(R.layout.activity_qr_result);
+										t = (TextView) findViewById(R.id.JSONResult);
+										
+										//display object infos
+										t.setText("autore: " + oggetto.author + 
+												"\n"+ "nome: " + oggetto.name + 
+												"\n" + "anno: " + oggetto.year + 
+												"\n" + "descrizione: " + oggetto.description +
+												"\n" + "mostra: " + oggetto.mostra);
+										
+										//manage Confirm button action
+										confirm = (Button) findViewById(R.id.confirm);
+										confirm.setOnClickListener(new OnClickListener() {
+											@Override
+											public void onClick(View v) {
+													Story.start = false;
+													PageViewer.values.add(oggetto);
+													Story.files.notifyDataSetChanged();
+													close();
+											}
+										});
+										
+										//manage Cancel button action
+										cancel = (Button) findViewById(R.id.cancel);
+										cancel.setOnClickListener(new OnClickListener() {
+											@Override
+											public void onClick(View v) {
+												close();
+											}
+										});
+									}
+								}
 							}
-						}
 				
-				
-			}.execute(JSONParsing.ITEM + id + "/");
+						}.execute(JSONParsing.ITEM + id + "/");
 		}
 	}
 		
@@ -141,17 +159,31 @@ public class QrResult extends Activity {
 					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
 					e.printStackTrace();
 				}
+				JSONArray ex = c.getJSONArray("exhibitions");
+				JSONObject o = ex.getJSONObject(0);
+				try {
+					i = o.getInt(ex_id);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+				try {
+					m = o.getString(ex_name);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
 		}
 		catch (JSONException e){
 			e.printStackTrace();
 		}
 
-		
 		oggetto.author = a;
 		oggetto.name = n;
 		oggetto.year = y;
 		oggetto.description = d;
-		//t.setText(jData.toString());
+		oggetto.e_id = i;
+		oggetto.mostra = m;
 	}
 
 	void close(){
