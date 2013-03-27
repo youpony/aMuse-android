@@ -22,7 +22,7 @@
         android:label="@string/app_name" >
         
         
-        <activity android:name=".SplashScreen" 
+        <activity android:name="com.youpony.amuse.SplashScreen" 
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
             <intent-filter>
