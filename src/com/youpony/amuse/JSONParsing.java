@@ -43,7 +43,8 @@ public class JSONParsing extends AsyncTask<String, Void, JSONObject>{
             is = httpEntity.getContent();           
  
         } catch (Exception e) {
-            e.printStackTrace();
+        	//Log.i("orrudebug", "non siamo collegati ad internet!");
+        	return null;
         } 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -58,6 +59,7 @@ public class JSONParsing extends AsyncTask<String, Void, JSONObject>{
             
         } catch (Exception e) {
             Log.e("Buffer Error", "Error converting result " + e.toString());
+            return null;
         }
         
         
@@ -71,6 +73,7 @@ public class JSONParsing extends AsyncTask<String, Void, JSONObject>{
     		
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
+            return null;
         }
 		
 		

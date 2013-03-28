@@ -66,6 +66,7 @@ public class QrResult extends Activity {
 		if(stop == false){
 			new JSONParsing(){
 				protected void onPostExecute(JSONObject jData){
+					if (jData != null){
 							updateExhibitions(jData);
 							Boolean check = Story.findName(oggetto.name);
 							int position = Story.findPos(oggetto.name);
@@ -123,8 +124,13 @@ public class QrResult extends Activity {
 									}
 								}
 							}
-				
-						}.execute(JSONParsing.ITEM + id + "/");
+					
+				else{ 
+					Log.i("orrudebug", "no internet amigo");
+					noInternet();
+				}
+				}
+			}.execute(JSONParsing.ITEM + id + "/");
 		}
 	}
 		
@@ -132,6 +138,7 @@ public class QrResult extends Activity {
 	//and now let's get some JSON
 	protected void updateExhibitions(JSONObject jData) {
 		//Log.i("orrudebug", "doinBackground :" + jData.toString());
+		
 		try{
 			JSONObject c = jData.getJSONObject("data");
 				try {
@@ -175,6 +182,7 @@ public class QrResult extends Activity {
 				}
 		}
 		catch (JSONException e){
+			Log.i("orrudebug", "ciao, sono crashata!");
 			e.printStackTrace();
 		}
 
@@ -186,7 +194,7 @@ public class QrResult extends Activity {
 		oggetto.mostra = m;
 	}
 
-	void close(){
+	public void close(){
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(1);
 	}
@@ -196,6 +204,13 @@ public class QrResult extends Activity {
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(2);
 		QrCode.start_qr.setText("wrong QrCode, try again!");
+	}
+	
+	void noInternet(){
+		stop = true;
+		QrResult.this.finish();
+		PageViewer.mViewPager.setCurrentItem(2);
+		QrCode.start_qr.setText("no internet connection, try again!");
 	}
 	
 	@Override

@@ -246,6 +246,7 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   		startActivity(qrResult);
   	  }
   	  else{
+  		
   	  	Log.d("orrudebug", "orrudebug - QR non va");
   	  }
   	}
