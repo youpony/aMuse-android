@@ -65,10 +65,10 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_viewer);
         PageViewer.context = getApplicationContext();
-        
         values = new ArrayList<Item>();
     	
         /*
