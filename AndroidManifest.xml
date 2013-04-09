@@ -75,10 +75,6 @@
             android:label="@string/title_activity_exhibition_change"
             android:theme="@style/resultTheme" >
         </activity>
-         <activity
-            android:name="com.youpony.amuse.ItemsActivity"
-            android:label="itemsActivity" >
-        </activity>
     </application>
 
 </manifest>
