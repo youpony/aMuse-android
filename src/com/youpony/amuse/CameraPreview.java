@@ -3,12 +3,9 @@ package com.youpony.amuse;
 
 import java.io.IOException;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Context;
 import android.hardware.Camera;
 import android.util.Log;
-import android.view.Menu;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 

@@ -1,24 +1,14 @@
 package com.youpony.amuse;
 
-import java.io.Console;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import android.content.Intent;
-import android.hardware.Camera;
-import android.os.AsyncTask;
-import android.os.Bundle;
+
+import com.google.zxing.integration.android.IntentIntegrator;
 
 /*
  * Fragment containing QrCode reader.

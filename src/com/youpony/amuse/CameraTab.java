@@ -1,13 +1,10 @@
 package com.youpony.amuse;
 
-import android.content.Intent;
 import android.hardware.Camera;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,8 +21,6 @@ public class CameraTab extends Fragment {
 
 		Camera mCamera;
 		CameraPreview mPreview;
-		private SurfaceHolder mHolder;
-		private static View rootView;
 		FrameLayout prev;
 		private Button start_camera;
 		
@@ -63,24 +58,6 @@ public class CameraTab extends Fragment {
         	prev.removeView(mPreview);
         	mPreview = null;
         	Log.d("orrudebug", "camera is detached - orrudebug");
-        }
-    	
-        /*
-         * Implement this to load camera preview in background, and
-         * then attach to the surfaceView without the loading blank page.
-         */
-        private class CameraLoader extends AsyncTask<Void,Void,Void>{
-        	protected void onPreExecute(){
-        		}
-        	protected Void doInBackground(Void... params) {
-				//mPreview = new CameraPreview(PageViewer.getAppContext(), mCamera);
-				return null;
-			}
-			
-        	protected void onPostExectue(){
-        		//prev.addView(mPreview);
-            	
-        	}
         }
     	
     }

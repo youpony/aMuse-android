@@ -1,37 +1,22 @@
 package com.youpony.amuse;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.support.v4.view.ViewPager;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class QrResult extends Activity {
 
 	String id, exib;
-	private static String url;
 	String a, n, y, d, m;
 	int i;
 	
@@ -230,14 +215,12 @@ public class QrResult extends Activity {
 			if(message.contains("&")){
 				tmp = message.split(del, 2);
 				try { 
-					int check = Integer.parseInt(tmp[0]);
 					exib = tmp[0];
 					} 
 				catch(NumberFormatException nFE) { 
 					wrongQr();
 				}
 				try { 
-					int check = Integer.parseInt(tmp[1]);
 					id = tmp[1];
 					} 
 				catch(NumberFormatException nFE) { 

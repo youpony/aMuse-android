@@ -1,7 +1,7 @@
 package com.youpony.amuse;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,17 +9,11 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.youpony.amuse.adapters.ItemsAdapter;
 
-/*
- * fragment containing Story.
- * default landing page for the app.
- */
-public class Story extends Fragment {
-	
+public class ItemsActivityASD extends Fragment {
 	
 	private ListView listViewLeft;
 	private ListView listViewRight;
@@ -28,17 +22,6 @@ public class Story extends Fragment {
 
 	int[] leftViewsHeights;
 	int[] rightViewsHeights;
-	
-	//da sistemare l'inserimento di oggetti nella lista
-	ListView lv1;
-	public static ArrayAdapter<Item> files;
-	public static int id_mostra;
-	public static boolean start = true;
-	
-	//ItemsActivity itemPreview;
-	
-	public Story(){
-	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
@@ -142,94 +125,4 @@ public class Story extends Fragment {
 	}
 
 
-	
-	/*
-	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        //inflate the layout to fragment
-		View sView = inflater.inflate(R.layout.activity_story, container, false);
-		//set custom list view for fragment
-		lv1 = (ListView) sView.findViewById(R.id.listView1);    
-	    
-		
-		button1 = (Button) sView.findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	Intent i = new Intent(getActivity(), ItemsActivity.class);
-            	startActivity(i);
-    			
-            }
-        });		
-	
-        
-		
-        files = new ArrayAdapter<Item>(getActivity(), 
-                 android.R.layout.simple_list_item_1, 
-                 PageViewer.values);
-
-        lv1.setAdapter(files);
-        
-        lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-        	
-        	@Override
-        	public boolean onItemLongClick(AdapterView<?> a, View v, int position, long id) {
-                AlertDialog.Builder adb=new AlertDialog.Builder(getActivity());
-                
-                adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete " + PageViewer.values.get(position));
-                final int positionToRemove = position;
-                adb.setNegativeButton("Cancel", null);
-                adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        PageViewer.values.remove(positionToRemove);
-                        files.notifyDataSetChanged();
-                    }});
-                adb.show();
-                
-                return false;
-                }
-		
-        });
-
-        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-        	
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				Intent info = new Intent(getActivity() ,ItemInfo.class);
-				info.putExtra("pos", arg2);
-				startActivity(info);
-				
-			}
-        	
-        });
-        
-        return sView;
-    }
-
-*/
-	public static boolean findName(String name) {
-		//Log.i("orrudebug", "size : " + PageViewer.values.size());
-		for(int i=0; i<PageViewer.values.size(); i++){
-			//Log.i("orrudebug", name + " " + PageViewer.values.get(i));
-			if(PageViewer.values.get(i).name.equals(name)){
-				//Log.i("orrudebug", "sto iterando, ho trovato");
-				
-				return true;
-			}
-		}
-		return false;
-	}
-	public static int findPos(String name){
-		for(int i=0; i<PageViewer.values.size(); i++){
-			//Log.i("orrudebug", name + " " + PageViewer.values.get(i));
-			if(PageViewer.values.get(i).name.equals(name)){
-				return i;
-			}
-		}
-		return 0;
-	}
-
-	
 }
