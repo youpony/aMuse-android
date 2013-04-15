@@ -1,14 +1,20 @@
 package com.youpony.amuse;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -29,7 +35,7 @@ public class Story extends Fragment {
 	int[] leftViewsHeights;
 	int[] rightViewsHeights;
 	
-	//da sistemare l'inserimento di oggetti nella lista
+	//DA SISTEMARE INSERIMENTO OGGETTI IN LISTA
 	ListView lv1;
 	public static ArrayAdapter<Item> files;
 	public static int id_mostra;
@@ -53,8 +59,35 @@ public class Story extends Fragment {
 		listViewRight.setOnTouchListener(touchListener);		
 		listViewLeft.setOnScrollListener(scrollListener);
 		listViewRight.setOnScrollListener(scrollListener);
+		listViewLeft.setOnItemLongClickListener(longListener);
+		listViewRight.setOnItemLongClickListener(longListener);
+		
 		return sView;
 	}
+	//Listener for deleting object from list
+	
+	OnItemLongClickListener longListener = new OnItemLongClickListener() {
+		
+		@Override
+    	public boolean onItemLongClick(AdapterView<?> a, View v, int position, long id) {
+            		
+			Log.i("orrudebug","LONG CLICK ATTIVATO");
+			
+			AlertDialog.Builder adb=new AlertDialog.Builder(getActivity());
+            adb.setTitle("Delete?");
+            adb.setMessage("Are you sure you want to delete " + position);
+            final int positionToRemove = position;
+            adb.setNegativeButton("Cancel", null);
+            adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                	//DA SISTEMARE ELEMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
+                }});
+                
+            adb.show();
+            
+			return false;
+		}
+	};    
 	
 	// Passing the touch event to the opposite list
 	OnTouchListener touchListener = new OnTouchListener() {					
@@ -64,10 +97,10 @@ public class Story extends Fragment {
 		public boolean onTouch(View v, MotionEvent event) {
 			if (v.equals(listViewLeft) && !dispatched) {
 				dispatched = true;
-				listViewRight.dispatchTouchEvent(event);
+				//listViewRight.dispatchTouchEvent(event); chiama l'evento onTouch anche sull'oggetto a sinistra/destra
 			} else if (v.equals(listViewRight) && !dispatched) {
 				dispatched = true;
-				listViewLeft.dispatchTouchEvent(event);
+				//listViewLeft.dispatchTouchEvent(event);
 			}
 			
 			dispatched = false;

@@ -14,5 +14,9 @@ public class Item implements Serializable{
 		return name;
 	}
 	
+	public int returnId(){
+		return e_id;
+	}
+	
 
 }
