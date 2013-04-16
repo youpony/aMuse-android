@@ -26,6 +26,7 @@
             android:theme="@style/loadingTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -74,6 +75,10 @@
             android:name="com.youpony.amuse.ExhibitionChange"
             android:label="@string/title_activity_exhibition_change"
             android:theme="@style/resultTheme" >
+        </activity>
+        <activity
+            android:name="com.youpony.amuse.DownloadImage"
+            android:label="@string/title_activity_download_image" >
         </activity>
     </application>
 

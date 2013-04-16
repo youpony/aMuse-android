@@ -1,5 +1,7 @@
 package com.youpony.amuse.adapters;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -21,7 +23,7 @@ public class ItemsAdapter extends ArrayAdapter<Integer>{
     int layoutResourceId;
     float imageWidth;
     
-    public ItemsAdapter(Context context, int layoutResourceId, Integer[] items) {
+    public ItemsAdapter(Context context, int layoutResourceId, ArrayList<Integer> items) {
         super(context, layoutResourceId, items);
         this.context = context;
         this.layoutResourceId = layoutResourceId;

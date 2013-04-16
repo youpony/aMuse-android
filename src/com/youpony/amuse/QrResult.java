@@ -1,23 +1,37 @@
 package com.youpony.amuse;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class QrResult extends Activity {
 
 	String id, exib;
-	String a, n, y, d, m;
+	String a, n, y, d, m, im;
 	int i;
 	
 	//set JSON object fields
@@ -27,13 +41,16 @@ public class QrResult extends Activity {
 	private static final String description = "desc";
 	private static final String ex_id = "id";
 	private static final String ex_name = "name";
+	private static final String image = "images";
 	
 	String APIauthor;
 	public static JSONObject json;
 	TextView t;
+	ImageView imageView;
 	Boolean stop = false;
 	Item oggetto;
 	Button confirm, cancel;
+	Bitmap immagine;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +60,7 @@ public class QrResult extends Activity {
 		oggetto = new Item();
 		//set TextView
 		t = new TextView(this);
+		imageView = new ImageView(this);
 		
 		Intent intent = getIntent();
 		setApi(intent);
@@ -50,7 +68,7 @@ public class QrResult extends Activity {
 		
 		if(stop == false){
 			new JSONParsing(){
-				protected void onPostExecute(JSONObject jData){
+				protected void onPostExecute(JSONObject jData) {
 					if (jData != null){
 							updateExhibitions(jData);
 							Boolean check = Story.findName(oggetto.name);
@@ -78,13 +96,23 @@ public class QrResult extends Activity {
 										//instantiate layout
 										setContentView(R.layout.activity_qr_result);
 										t = (TextView) findViewById(R.id.JSONResult);
+										imageView = (ImageView) findViewById(R.id.imageView);
 										
 										//display object infos
 										t.setText("autore: " + oggetto.author + 
 												"\n"+ "nome: " + oggetto.name + 
 												"\n" + "anno: " + oggetto.year + 
 												"\n" + "descrizione: " + oggetto.description +
-												"\n" + "mostra: " + oggetto.mostra);
+												"\n" + "mostra: " + oggetto.mostra +
+												"\n" + "url_immagine: " + im);
+										
+										//display object image
+										new DownloadImage(){
+											protected void onPostExecute(Bitmap image){
+												
+											}
+										}.execute(DownloadImage.URL + im);
+										
 										
 										//manage Confirm button action
 										confirm = (Button) findViewById(R.id.confirm);
@@ -163,6 +191,14 @@ public class QrResult extends Activity {
 					m = o.getString(ex_name);
 				} catch (JSONException e) {
 					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+				JSONArray images = c.getJSONArray(image);
+				try{
+					im = images.getString(0);
+					
+				} catch (JSONException e){
+					Log.i("orrudebug", "hai sbagliato API, non trovo immagine");
 					e.printStackTrace();
 				}
 		}

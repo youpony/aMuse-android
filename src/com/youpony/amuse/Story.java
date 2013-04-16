@@ -1,5 +1,7 @@
 package com.youpony.amuse;
 
+import java.util.ArrayList;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -40,10 +42,17 @@ public class Story extends Fragment {
 	public static ArrayAdapter<Item> files;
 	public static int id_mostra;
 	public static boolean start = true;
+	int current = 0;
+	int removable;
 	
+	
+	ArrayList<Integer> leftItems = new ArrayList<Integer>();
+	ArrayList<Integer> rightItems = new ArrayList<Integer>();
+
 	//ItemsActivity itemPreview;
 	
 	public Story(){
+		
 	}
 	
 	@Override
@@ -55,8 +64,8 @@ public class Story extends Fragment {
 		
 		loadItems();
 		
-		listViewLeft.setOnTouchListener(touchListener);
-		listViewRight.setOnTouchListener(touchListener);		
+		//listViewLeft.setOnTouchListener(touchListener);
+		//listViewRight.setOnTouchListener(touchListener);		
 		listViewLeft.setOnScrollListener(scrollListener);
 		listViewRight.setOnScrollListener(scrollListener);
 		listViewLeft.setOnItemLongClickListener(longListener);
@@ -70,17 +79,41 @@ public class Story extends Fragment {
 		
 		@Override
     	public boolean onItemLongClick(AdapterView<?> a, View v, int position, long id) {
-            		
-			Log.i("orrudebug","LONG CLICK ATTIVATO");
+            
+			removable = position;
 			
 			AlertDialog.Builder adb=new AlertDialog.Builder(getActivity());
             adb.setTitle("Delete?");
+            
+            if( a.equals(listViewLeft)){
+            	current = 0;
+            }
+            else if( a.equals(listViewRight)){
+            	current = 1;
+            }
+            
             adb.setMessage("Are you sure you want to delete " + position);
-            final int positionToRemove = position;
+            
             adb.setNegativeButton("Cancel", null);
             adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                 	//DA SISTEMARE ELEMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
+                	if( current == 0){
+                		leftItems.remove(removable);
+                		leftAdapter.notifyDataSetChanged();
+                		leftViewsHeights = null;
+                		leftViewsHeights = new int[leftItems.size()];
+                		Log.i("orrudebug", "size della lista sinistra: " + leftViewsHeights.length);
+                		
+                	}
+                	else if( current == 1){
+                		rightItems.remove(removable);
+                		rightAdapter.notifyDataSetChanged();
+                		rightViewsHeights = null;
+                		rightViewsHeights = new int[rightItems.size()];
+                		Log.i("orrudebug", "size della lista destra: " + rightViewsHeights.length);
+                	}
+                	Log.i("orrudebug", "cancellato l'oggetto " + removable);
                 }});
                 
             adb.show();
@@ -89,24 +122,27 @@ public class Story extends Fragment {
 		}
 	};    
 	
-	// Passing the touch event to the opposite list
+	// Not passing the touch event to the opposite list
+	/*
 	OnTouchListener touchListener = new OnTouchListener() {					
 		boolean dispatched = false;
 		
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
+			
 			if (v.equals(listViewLeft) && !dispatched) {
 				dispatched = true;
-				//listViewRight.dispatchTouchEvent(event); chiama l'evento onTouch anche sull'oggetto a sinistra/destra
+				listViewRight.dispatchTouchEvent(event); //chiama l'evento onTouch anche sull'oggetto a sinistra/destra
 			} else if (v.equals(listViewRight) && !dispatched) {
 				dispatched = true;
-				//listViewLeft.dispatchTouchEvent(event);
+				listViewLeft.dispatchTouchEvent(event);
 			}
 			
 			dispatched = false;
 			return false;
 		}
 	};
+	*/
 	
 	/**
 	 * Synchronizing scrolling 
@@ -120,21 +156,26 @@ public class Story extends Fragment {
 		}
 		
 		@Override
-		public void onScroll(AbsListView view, int firstVisibleItem,
-				int visibleItemCount, int totalItemCount) {
+		public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 			
-			if (view.getChildAt(0) != null) {
+			//MISSING SYNCRONIZED SCROLL
+			
+			/*
+			 if (view.getChildAt(0) != null) {
+			 
 				if (view.equals(listViewLeft) ){
 					leftViewsHeights[view.getFirstVisiblePosition()] = view.getChildAt(0).getHeight();
 					
 					int h = 0;
 					for (int i = 0; i < listViewRight.getFirstVisiblePosition(); i++) {
 						h += rightViewsHeights[i];
+						Log.i("orrudebug", "1) list height right " + h);
 					}
 					
 					int hi = 0;
 					for (int i = 0; i < listViewLeft.getFirstVisiblePosition(); i++) {
 						hi += leftViewsHeights[i];
+						Log.i("orrudebug", "1) list height left" + h);
 					}
 					
 					int top = h - hi + view.getChildAt(0).getTop();
@@ -145,11 +186,13 @@ public class Story extends Fragment {
 					int h = 0;
 					for (int i = 0; i < listViewLeft.getFirstVisiblePosition(); i++) {
 						h += leftViewsHeights[i];
+						Log.i("orrudebug", "2) list height left" + h);
 					}
 					
 					int hi = 0;
 					for (int i = 0; i < listViewRight.getFirstVisiblePosition(); i++) {
 						hi += rightViewsHeights[i];
+						Log.i("orrudebug", "2) list height right " + h);
 					}
 					
 					int top = h - hi + view.getChildAt(0).getTop();
@@ -157,21 +200,29 @@ public class Story extends Fragment {
 				}
 				
 			}
+			*/
 			
 		}
 	};
 	
 	private void loadItems(){
-		Integer[] leftItems = new Integer[]{R.drawable.ic_1, R.drawable.ic_2, R.drawable.ic_3, R.drawable.ic_4, R.drawable.ic_5};
-		Integer[] rightItems = new Integer[]{R.drawable.ic_6, R.drawable.ic_7, R.drawable.ic_8, R.drawable.ic_9, R.drawable.ic_10};
+		Integer[] lefter = new Integer[]{R.drawable.ic_1, R.drawable.ic_2, R.drawable.ic_3, R.drawable.ic_4, R.drawable.ic_5};
+		Integer[] righter = new Integer[]{R.drawable.ic_6, R.drawable.ic_7, R.drawable.ic_8, R.drawable.ic_9, R.drawable.ic_10};
+		
+		for(int i=0; i<righter.length; i++){
+			rightItems.add(righter[i]);
+		}
+		for(int i=0; i<lefter.length; i++){
+			leftItems.add(lefter[i]);
+		}
 		
 		leftAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, leftItems);
 		rightAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, rightItems);
 		listViewLeft.setAdapter(leftAdapter);
 		listViewRight.setAdapter(rightAdapter);
 		
-		leftViewsHeights = new int[leftItems.length];
-		rightViewsHeights = new int[rightItems.length];	
+		leftViewsHeights = new int[leftItems.size()];
+		rightViewsHeights = new int[rightItems.size()];	
 	}
 
 

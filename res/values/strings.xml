@@ -21,5 +21,6 @@
     <string name="title_activity_item_info">ItemInfo</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_exhibition_change">ExhibitionChange</string>
+    <string name="title_activity_download_image">DownloadImage</string>
 
 </resources>
