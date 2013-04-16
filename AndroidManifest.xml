@@ -80,6 +80,10 @@
             android:name="com.youpony.amuse.DownloadImage"
             android:label="@string/title_activity_download_image" >
         </activity>
+        <activity
+            android:name="com.youpony.amuse.ImageDownloader"
+            android:label="@string/title_activity_image_downloader" >
+        </activity>
     </application>
 
 </manifest>

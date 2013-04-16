@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.youpony.amuse.ImageDownloader;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -51,6 +53,7 @@ public class QrResult extends Activity {
 	Item oggetto;
 	Button confirm, cancel;
 	Bitmap immagine;
+	ImageDownloader downloader;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class QrResult extends Activity {
 		//set TextView
 		t = new TextView(this);
 		imageView = new ImageView(this);
+		downloader = new ImageDownloader();
 		
 		Intent intent = getIntent();
 		setApi(intent);
@@ -107,12 +111,19 @@ public class QrResult extends Activity {
 												"\n" + "url_immagine: " + im);
 										
 										//display object image
-										new DownloadImage(){
+										if( im != null){
+											immagine = downloader.download(im, imageView);
+										}
+										else{
+											
+										}
+										//not used
+										/*new DownloadImage(){
 											protected void onPostExecute(Bitmap image){
 												
 											}
 										}.execute(DownloadImage.URL + im);
-										
+										*/
 										
 										//manage Confirm button action
 										confirm = (Button) findViewById(R.id.confirm);
@@ -122,6 +133,7 @@ public class QrResult extends Activity {
 													Story.start = false;
 													PageViewer.values.add(oggetto);
 													Story.files.notifyDataSetChanged();
+													Story.leftAdapter.notifyDataSetChanged();
 													close();
 											}
 										});

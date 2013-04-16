@@ -31,8 +31,10 @@ public class Story extends Fragment {
 	
 	private ListView listViewLeft;
 	private ListView listViewRight;
-	private ItemsAdapter leftAdapter;
-	private ItemsAdapter rightAdapter;
+	
+	//call Story.<leftorright>Adapter.notifyDataChanged() from outer classes when item list is modified
+	public static ItemsAdapter leftAdapter;
+	public static ItemsAdapter rightAdapter;
 
 	int[] leftViewsHeights;
 	int[] rightViewsHeights;
@@ -46,8 +48,6 @@ public class Story extends Fragment {
 	int removable;
 	
 	
-	ArrayList<Integer> leftItems = new ArrayList<Integer>();
-	ArrayList<Integer> rightItems = new ArrayList<Integer>();
 
 	//ItemsActivity itemPreview;
 	
@@ -99,18 +99,18 @@ public class Story extends Fragment {
                 public void onClick(DialogInterface dialog, int which) {
                 	//DA SISTEMARE ELEMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
                 	if( current == 0){
-                		leftItems.remove(removable);
+                		PageViewer.leftItems.remove(removable);
                 		leftAdapter.notifyDataSetChanged();
                 		leftViewsHeights = null;
-                		leftViewsHeights = new int[leftItems.size()];
+                		leftViewsHeights = new int[PageViewer.leftItems.size()];
                 		Log.i("orrudebug", "size della lista sinistra: " + leftViewsHeights.length);
                 		
                 	}
                 	else if( current == 1){
-                		rightItems.remove(removable);
+                		PageViewer.rightItems.remove(removable);
                 		rightAdapter.notifyDataSetChanged();
                 		rightViewsHeights = null;
-                		rightViewsHeights = new int[rightItems.size()];
+                		rightViewsHeights = new int[PageViewer.rightItems.size()];
                 		Log.i("orrudebug", "size della lista destra: " + rightViewsHeights.length);
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);
@@ -210,19 +210,19 @@ public class Story extends Fragment {
 		Integer[] righter = new Integer[]{R.drawable.ic_6, R.drawable.ic_7, R.drawable.ic_8, R.drawable.ic_9, R.drawable.ic_10};
 		
 		for(int i=0; i<righter.length; i++){
-			rightItems.add(righter[i]);
+			PageViewer.rightItems.add(righter[i]);
 		}
 		for(int i=0; i<lefter.length; i++){
-			leftItems.add(lefter[i]);
+			PageViewer.leftItems.add(lefter[i]);
 		}
 		
-		leftAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, leftItems);
-		rightAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, rightItems);
+		leftAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, PageViewer.leftItems);
+		rightAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, PageViewer.rightItems);
 		listViewLeft.setAdapter(leftAdapter);
 		listViewRight.setAdapter(rightAdapter);
 		
-		leftViewsHeights = new int[leftItems.size()];
-		rightViewsHeights = new int[rightItems.size()];	
+		leftViewsHeights = new int[PageViewer.leftItems.size()];
+		rightViewsHeights = new int[PageViewer.rightItems.size()];	
 	}
 
 

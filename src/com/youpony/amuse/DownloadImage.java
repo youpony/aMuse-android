@@ -10,7 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.Menu;
-
+//NOT USED
 public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 	
 	Bitmap bit;
