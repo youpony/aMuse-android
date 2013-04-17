@@ -30,6 +30,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 
 public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
+	public static int counterList=0;
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
@@ -240,7 +241,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   		startActivity(qrResult);
   	  }
   	  else{
-  		
   	  	Log.d("orrudebug", "orrudebug - QR non va");
   	  }
   	}

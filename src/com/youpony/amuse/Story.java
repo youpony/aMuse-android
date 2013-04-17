@@ -119,7 +119,7 @@ public class Story extends Fragment {
             adb.setNegativeButton("Cancel", null);
             adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                	//DA SISTEMARE ELEMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
+                	//DA SISTEMARE ELIMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
                 	if( current == 0){
                 		PageViewer.values.remove(removable);
                 		PageViewer.leftItems.remove(removable);
@@ -128,6 +128,10 @@ public class Story extends Fragment {
                 		leftViewsHeights = new int[PageViewer.leftItems.size()];
                 		Log.i("orrudebug", "size della lista sinistra: " + leftViewsHeights.length);
                 		
+                		if(PageViewer.counterList%2==1){
+                			PageViewer.counterList=0;
+                		}
+                		
                 	}
                 	else if( current == 1){
                 		PageViewer.rightItems.remove(removable);
@@ -135,6 +139,10 @@ public class Story extends Fragment {
                 		rightViewsHeights = null;
                 		rightViewsHeights = new int[PageViewer.rightItems.size()];
                 		Log.i("orrudebug", "size della lista destra: " + rightViewsHeights.length);
+                		
+                		if(PageViewer.counterList%2==0){
+                			PageViewer.counterList=1;
+                		}
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);
                 }});
@@ -186,7 +194,7 @@ public class Story extends Fragment {
 			//MISSING SYNCRONIZED SCROLL
 			
 			/*
-			 if (view.getChildAt(0) != null) {
+			 if (view.getChildAt(0) != null) {c
 			 
 				if (view.equals(listViewLeft) ){
 					leftViewsHeights[view.getFirstVisiblePosition()] = view.getChildAt(0).getHeight();

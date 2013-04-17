@@ -32,6 +32,8 @@ import android.widget.TextView;
 
 public class QrResult extends Activity {
 
+	
+	
 	String id, exib;
 	String a, n, y, d, m, im;
 	int i;
@@ -141,7 +143,15 @@ public class QrResult extends Activity {
 													Story.id_mostra = oggetto.e_id;
 													if(im != null){
 														PageViewer.values.add(oggetto);
-														PageViewer.leftItems.add(im);
+														if(PageViewer.counterList%2==0){
+															PageViewer.leftItems.add(im);
+															PageViewer.counterList++;
+															Log.i("orrudebug", ""+PageViewer.counterList);
+														} else {
+															PageViewer.rightItems.add(im);
+															PageViewer.counterList++;
+															Log.i("orrudebug", ""+ PageViewer.counterList);
+														}
 														Story.leftAdapter.notifyDataSetChanged();
 													}
 													close();
