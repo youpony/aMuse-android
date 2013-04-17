@@ -4,18 +4,21 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -41,7 +44,7 @@ public class Story extends Fragment {
 	
 	//DA SISTEMARE INSERIMENTO OGGETTI IN LISTA
 	ListView lv1;
-	public static ArrayAdapter<Item> files;
+	//public static ArrayAdapter<Item> files;
 	public static int id_mostra;
 	public static boolean start = true;
 	int current = 0;
@@ -70,9 +73,28 @@ public class Story extends Fragment {
 		listViewRight.setOnScrollListener(scrollListener);
 		listViewLeft.setOnItemLongClickListener(longListener);
 		listViewRight.setOnItemLongClickListener(longListener);
+		listViewLeft.setOnItemClickListener(clickListener);
+		listViewRight.setOnItemClickListener(clickListener);
 		
 		return sView;
 	}
+	
+	//on click listener (accessing object infos)
+	
+	OnItemClickListener clickListener = new OnItemClickListener() {
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+				long id) {
+			Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
+			info.putExtra("pos", position);
+			startActivity(info);
+		}
+
+		
+	};
+	
+	
 	//Listener for deleting object from list
 	
 	OnItemLongClickListener longListener = new OnItemLongClickListener() {
@@ -99,6 +121,7 @@ public class Story extends Fragment {
                 public void onClick(DialogInterface dialog, int which) {
                 	//DA SISTEMARE ELEMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
                 	if( current == 0){
+                		PageViewer.values.remove(removable);
                 		PageViewer.leftItems.remove(removable);
                 		leftAdapter.notifyDataSetChanged();
                 		leftViewsHeights = null;
@@ -124,6 +147,8 @@ public class Story extends Fragment {
 	
 	// Not passing the touch event to the opposite list
 	/*
+	 * 
+	 * 
 	OnTouchListener touchListener = new OnTouchListener() {					
 		boolean dispatched = false;
 		
@@ -206,15 +231,15 @@ public class Story extends Fragment {
 	};
 	
 	private void loadItems(){
-		Integer[] lefter = new Integer[]{R.drawable.ic_1, R.drawable.ic_2, R.drawable.ic_3, R.drawable.ic_4, R.drawable.ic_5};
-		Integer[] righter = new Integer[]{R.drawable.ic_6, R.drawable.ic_7, R.drawable.ic_8, R.drawable.ic_9, R.drawable.ic_10};
+		//Integer[] lefter = new Integer[]{R.drawable.ic_1, R.drawable.ic_2, R.drawable.ic_3, R.drawable.ic_4, R.drawable.ic_5};
+		//Integer[] righter = new Integer[]{R.drawable.ic_6, R.drawable.ic_7, R.drawable.ic_8, R.drawable.ic_9, R.drawable.ic_10};
 		
-		for(int i=0; i<righter.length; i++){
+		/*for(int i=0; i<righter.length; i++){
 			PageViewer.rightItems.add(righter[i]);
 		}
 		for(int i=0; i<lefter.length; i++){
 			PageViewer.leftItems.add(lefter[i]);
-		}
+		}*/
 		
 		leftAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, PageViewer.leftItems);
 		rightAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, PageViewer.rightItems);

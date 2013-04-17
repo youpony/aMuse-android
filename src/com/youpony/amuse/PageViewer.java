@@ -37,8 +37,8 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	private static Context context;
 	public final static String EXTRA_MESSAGE = "qrCode RESULT";
 	
-	public static ArrayList<Integer> leftItems = new ArrayList<Integer>();
-	public static ArrayList<Integer> rightItems = new ArrayList<Integer>();
+	public static ArrayList<String> leftItems = new ArrayList<String>();
+	public static ArrayList<String> rightItems = new ArrayList<String>();
 	
 	public static ArrayList<Item> values;
 

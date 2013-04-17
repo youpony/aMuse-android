@@ -33,4 +33,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/delete"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Iteminfo"
+        android:layout_alignTop="@+id/Iteminfo" />
+
 </RelativeLayout>

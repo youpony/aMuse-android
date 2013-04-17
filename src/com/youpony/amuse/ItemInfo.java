@@ -2,39 +2,56 @@ package com.youpony.amuse;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ItemInfo extends Activity {
 
 	TextView t;
+	ImageView v;
 	int pos;
 	Item item;
+	ImageDownloader downloader;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_item_info);
+		setContentView(R.layout.activity_qr_result);
 		Bundle b = getIntent().getExtras();
 		pos = b.getInt("pos");
 		item = new Item();
-		item = Story.files.getItem(pos);
-		
-		t = (TextView) findViewById(R.id.Iteminfo);
+		t = new TextView(this);
+		v = new ImageView(this);
+		try{
+			item = PageViewer.values.get(pos);
+		}
+		catch (Exception e){
+			Log.i("orrudebug", "can't find object with position " + pos);
+		}
+		t = (TextView) findViewById(R.id.JSONResult);
+		v = (ImageView) findViewById(R.id.imageView);
 		t.setText("autore: " + item.author + "\n"+ "nome: " + item.name + "\n" + "anno: " + item.year + "\n" + "descrizione: " + item.description);
+		downloader = new ImageDownloader();
+		if( item.url != null){
+			item.url = downloader.download(item.url, v);
+		}
 		
 		//manage Delete button action
-		Button delete = (Button) findViewById(R.id.delete);
+		Button delete = (Button) findViewById(R.id.confirm);
+		delete.setText("Delete");
 		delete.setOnClickListener(new OnClickListener(){
 			
 			@Override
 			public void onClick(View v) {
 				
-				Story.files.remove(Story.files.getItem(pos));
-				Story.files.notifyDataSetChanged();
+				PageViewer.values.remove(pos);
+				PageViewer.leftItems.remove(pos);
+				Story.leftAdapter.notifyDataSetChanged();
 				close();
 			}
 		});

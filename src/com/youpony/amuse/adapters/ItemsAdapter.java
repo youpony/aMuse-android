@@ -16,14 +16,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.youpony.amuse.R;
 
-public class ItemsAdapter extends ArrayAdapter<Integer>{
+public class ItemsAdapter extends ArrayAdapter<String>{
 
     Context context; 
     LayoutInflater inflater;
     int layoutResourceId;
     float imageWidth;
     
-    public ItemsAdapter(Context context, int layoutResourceId, ArrayList<Integer> items) {
+    public ItemsAdapter(Context context, int layoutResourceId, ArrayList<String> items) {
         super(context, layoutResourceId, items);
         this.context = context;
         this.layoutResourceId = layoutResourceId;
@@ -38,7 +38,7 @@ public class ItemsAdapter extends ArrayAdapter<Integer>{
     public View getView(int position, View convertView, ViewGroup parent) {
         FrameLayout row = (FrameLayout) convertView;
         ItemHolder holder;
-        Integer item = getItem(position);
+        String item = getItem(position);
         
 		if (row == null) {
 			holder = new ItemHolder();
@@ -61,15 +61,15 @@ public class ItemsAdapter extends ArrayAdapter<Integer>{
     }
 	
     // resize the image proportionately so it fits the entire space
-	private void setImageBitmap(Integer item, ImageView imageView){
-		Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), item);
+	private void setImageBitmap(String item, ImageView imageView){
+		Bitmap bitmap = BitmapFactory.decodeFile(item);
 		float i = ((float) imageWidth) / ((float) bitmap.getWidth());
 		float imageHeight = i * (bitmap.getHeight());
 		FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) imageView.getLayoutParams();
 		params.height = (int) imageHeight;
 		params.width = (int) imageWidth;
 		imageView.setLayoutParams(params);
-		imageView.setImageResource(item);
+		imageView.setImageBitmap(bitmap);
 	}
 	
 	public static float convertDpToPixel(float dp, Context context){

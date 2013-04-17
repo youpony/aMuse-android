@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Item implements Serializable{
 	
-	String name, author, year, description, mostra ;
+	String name, author, year, description, mostra, url ;
 	int e_id;
 	Item(){
 	}
@@ -18,5 +18,8 @@ public class Item implements Serializable{
 		return e_id;
 	}
 	
+	public String toUrl(){
+		return url;
+	}
 
 }

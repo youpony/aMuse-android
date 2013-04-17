@@ -52,7 +52,7 @@ public class QrResult extends Activity {
 	Boolean stop = false;
 	Item oggetto;
 	Button confirm, cancel;
-	Bitmap immagine;
+	String immagine;
 	ImageDownloader downloader;
 	
 	@Override
@@ -79,18 +79,25 @@ public class QrResult extends Activity {
 							int position = Story.findPos(oggetto.name);
 							
 							if( Story.start == false && Story.id_mostra != oggetto.e_id){
-								Intent change = new Intent(PageViewer.getAppContext(), ExhibitionChange.class);
-								Bundle pass_obj = new Bundle();
-								pass_obj.putSerializable("item_value", oggetto);
-								change.putExtras(pass_obj);
-								startActivity(change);
-								close();
+								Log.i("orrudebug", "cambio mostra: da " + Story.id_mostra + " a " + oggetto.e_id);
+								try{
+									Intent change = new Intent(PageViewer.getAppContext(), ExhibitionChange.class);
+									Bundle pass_obj = new Bundle();
+									pass_obj.putSerializable("item_value", oggetto);
+									change.putExtras(pass_obj);
+									startActivity(change);
+									close();
+								}
+								catch (Exception ex){
+									Log.i("orrudebug", "cannot start exibition change");
+								}
 							}
 							else{
 									if(check == true){
 										close();
 										Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
 										info.putExtra("pos", position);
+										Log.i("orrudebug","qr code already scanned with name " + oggetto.name + " and position " + position);
 										startActivity(info);
 									}
 									else if(oggetto.name == null){
@@ -112,10 +119,10 @@ public class QrResult extends Activity {
 										
 										//display object image
 										if( im != null){
-											immagine = downloader.download(im, imageView);
+											im = downloader.download(im, imageView);
 										}
 										else{
-											
+											Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
 										}
 										//not used
 										/*new DownloadImage(){
@@ -131,9 +138,12 @@ public class QrResult extends Activity {
 											@Override
 											public void onClick(View v) {
 													Story.start = false;
-													PageViewer.values.add(oggetto);
-													Story.files.notifyDataSetChanged();
-													Story.leftAdapter.notifyDataSetChanged();
+													Story.id_mostra = oggetto.e_id;
+													if(im != null){
+														PageViewer.values.add(oggetto);
+														PageViewer.leftItems.add(im);
+														Story.leftAdapter.notifyDataSetChanged();
+													}
 													close();
 											}
 										});
@@ -225,6 +235,7 @@ public class QrResult extends Activity {
 		oggetto.description = d;
 		oggetto.e_id = i;
 		oggetto.mostra = m;
+		oggetto.url = im;
 	}
 
 	public void close(){

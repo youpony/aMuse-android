@@ -1,28 +1,42 @@
 package com.youpony.amuse;
 
 import android.os.Bundle;
+import com.youpony.amuse.ImageDownloader;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ExhibitionChange extends Activity {
 	TextView t, alert;
 	Button confirm, cancel;
 	Item oggetto;
+	ImageDownloader downloader;
+	ImageView imageView;
+	String im;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_exhibition_change);
 		
+		downloader = new ImageDownloader();
+		im = new String();
+		
+		imageView = new ImageView(this);
+		t = new TextView(this);
+		alert = new TextView(this);
+		
 		Object og = getIntent().getExtras().get("item_value");
 		oggetto = (Item) og;
 		
 		alert = (TextView) findViewById(R.id.alertText);
 		t = (TextView) findViewById(R.id.JSONResult);
+		imageView = (ImageView) findViewById(R.id.imageView);
 		
 		//display exhibition change alert text
 		alert.setText("Attenzione, questa opera non appartiene alla mostra salvata nei preferiti. " +
@@ -33,8 +47,16 @@ public class ExhibitionChange extends Activity {
 				"\n"+ "nome: " + oggetto.name + 
 				"\n" + "anno: " + oggetto.year + 
 				"\n" + "descrizione: " + oggetto.description +
-				"\n" + "mostra: " + oggetto.mostra);
+				"\n" + "mostra: " + oggetto.mostra +
+				"\n" + "immagine: " + oggetto.url);
 		
+		//display image
+		if( oggetto.url != null){
+			im = downloader.download(oggetto.url, imageView);
+		}
+		else{
+			Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
+		}
 		//manage Confirm button action
 		confirm = (Button) findViewById(R.id.confirm);
 		confirm.setOnClickListener(new OnClickListener() {
@@ -44,7 +66,10 @@ public class ExhibitionChange extends Activity {
 					Story.id_mostra = oggetto.e_id;
 					PageViewer.values.clear();
 					PageViewer.values.add(oggetto);
-					Story.files.notifyDataSetChanged();
+					PageViewer.leftItems.clear();
+					Story.leftAdapter.clear();
+					PageViewer.leftItems.add(im);
+					Story.leftAdapter.notifyDataSetChanged();
 					close();
 			}
 		});

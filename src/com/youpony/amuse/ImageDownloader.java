@@ -41,9 +41,9 @@ public class ImageDownloader {
 	}
 	
 	//download function
-	public Bitmap download(String url, ImageView imageView) {
+	public String download(String url, ImageView imageView) {
 
-		Bitmap returned = null;
+		String returned = null;
    	 
 	     if (cancelPotentialDownload(url, imageView)) {
 	    	 
@@ -80,7 +80,7 @@ public class ImageDownloader {
 	    		  //Yes? set the image
 	    		  imageView.setImageBitmap(bitmap);
 	    	  }
-	    	returned = bitmap;
+	    	returned = f.getPath();
 	    	bitmap = null;  
 	     }
 	     
