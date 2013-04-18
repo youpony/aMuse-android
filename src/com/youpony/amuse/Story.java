@@ -194,6 +194,7 @@ public class Story extends Fragment {
 	 * sum_heights(opposite invisible screens) - sum_heights(invisible screens) + distance from top of the first visible child
 	 */
 	OnScrollListener scrollListener = new OnScrollListener() {
+		int index, top;
 		
 		@Override
 		public void onScrollStateChanged(AbsListView v, int scrollState) {	
@@ -202,10 +203,20 @@ public class Story extends Fragment {
 		@Override
 		public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 			
-			//MISSING SYNCRONIZED SCROLL
+			if(view.equals(listViewLeft)){
+				Log.i("orrudebug", "scroll a sx");
+				saveListScrollPosition(view);
+				listViewRight.setSelectionFromTop(index, top);
+			}
+			else if(view.equals(listViewRight)){
+				Log.i("orrudebug", "scroll a dx");
+				saveListScrollPosition(view);
+				listViewLeft.setSelectionFromTop(index, top);
+			}
 			
-			/*
-			 if (view.getChildAt(0) != null) {
+			
+			//MISSING SYNCRONIZED SCROLL
+			 /*if (view.getChildAt(0) != null) {
 			 
 				if (view.equals(listViewLeft) ){
 					leftViewsHeights[view.getFirstVisiblePosition()] = view.getChildAt(0).getHeight();
@@ -243,12 +254,16 @@ public class Story extends Fragment {
 					listViewLeft.setSelectionFromTop(listViewLeft.getFirstVisiblePosition(), top);
 				}
 				
-			}
-			
-			*/
-			
-			
+			}*/
 		}
+		
+		private void saveListScrollPosition(AbsListView _listview1)
+	    {
+	    // save index and top position
+	    index = _listview1.getFirstVisiblePosition();
+	    View view = _listview1.getChildAt(0);
+	    top = (view == null) ? 0 : view.getTop();
+	    }
 	};
 	
 	private void loadItems(){
