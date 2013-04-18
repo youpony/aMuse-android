@@ -50,8 +50,14 @@ public class ItemInfo extends Activity {
 			public void onClick(View v) {
 				
 				PageViewer.values.remove(pos);
-				PageViewer.leftItems.remove(pos);
-				Story.leftAdapter.notifyDataSetChanged();
+				if(pos%2 == 0){
+					PageViewer.leftItems.remove(pos/2);
+					Story.leftAdapter.notifyDataSetChanged();
+				}
+				else{
+					PageViewer.rightItems.remove((pos-1)/2);
+					Story.rightAdapter.notifyDataSetChanged();
+				}
 				close();
 			}
 		});
@@ -62,7 +68,6 @@ public class ItemInfo extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
 				close();
 				
 			}

@@ -67,9 +67,12 @@ public class ExhibitionChange extends Activity {
 					PageViewer.values.clear();
 					PageViewer.values.add(oggetto);
 					PageViewer.leftItems.clear();
+					PageViewer.rightItems.clear();
 					Story.leftAdapter.clear();
+					Story.rightAdapter.clear();
 					PageViewer.leftItems.add(im);
 					Story.leftAdapter.notifyDataSetChanged();
+					Story.rightAdapter.notifyDataSetChanged();
 					close();
 			}
 		});

@@ -98,7 +98,12 @@ public class QrResult extends Activity {
 									if(check == true){
 										close();
 										Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
-										info.putExtra("pos", position);
+										if(position%2 == 0){
+											info.putExtra("pos", (position*2));
+										}
+										else{
+											info.putExtra("pos", ((position*2)+1));
+										}
 										Log.i("orrudebug","qr code already scanned with name " + oggetto.name + " and position " + position);
 										startActivity(info);
 									}
@@ -143,14 +148,10 @@ public class QrResult extends Activity {
 													Story.id_mostra = oggetto.e_id;
 													if(im != null){
 														PageViewer.values.add(oggetto);
-														if(PageViewer.counterList%2==0){
+														if(PageViewer.values.size()%2 == 1){
 															PageViewer.leftItems.add(im);
-															PageViewer.counterList++;
-															Log.i("orrudebug", ""+PageViewer.counterList);
 														} else {
 															PageViewer.rightItems.add(im);
-															PageViewer.counterList++;
-															Log.i("orrudebug", ""+ PageViewer.counterList);
 														}
 														Story.leftAdapter.notifyDataSetChanged();
 													}

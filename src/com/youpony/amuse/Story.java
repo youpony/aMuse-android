@@ -84,11 +84,18 @@ public class Story extends Fragment {
 	OnItemClickListener clickListener = new OnItemClickListener() {
 
 		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+		public void onItemClick(AdapterView<?> whichList, View arg1, int position,
 				long id) {
-			Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
-			info.putExtra("pos", position);
-			startActivity(info);
+			if( whichList.equals(listViewLeft)){
+				Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
+				info.putExtra("pos", (position*2));
+				startActivity(info);
+			}
+			else{
+				Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
+				info.putExtra("pos", ((position*2)+1));
+				startActivity(info);
+			}
 		}
 
 		
@@ -121,28 +128,23 @@ public class Story extends Fragment {
                 public void onClick(DialogInterface dialog, int which) {
                 	//DA SISTEMARE ELIMINAZIONE, LAYOUT PRONTO ALL'IMPLEMENTAZIONE
                 	if( current == 0){
-                		PageViewer.values.remove(removable);
+                		PageViewer.values.remove(removable * 2);
                 		PageViewer.leftItems.remove(removable);
                 		leftAdapter.notifyDataSetChanged();
                 		leftViewsHeights = null;
                 		leftViewsHeights = new int[PageViewer.leftItems.size()];
                 		Log.i("orrudebug", "size della lista sinistra: " + leftViewsHeights.length);
                 		
-                		if(PageViewer.counterList%2==1){
-                			PageViewer.counterList=0;
-                		}
                 		
                 	}
                 	else if( current == 1){
+                		PageViewer.values.remove((removable * 2) + 1);
                 		PageViewer.rightItems.remove(removable);
                 		rightAdapter.notifyDataSetChanged();
                 		rightViewsHeights = null;
                 		rightViewsHeights = new int[PageViewer.rightItems.size()];
                 		Log.i("orrudebug", "size della lista destra: " + rightViewsHeights.length);
                 		
-                		if(PageViewer.counterList%2==0){
-                			PageViewer.counterList=1;
-                		}
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);
                 }});
