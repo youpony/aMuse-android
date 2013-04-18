@@ -22,10 +22,13 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,6 +53,7 @@ public class QrResult extends Activity {
 	String APIauthor;
 	public static JSONObject json;
 	TextView t;
+	TextView title;
 	ImageView imageView;
 	Boolean stop = false;
 	Item oggetto;
@@ -115,14 +119,20 @@ public class QrResult extends Activity {
 										setContentView(R.layout.activity_qr_result);
 										t = (TextView) findViewById(R.id.JSONResult);
 										imageView = (ImageView) findViewById(R.id.imageView);
+										title = (TextView) findViewById(R.id.title);
 										
 										//display object infos
 										t.setText("autore: " + oggetto.author + 
-												"\n"+ "nome: " + oggetto.name + 
 												"\n" + "anno: " + oggetto.year + 
 												"\n" + "descrizione: " + oggetto.description +
 												"\n" + "mostra: " + oggetto.mostra +
 												"\n" + "url_immagine: " + im);
+										
+										//add scroll listener on Text
+										t.setMovementMethod(new ScrollingMovementMethod());
+										
+										//display object name
+										title.setText(oggetto.name);
 										
 										//display object image
 										if( im != null){
@@ -303,5 +313,6 @@ public class QrResult extends Activity {
 			close();
 		}
 	}
+	
 
 }

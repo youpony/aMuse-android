@@ -3,6 +3,7 @@ package com.youpony.amuse;
 import android.os.Bundle;
 import com.youpony.amuse.ImageDownloader;
 import android.app.Activity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ExhibitionChange extends Activity {
-	TextView t, alert;
+	TextView t, alert, title;
 	Button confirm, cancel;
 	Item oggetto;
 	ImageDownloader downloader;
@@ -37,6 +38,7 @@ public class ExhibitionChange extends Activity {
 		alert = (TextView) findViewById(R.id.alertText);
 		t = (TextView) findViewById(R.id.JSONResult);
 		imageView = (ImageView) findViewById(R.id.imageView);
+		title = (TextView) findViewById(R.id.title);
 		
 		//display exhibition change alert text
 		alert.setText("Attenzione, questa opera non appartiene alla mostra salvata nei preferiti. " +
@@ -44,11 +46,16 @@ public class ExhibitionChange extends Activity {
 		
 		//display object infos
 		t.setText("autore: " + oggetto.author + 
-				"\n"+ "nome: " + oggetto.name + 
 				"\n" + "anno: " + oggetto.year + 
 				"\n" + "descrizione: " + oggetto.description +
 				"\n" + "mostra: " + oggetto.mostra +
 				"\n" + "immagine: " + oggetto.url);
+		
+		//display title
+		title.setText(oggetto.name);
+		
+		//add scroll listener on Text
+		t.setMovementMethod(new ScrollingMovementMethod());
 		
 		//display image
 		if( oggetto.url != null){

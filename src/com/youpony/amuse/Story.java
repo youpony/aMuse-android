@@ -202,7 +202,7 @@ public class Story extends Fragment {
 		
 		@Override
 		public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-			
+			/*
 			if(view.equals(listViewLeft)){
 				Log.i("orrudebug", "scroll a sx");
 				saveListScrollPosition(view);
@@ -213,7 +213,7 @@ public class Story extends Fragment {
 				saveListScrollPosition(view);
 				listViewLeft.setSelectionFromTop(index, top);
 			}
-			
+			*/
 			
 			//MISSING SYNCRONIZED SCROLL
 			 /*if (view.getChildAt(0) != null) {

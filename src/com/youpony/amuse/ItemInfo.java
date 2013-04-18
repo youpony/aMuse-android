@@ -2,6 +2,7 @@ package com.youpony.amuse;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 public class ItemInfo extends Activity {
 
 	TextView t;
+	TextView title;
 	ImageView v;
 	int pos;
 	Item item;
@@ -33,9 +35,17 @@ public class ItemInfo extends Activity {
 		catch (Exception e){
 			Log.i("orrudebug", "can't find object with position " + pos);
 		}
+		
 		t = (TextView) findViewById(R.id.JSONResult);
+		//add scroll listener on Text
+		t.setMovementMethod(new ScrollingMovementMethod());
 		v = (ImageView) findViewById(R.id.imageView);
-		t.setText("autore: " + item.author + "\n"+ "nome: " + item.name + "\n" + "anno: " + item.year + "\n" + "descrizione: " + item.description);
+		//set text
+		t.setText("autore: " + item.author + "\n" + "anno: " + item.year + "\n" + "descrizione: " + item.description);
+		title = (TextView) findViewById(R.id.title);
+		//set item title
+		title.setText(item.name);
+		
 		downloader = new ImageDownloader();
 		if( item.url != null){
 			item.url = downloader.download(item.url, v);

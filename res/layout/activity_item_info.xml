@@ -10,14 +10,6 @@
 
    
     <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Delete" />
-
-    <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,20 +17,39 @@
         android:layout_alignParentLeft="true"
         android:text="Cancel" />
 
-    <TextView
-        android:id="@+id/Iteminfo"
+    <Button
+        android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/delete"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/delete"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Delete" />
+
+    <TextView
+        android:id="@+id/JSONResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel"
+        android:layout_alignLeft="@+id/cancel"
+        android:layout_alignRight="@id/delete"
+        android:layout_below="@+id/title"
+        android:maxLines="1000"
+        android:scrollbars="vertical" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Iteminfo"
-        android:layout_alignTop="@+id/Iteminfo" />
+        android:layout_alignLeft="@+id/cancel"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/JSONResult"
+        android:layout_below="@+id/imageView"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
