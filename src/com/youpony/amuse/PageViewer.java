@@ -24,7 +24,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 /**
  * 	CURRENTLY IMPLEMENTS FULLSCREEN SWIPE WITHOUT CLICKABLE TABS!
- *	if you want to switch back to clickable tabs remove the /**//**
+ *	if you want to switch back to clickable tabs remove the 
  *	comments! And don't forget to change styles back to Theme.Holo.Light!
  **/
 

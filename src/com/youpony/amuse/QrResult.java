@@ -131,13 +131,8 @@ public class QrResult extends Activity {
 										else{
 											Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
 										}
-										//not used
-										/*new DownloadImage(){
-											protected void onPostExecute(Bitmap image){
-												
-											}
-										}.execute(DownloadImage.URL + im);
-										*/
+										
+										//NB: IMPEDIRE IL CARICAMENTO DEL LAYOUT PRIMA CHE L'IMMAGINE SIA SCARICATA
 										
 										//manage Confirm button action
 										confirm = (Button) findViewById(R.id.confirm);
