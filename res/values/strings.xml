@@ -23,5 +23,7 @@
     <string name="title_activity_exhibition_change">ExhibitionChange</string>
     <string name="title_activity_download_image">DownloadImage</string>
     <string name="title_activity_image_downloader">ImageDownloader</string>
+    <string name="title_activity_send_story">SendStory</string>
+    <string name="title_activity_send_jsonasync">SendJSONAsync</string>
 
 </resources>

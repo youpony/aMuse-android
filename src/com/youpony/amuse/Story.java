@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.youpony.amuse.adapters.ItemsAdapter;
@@ -51,7 +52,7 @@ public class Story extends Fragment {
 	int removable;
 	
 	public static String[] debugArray;
-	
+	Button send;
 	
 
 	//ItemsActivity itemPreview;
@@ -64,7 +65,7 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		
-		debugArray = new String[]{"0&11","0&10","0&20"}; //,"0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		debugArray = new String[]{"0&11"};//,"0&10","0&20","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 		 
 		for(int i=0; i<debugArray.length; i++){
 			Intent qrResult = new Intent(PageViewer.getAppContext(), QrResult.class);
@@ -74,9 +75,15 @@ public class Story extends Fragment {
 		}
 		
 		
-		View sView = inflater.inflate(R.layout.items_list, container, false);
+		View sView = inflater.inflate(R.layout.activity_story, container, false);
 		listViewLeft = (ListView) sView.findViewById(R.id.list_view_left);
 		listViewRight = (ListView) sView.findViewById(R.id.list_view_right);
+		
+		send = (Button) sView.findViewById(R.id.send_button);
+		send.setText("Send story");
+		
+		send.setOnClickListener(sendListener);
+		
 		
 		loadItems();
 		
@@ -112,6 +119,16 @@ public class Story extends Fragment {
 		}
 
 		
+	};
+	
+	OnClickListener sendListener = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+			Intent sendStory = new Intent(PageViewer.getAppContext(), SendStory.class);
+			startActivity(sendStory);
+		}
+	
 	};
 	
 	
@@ -271,15 +288,7 @@ public class Story extends Fragment {
 	};
 	
 	private void loadItems(){
-		//Integer[] lefter = new Integer[]{R.drawable.ic_1, R.drawable.ic_2, R.drawable.ic_3, R.drawable.ic_4, R.drawable.ic_5};
-		//Integer[] righter = new Integer[]{R.drawable.ic_6, R.drawable.ic_7, R.drawable.ic_8, R.drawable.ic_9, R.drawable.ic_10};
 		
-		/*for(int i=0; i<righter.length; i++){
-			PageViewer.rightItems.add(righter[i]);
-		}
-		for(int i=0; i<lefter.length; i++){
-			PageViewer.leftItems.add(lefter[i]);
-		}*/
 		
 		leftAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, PageViewer.leftItems);
 		rightAdapter = new ItemsAdapter(this.getActivity(), R.layout.item, PageViewer.rightItems);
@@ -292,72 +301,7 @@ public class Story extends Fragment {
 
 
 	
-	/*
-	@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        //inflate the layout to fragment
-		View sView = inflater.inflate(R.layout.activity_story, container, false);
-		//set custom list view for fragment
-		lv1 = (ListView) sView.findViewById(R.id.listView1);    
-	    
-		
-		button1 = (Button) sView.findViewById(R.id.button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	Intent i = new Intent(getActivity(), ItemsActivity.class);
-            	startActivity(i);
-    			
-            }
-        });		
 	
-        
-		
-        files = new ArrayAdapter<Item>(getActivity(), 
-                 android.R.layout.simple_list_item_1, 
-                 PageViewer.values);
-
-        lv1.setAdapter(files);
-        
-        lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-        	
-        	@Override
-        	public boolean onItemLongClick(AdapterView<?> a, View v, int position, long id) {
-                AlertDialog.Builder adb=new AlertDialog.Builder(getActivity());
-                
-                adb.setTitle("Delete?");
-                adb.setMessage("Are you sure you want to delete " + PageViewer.values.get(position));
-                final int positionToRemove = position;
-                adb.setNegativeButton("Cancel", null);
-                adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        PageViewer.values.remove(positionToRemove);
-                        files.notifyDataSetChanged();
-                    }});
-                adb.show();
-                
-                return false;
-                }
-		
-        });
-
-        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-        	
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				Intent info = new Intent(getActivity() ,ItemInfo.class);
-				info.putExtra("pos", arg2);
-				startActivity(info);
-				
-			}
-        	
-        });
-        
-        return sView;
-    }
-
-*/
 	public static boolean findName(String name) {
 		//Log.i("orrudebug", "size : " + PageViewer.values.size());
 		for(int i=0; i<PageViewer.values.size(); i++){

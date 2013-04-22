@@ -38,7 +38,7 @@ public class QrResult extends Activity {
 	
 	
 	String id, exib;
-	String a, n, y, d, m, im;
+	String a, n, y, d, m, im, oid;
 	int i;
 	
 	//set JSON object fields
@@ -49,6 +49,7 @@ public class QrResult extends Activity {
 	private static final String ex_id = "id";
 	private static final String ex_name = "name";
 	private static final String image = "images";
+	private static final String o_id = "id";
 	
 	String APIauthor;
 	public static JSONObject json;
@@ -159,6 +160,7 @@ public class QrResult extends Activity {
 															PageViewer.rightItems.add(im);
 														}
 														Story.leftAdapter.notifyDataSetChanged();
+														Log.i("orrudebug", "aggiunto oggetto con id: " + oggetto.id);
 													}
 													close();
 											}
@@ -194,6 +196,14 @@ public class QrResult extends Activity {
 			JSONObject c = jData.getJSONObject("data");
 				try {
 					n = c.getString(name);
+					
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
+				//METTERE A POSTO L'INSERIMENTO DELL'ID DELL'OGGETTO
+				try {
+					oid = c.getString(o_id);
 					
 				} catch (JSONException e) {
 					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
@@ -252,6 +262,7 @@ public class QrResult extends Activity {
 		oggetto.e_id = i;
 		oggetto.mostra = m;
 		oggetto.url = im;
+		oggetto.id = oid;
 	}
 
 	public void close(){

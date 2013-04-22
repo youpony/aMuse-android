@@ -84,6 +84,15 @@
             android:name="com.youpony.amuse.ImageDownloader"
             android:label="@string/title_activity_image_downloader" >
         </activity>
+        <activity
+            android:name="com.youpony.amuse.SendStory"
+            android:label="@string/title_activity_send_story"
+            android:theme="@style/resultTheme" >
+        </activity>
+        <activity
+            android:name="com.youpony.amuse.SendJSONAsync"
+            android:label="@string/title_activity_send_jsonasync" >
+        </activity>
     </application>
 
 </manifest>
