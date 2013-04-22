@@ -8,7 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ItemInfo" >
 
-   
     <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
@@ -24,32 +23,36 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="Delete" />
-
-    <TextView
-        android:id="@+id/JSONResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/cancel"
-        android:layout_alignLeft="@+id/cancel"
-        android:layout_alignRight="@id/delete"
-        android:layout_below="@+id/title"
-        android:maxLines="1000"
-        android:scrollbars="vertical" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cancel"
-        android:layout_alignParentTop="true" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/JSONResult"
-        android:layout_below="@+id/imageView"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
+	
+	<RelativeLayout 
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"
+    	android:scrollbars="vertical" 
+	    >
+	    <TextView
+	        android:id="@+id/JSONResult"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/cancel"
+	        android:layout_alignLeft="@+id/cancel"
+	        android:layout_alignRight="@id/delete"
+	        android:layout_below="@+id/title"
+	       />
+	
+	    <ImageView
+	        android:id="@+id/imageView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/cancel"
+	        android:layout_alignParentTop="true" />
+	
+	    <TextView
+	        android:id="@+id/title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/imageView"
+	        android:text="Large Text"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	</RelativeLayout>
 </RelativeLayout>

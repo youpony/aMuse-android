@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.youpony.amuse.R;
 
 public class ItemsAdapter extends ArrayAdapter<String>{
@@ -22,6 +24,7 @@ public class ItemsAdapter extends ArrayAdapter<String>{
     LayoutInflater inflater;
     int layoutResourceId;
     float imageWidth;
+    TextView title;
     
     public ItemsAdapter(Context context, int layoutResourceId, ArrayList<String> items) {
         super(context, layoutResourceId, items);
@@ -44,6 +47,8 @@ public class ItemsAdapter extends ArrayAdapter<String>{
 			holder = new ItemHolder();
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = (FrameLayout) inflater.inflate(layoutResourceId, parent, false);
+            TextView title = (TextView)row.findViewById(R.id.item_title);
+            title.setText("titolo");
             ImageView itemImage = (ImageView)row.findViewById(R.id.item_image);
 			holder.itemImage = itemImage;
 		} else {

@@ -63,8 +63,8 @@ public class Story extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
-		/*
-		debugArray = new String[]{"0&11","0&10","0&20","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		
+		debugArray = new String[]{"0&11","0&10","0&20"}; //,"0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 		 
 		for(int i=0; i<debugArray.length; i++){
 			Intent qrResult = new Intent(PageViewer.getAppContext(), QrResult.class);
@@ -73,7 +73,7 @@ public class Story extends Fragment {
 	  		startActivity(qrResult);
 		}
 		
-		*/
+		
 		View sView = inflater.inflate(R.layout.items_list, container, false);
 		listViewLeft = (ListView) sView.findViewById(R.id.list_view_left);
 		listViewRight = (ListView) sView.findViewById(R.id.list_view_right);
