@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -24,6 +25,7 @@ public class SendStory extends Activity {
 	Button send, cancel;
 	Item oggetto;
 	private String JSON;
+	AlertDialog.Builder error;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,48 +69,49 @@ public class SendStory extends Activity {
 		public void onClick(View arg0) {
 			emailString = emailForm.getText().toString();
 			nameString = nameForm.getText().toString();
-			/*if(!emailString.contains("@") || !myEmailString.contains("@")){
-				AlertDialog.Builder error = new AlertDialog.Builder(getApplicationContext());
-				error.setTitle("Formato email non corretto!");
-				error.setMessage("Per favore controlla il formato dei dati inseriti, le email non sono corrette.");
+			error = new AlertDialog.Builder(SendStory. this);
+			error.setTitle("Formato email non corretto!");
+			error.setMessage("Per favore controlla il formato dei dati inseriti, l'email non è corretta.");
+			if(!emailString.contains("@")){
+				error.show();
 				Log.i("orrudebug", "sbagliato email");
 			}
-			else{*/
-			JSONObject json = new JSONObject();
-			try {
-				json.put("email", emailString);
-				json.put("name", nameString);
-				JSONArray jsonarray = new JSONArray();
-				for(int i=0; i<PageViewer.values.size(); i++){
-					JSONObject jsonId = new JSONObject();
-					jsonId.put("item_pk", PageViewer.values.get(i).id);
-					jsonarray.put(jsonId);
+			else{
+				JSONObject json = new JSONObject();
+				try {
+					json.put("email", emailString);
+					json.put("name", nameString);
+					JSONArray jsonarray = new JSONArray();
+					for(int i=0; i<PageViewer.values.size(); i++){
+						JSONObject jsonId = new JSONObject();
+						jsonId.put("item_pk", PageViewer.values.get(i).id);
+						jsonarray.put(jsonId);
+					}
+					json.put("posts", jsonarray);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				json.put("posts", jsonarray);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				new SendJSONAsync(){
+					protected void onPostExecute(HttpResponse response){
+						if(response != null){
+							Log.i("orrudebug", "storia inviata correttamente");
+							//clear della story e reset
+							PageViewer.values.clear();
+							PageViewer.leftItems.clear();
+							PageViewer.rightItems.clear();
+							Story.leftAdapter.clear();
+							Story.rightAdapter.clear();
+							Story.leftAdapter.notifyDataSetChanged();
+							Story.rightAdapter.notifyDataSetChanged();
+							close();
+						}
+						else{
+							Log.i("orrudebug", "storia non inviata");
+						}
+					}
+				}.execute(json);
 			}
-			new SendJSONAsync(){
-				protected void onPostExecute(HttpResponse response){
-					if(response != null){
-						Log.i("orrudebug", "storia inviata correttamente");
-						//clear della story e reset
-						PageViewer.values.clear();
-						PageViewer.leftItems.clear();
-						PageViewer.rightItems.clear();
-						Story.leftAdapter.clear();
-						Story.rightAdapter.clear();
-						Story.leftAdapter.notifyDataSetChanged();
-						Story.rightAdapter.notifyDataSetChanged();
-						close();
-					}
-					else{
-						Log.i("orrudebug", "storia non inviata");
-					}
-				}
-			}.execute(json);
-			//}
 		}
 	};
 	
@@ -117,6 +120,5 @@ public class SendStory extends Activity {
 		SendStory.this.finish();
 		PageViewer.mViewPager.setCurrentItem(1);
 	}
-	
 
 }

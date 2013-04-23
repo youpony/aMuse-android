@@ -48,8 +48,7 @@ public class ExhibitionChange extends Activity {
 		t.setText("autore: " + oggetto.author + 
 				"\n" + "anno: " + oggetto.year + 
 				"\n" + "descrizione: " + oggetto.description +
-				"\n" + "mostra: " + oggetto.mostra +
-				"\n" + "immagine: " + oggetto.url);
+				"\n" + "mostra: " + oggetto.mostra );
 		
 		//display title
 		title.setText(oggetto.name);

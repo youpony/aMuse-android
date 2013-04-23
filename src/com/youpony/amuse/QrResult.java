@@ -126,8 +126,8 @@ public class QrResult extends Activity {
 										t.setText("autore: " + oggetto.author + 
 												"\n" + "anno: " + oggetto.year + 
 												"\n" + "descrizione: " + oggetto.description +
-												"\n" + "mostra: " + oggetto.mostra +
-												"\n" + "url_immagine: " + im);
+												"\n" + "mostra: " + oggetto.mostra
+												);
 										
 										//add scroll listener on Text
 										t.setMovementMethod(new ScrollingMovementMethod());

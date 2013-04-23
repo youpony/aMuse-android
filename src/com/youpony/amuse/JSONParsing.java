@@ -18,13 +18,13 @@ public class JSONParsing extends AsyncTask<String, Void, JSONObject>{
 	InputStream is;
 	String json;
 	JSONObject jFinal;
+	//set it to your local server 
 	public final static String BASEURL = "http://10.23.4.72:8000/";
 	public final static String EXHIBITIONS = BASEURL + "api/e/";
 	public final static String ITEM = BASEURL + "api/o/";
 	
 	@Override
 	protected JSONObject doInBackground(String... params) {
-		//Log.i("orrudebug", "doInBack attivo");
 		try {
             // defaultHttpClient
             DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -56,10 +56,7 @@ public class JSONParsing extends AsyncTask<String, Void, JSONObject>{
         
         
         try {
-        	//Log.i("orrudebug", "doInBack attivo");
         	
-
-    		//Log.i("orrudebug", "html retrieved from inner connect() , jFinal: " + json);
     		jFinal = new JSONObject(json);
     		
     		
