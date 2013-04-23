@@ -25,22 +25,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textSize="40sp" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignLeft="@+id/cancel"
-            android:layout_below="@+id/title" />
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/title"
+            android:layout_width="@dimen/mediumImage" 
+            android:layout_height="200dp"/>
 
         <TextView
             android:id="@+id/JSONResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
-            android:layout_below="@+id/imageView" />
+            android:layout_below="@+id/imageView"
+            android:textSize="17sp" />
     </RelativeLayout>
 </ScrollView>
     <RelativeLayout

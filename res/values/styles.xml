@@ -18,6 +18,8 @@
     </style>
     
     <style name="resultTheme" parent="android:Theme.Holo.Light"></style>
-    <style name="NoTitleTheme" parent="android:Theme.Holo.Light"></style>
+    <style name="NoTitleTheme" parent="android:Theme.Holo.Light">
+        
+    </style>
 
 </resources>

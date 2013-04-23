@@ -65,7 +65,7 @@ public class QrResult extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		setContentView(R.layout.activity_loading);
 		
 		oggetto = new Item();
 		//set TextView
@@ -142,7 +142,6 @@ public class QrResult extends Activity {
 										else{
 											Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
 										}
-										
 										//NB: IMPEDIRE IL CARICAMENTO DEL LAYOUT PRIMA CHE L'IMMAGINE SIA SCARICATA
 										
 										//manage Confirm button action

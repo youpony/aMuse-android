@@ -93,6 +93,7 @@
             android:name="com.youpony.amuse.SendJSONAsync"
             android:label="@string/title_activity_send_jsonasync" >
         </activity>
+        
     </application>
 
 </manifest>
