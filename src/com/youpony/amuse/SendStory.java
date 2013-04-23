@@ -1,5 +1,8 @@
 package com.youpony.amuse;
 
+import org.apache.http.HttpResponse;
+import org.json.JSONObject;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -75,7 +78,16 @@ public class SendStory extends Activity {
 				}
 			}
 			JSON = JSON.concat("] }");
-			new SendJSONAsync().execute(JSON);
+			new SendJSONAsync(){
+				protected void onPostExecute(HttpResponse response){
+					if(response != null){
+						Log.i("orrudebug", "storia inviata correttamente");
+					}
+					else{
+						Log.i("orrudebug", "storia non inviata");
+					}
+				}
+			}.execute(JSON);
 			//}
 		}
 	};
