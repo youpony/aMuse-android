@@ -1,6 +1,8 @@
 package com.youpony.amuse;
 
 import org.apache.http.HttpResponse;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
@@ -17,9 +19,9 @@ import android.widget.TextView;
 public class SendStory extends Activity {
 
 	TextView email, myEmail, name;
-	EditText emailForm, myEmailForm, nameForm;
-	String emailString, myEmailString, nameString;
-	Button send;
+	EditText emailForm,  nameForm;
+	String emailString, nameString;
+	Button send, cancel;
 	Item oggetto;
 	private String JSON;
 	
@@ -28,17 +30,16 @@ public class SendStory extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_send_story);
 		email = (TextView) findViewById(R.id.emailTitle);
-		myEmail = (TextView) findViewById(R.id.myemailTitle);
 		name = (TextView) findViewById(R.id.nameTitle);
 		email.setText("Inserisci qui la mail del destinatario:");
-		myEmail.setText("inserisci qui la tua mail:");
 		name.setText("inserisci qui il tuo nome:");
 		emailForm = (EditText) findViewById(R.id.emailForm);
-		myEmailForm = (EditText) findViewById(R.id.myemailForm);
 		nameForm = (EditText) findViewById(R.id.nameForm);
 		
 		send = (Button) findViewById(R.id.send);
+		cancel = (Button) findViewById(R.id.cancel);
 		
+		cancel.setOnClickListener(cancelListener);
 		send.setOnClickListener(sendListener);
 		
 		
@@ -52,12 +53,19 @@ public class SendStory extends Activity {
 		return true;
 	}
 	
+	OnClickListener cancelListener = new OnClickListener(){
+		@Override
+		public void onClick(View v) {
+			close();
+			
+		}
+	};
+	
 	OnClickListener sendListener = new OnClickListener(){
 
 		@Override
 		public void onClick(View arg0) {
 			emailString = emailForm.getText().toString();
-			myEmailString = myEmailForm.getText().toString();
 			nameString = nameForm.getText().toString();
 			/*if(!emailString.contains("@") || !myEmailString.contains("@")){
 				AlertDialog.Builder error = new AlertDialog.Builder(getApplicationContext());
@@ -66,30 +74,49 @@ public class SendStory extends Activity {
 				Log.i("orrudebug", "sbagliato email");
 			}
 			else{*/
-			JSON = new String("{ \"items\": [");
-			for(int i=0; i<PageViewer.values.size(); i++){
-				oggetto = PageViewer.values.get(i);
-				String id = new String(oggetto.id);
-				if(i == PageViewer.values.size() - 1){
-					JSON = JSON.concat("{ \"item_id\": \""+ id + "\"}");
+			JSONObject json = new JSONObject();
+			try {
+				json.put("email", emailString);
+				json.put("name", nameString);
+				JSONArray jsonarray = new JSONArray();
+				for(int i=0; i<PageViewer.values.size(); i++){
+					JSONObject jsonId = new JSONObject();
+					jsonId.put("item_pk", PageViewer.values.get(i).id);
+					jsonarray.put(jsonId);
 				}
-				else{
-					JSON = JSON.concat("{ \"item_id\": \""+ id + "\"},");
-				}
+				json.put("posts", jsonarray);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			JSON = JSON.concat("] }");
 			new SendJSONAsync(){
 				protected void onPostExecute(HttpResponse response){
 					if(response != null){
 						Log.i("orrudebug", "storia inviata correttamente");
+						//clear della story e reset
+						PageViewer.values.clear();
+						PageViewer.leftItems.clear();
+						PageViewer.rightItems.clear();
+						Story.leftAdapter.clear();
+						Story.rightAdapter.clear();
+						Story.leftAdapter.notifyDataSetChanged();
+						Story.rightAdapter.notifyDataSetChanged();
+						close();
 					}
 					else{
 						Log.i("orrudebug", "storia non inviata");
 					}
 				}
-			}.execute(JSON);
+			}.execute(json);
 			//}
 		}
 	};
+	
+
+	void close(){
+		SendStory.this.finish();
+		PageViewer.mViewPager.setCurrentItem(1);
+	}
+	
 
 }

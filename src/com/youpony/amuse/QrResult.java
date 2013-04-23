@@ -162,6 +162,10 @@ public class QrResult extends Activity {
 														Story.leftAdapter.notifyDataSetChanged();
 														Log.i("orrudebug", "aggiunto oggetto con id: " + oggetto.id);
 													}
+													//this is wrong (just for debugging on local without images) REMOVE IT!
+													else{
+														PageViewer.values.add(oggetto);
+													}
 													close();
 											}
 										});
