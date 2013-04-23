@@ -202,13 +202,8 @@ public class QrResult extends Activity {
 					e.printStackTrace();
 				}
 				//METTERE A POSTO L'INSERIMENTO DELL'ID DELL'OGGETTO
-				try {
-					oid = c.getString(o_id);
-					
-				} catch (JSONException e) {
-					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
-					e.printStackTrace();
-				}
+				oid = id.toString();
+				
 				try {
 					a = c.getString(author);
 				} catch (JSONException e) {

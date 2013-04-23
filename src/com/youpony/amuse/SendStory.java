@@ -17,8 +17,8 @@ public class SendStory extends Activity {
 	EditText emailForm, myEmailForm, nameForm;
 	String emailString, myEmailString, nameString;
 	Button send;
-	String JSON;
 	Item oggetto;
+	private String JSON;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +63,19 @@ public class SendStory extends Activity {
 				Log.i("orrudebug", "sbagliato email");
 			}
 			else{*/
-			JSON = new String("");
+			JSON = new String("{ \"items\": [");
 			for(int i=0; i<PageViewer.values.size(); i++){
 				oggetto = PageViewer.values.get(i);
-				JSON.concat(oggetto.id + "; ");
+				String id = new String(oggetto.id);
+				if(i == PageViewer.values.size() - 1){
+					JSON = JSON.concat("{ \"item_id\": \""+ id + "\"}");
+				}
+				else{
+					JSON = JSON.concat("{ \"item_id\": \""+ id + "\"},");
+				}
 			}
-			Log.i("orrudebug", "json message:" + JSON);
+			JSON = JSON.concat("] }");
+			new SendJSONAsync().execute(JSON);
 			//}
 		}
 	};
