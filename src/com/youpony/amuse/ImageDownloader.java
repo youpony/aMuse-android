@@ -84,7 +84,6 @@ public class ImageDownloader {
 	    	bitmap = null;  
 	     }
 	     
-	     
 	     return returned;
 	}
 	

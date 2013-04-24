@@ -58,7 +58,7 @@ public class ExhibitionChange extends Activity {
 		
 		//display image
 		if( oggetto.url != null){
-			im = downloader.download(oggetto.url, imageView);
+			oggetto.url = downloader.download(oggetto.url, imageView);
 		}
 		else{
 			Log.i("orrudebug", "non c'è l'immagine di questo oggetto");

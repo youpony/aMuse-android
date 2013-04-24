@@ -5,7 +5,7 @@ import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Item implements Serializable, Parcelable{
+public class Item implements Serializable{
 	
 	String name, author, year, description, mostra, url, id ;
 	int e_id;
@@ -24,18 +24,7 @@ public class Item implements Serializable, Parcelable{
 	public String toUrl(){
 		return url;
 	}
-	
-	@Override
-	public int describeContents() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }
