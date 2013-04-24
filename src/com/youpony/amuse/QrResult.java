@@ -70,6 +70,11 @@ public class QrResult extends Activity {
 		
 		oggetto = new Item();
 		//set TextView
+		titolo1= new TextView(this);
+		titolo2= new TextView(this);
+		titolo3= new TextView(this);
+		titolo4= new TextView(this);
+		
 		t1 = new TextView(this);
 		t2 = new TextView(this);
 		t3 = new TextView(this);
@@ -141,13 +146,13 @@ public class QrResult extends Activity {
 										if(oggetto.author!="ignoto") {
 											t1.setText(oggetto.author);
 										} else {
-											titolo1.setVisibility(0);
+											titolo1.setVisibility(2);
 										}
 										
 										if(oggetto.year!="0") {
 											t2.setText(oggetto.year);
 										} else{
-											titolo2.setVisibility(0);
+											titolo2.setVisibility(2);
 										}
 										
 										t3.setText(oggetto.description);

@@ -42,9 +42,8 @@
             android:layout_below="@+id/imageView"
             android:text="Autore"
             android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:background="#934828"/>
+            android:textColor="#169f3d"
+            android:textStyle="bold"/>
 		<TextView
             android:id="@+id/autoreText"
             android:layout_width="wrap_content"
@@ -60,9 +59,8 @@
             android:layout_below="@+id/autoreText"
             android:text="Anno"
             android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:background="#934828"/>
+            android:textColor="#169f3d"
+            android:textStyle="bold"/>
 		<TextView
             android:id="@+id/annoText"
             android:layout_width="wrap_content"
@@ -78,9 +76,8 @@
             android:layout_below="@+id/annoText"
             android:text="Descrizione"
             android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:background="#934828"/>
+            android:textColor="#169f3d"
+            android:textStyle="bold"/>
 		<TextView
             android:id="@+id/descText"
             android:layout_width="wrap_content"
@@ -96,9 +93,8 @@
             android:layout_below="@+id/descText"
             android:text="Mostra"
             android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:background="#934828"/>
+            android:textColor="#169f3d"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/mostraText"
             android:layout_width="wrap_content"
