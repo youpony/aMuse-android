@@ -41,8 +41,18 @@ public class ItemInfo extends Activity {
 		//add scroll listener on Text
 		t.setMovementMethod(new ScrollingMovementMethod());
 		v = (ImageView) findViewById(R.id.imageView);
+		
 		//set text
-		t.setText("autore: " + item.author + "\n" + "anno: " + item.year + "\n" + "descrizione: " + item.description);
+			if(item.author=="ignoto") {
+				t.setText("Anno: " + item.year + "\n" + "Descrizione: " + item.description);
+			} else if(item.year=="0") {
+				t.setText("Autore: " + item.author + "\n" + "Descrizione: " + item.description);
+			} else if(item.author=="ignoto"&&item.year=="0"){
+				t.setText("Descrizione: " + item.description);
+			} else {
+				t.setText("Autore: " + item.author + "\n" + "Anno: " + item.year + "\n" + "Descrizione: " + item.description);
+			}	
+				
 		title = (TextView) findViewById(R.id.title);
 		//set item title
 		title.setText(item.name);
