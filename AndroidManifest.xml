@@ -68,11 +68,13 @@
         </activity>
         <activity
             android:name="com.youpony.amuse.ItemInfo"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_item_info"
             android:theme="@style/resultTheme" >
         </activity>
         <activity
             android:name="com.youpony.amuse.ExhibitionChange"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_exhibition_change"
             android:theme="@style/resultTheme" >
         </activity>
@@ -86,6 +88,7 @@
         </activity>
         <activity
             android:name="com.youpony.amuse.SendStory"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_send_story"
             android:theme="@style/resultTheme" >
         </activity>

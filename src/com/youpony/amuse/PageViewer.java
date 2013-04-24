@@ -41,6 +41,8 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	public static ArrayList<String> leftItems = new ArrayList<String>();
 	public static ArrayList<String> rightItems = new ArrayList<String>();
 	
+	
+	public static ArrayList<String> pinterestItems = new ArrayList<String>();
 	public static ArrayList<Item> values;
 
 	/**
@@ -244,4 +246,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	  	Log.d("orrudebug", "orrudebug - QR non va");
   	  }
   	}
+    
+    
 }

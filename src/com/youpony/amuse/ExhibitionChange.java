@@ -72,13 +72,15 @@ public class ExhibitionChange extends Activity {
 					Story.id_mostra = oggetto.e_id;
 					PageViewer.values.clear();
 					PageViewer.values.add(oggetto);
-					PageViewer.leftItems.clear();
-					PageViewer.rightItems.clear();
-					Story.leftAdapter.clear();
-					Story.rightAdapter.clear();
-					PageViewer.leftItems.add(im);
-					Story.leftAdapter.notifyDataSetChanged();
-					Story.rightAdapter.notifyDataSetChanged();
+					PageViewer.pinterestItems.clear();
+					Story.pinterestAdapter.clear();
+					PageViewer.pinterestItems.add(im);
+					Story.pinterestAdapter.notifyDataSetChanged();
+//					Story.leftAdapter.clear();
+//					Story.rightAdapter.clear();
+//					PageViewer.leftItems.add(im);
+//					Story.leftAdapter.notifyDataSetChanged();
+//					Story.rightAdapter.notifyDataSetChanged();
 					close();
 			}
 		});

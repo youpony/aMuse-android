@@ -98,12 +98,10 @@ public class SendStory extends Activity {
 							Log.i("orrudebug", "storia inviata correttamente");
 							//clear della story e reset
 							PageViewer.values.clear();
-							PageViewer.leftItems.clear();
-							PageViewer.rightItems.clear();
-							Story.leftAdapter.clear();
-							Story.rightAdapter.clear();
-							Story.leftAdapter.notifyDataSetChanged();
-							Story.rightAdapter.notifyDataSetChanged();
+							PageViewer.pinterestItems.clear();
+							Story.pinterestAdapter.clear();
+							Story.pinterestAdapter.notifyDataSetChanged();
+							
 							close();
 						}
 						else{

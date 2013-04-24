@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,13 +61,10 @@ public class ItemInfo extends Activity {
 			public void onClick(View v) {
 				
 				PageViewer.values.remove(pos);
-				if(pos%2 == 0){
-					PageViewer.leftItems.remove(pos/2);
-					Story.leftAdapter.notifyDataSetChanged();
-				}
-				else{
-					PageViewer.rightItems.remove((pos-1)/2);
-					Story.rightAdapter.notifyDataSetChanged();
+				PageViewer.pinterestItems.remove(pos);
+				Story.pinterestAdapter.notifyDataSetChanged();
+				if(PageViewer.values.size() == 0){
+					Log.i("orrudebug", "cancellata la lista");
 				}
 				close();
 			}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:staggered="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
 	android:layout_height="match_parent"
 	android:orientation="vertical" >
@@ -8,28 +9,18 @@
 	    android:id="@+id/topListLayout"
 	    android:layout_width="wrap_content"
 	    android:layout_height="fill_parent"
+	    android:layout_above="@+id/send_button"
+	    android:layout_alignParentTop="true"
 	    android:orientation="horizontal"
 	    android:paddingLeft="10dp"
-	    android:paddingRight="10dp" 
-	    android:layout_alignParentTop="true">
+	    android:paddingRight="10dp" >
 	
-	    <ListView
-	        android:id="@+id/list_view_left"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
-	        android:layout_weight="1"
-	        android:paddingRight="5dp"
-	        android:scrollbars="none" >
-	    </ListView>
-	
-	    <ListView
-	        android:id="@+id/list_view_right"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent"
-	        android:layout_weight="1"
-	        android:paddingLeft="5dp"
-	        android:scrollbars="none" >
-	    </ListView>
+	    <com.origamilabs.library.views.StaggeredGridView
+        android:id="@+id/staggeredGridView"
+        staggered:numColumns="2"
+        staggered:drawSelectorOnTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 	
 	</LinearLayout>
 
@@ -39,6 +30,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentBottom="true"
 	    android:layout_centerHorizontal="true"
+	    android:visibility="visible"
 	    android:text="Send" />
 	
 </RelativeLayout>

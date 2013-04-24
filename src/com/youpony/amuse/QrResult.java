@@ -81,6 +81,7 @@ public class QrResult extends Activity {
 			new JSONParsing(){
 				protected void onPostExecute(JSONObject jData) {
 					if (jData != null){
+							yesInternet();
 							updateExhibitions(jData);
 							Boolean check = Story.findName(oggetto.name);
 							int position = Story.findPos(oggetto.name);
@@ -103,12 +104,14 @@ public class QrResult extends Activity {
 									if(check == true){
 										close();
 										Intent info = new Intent(PageViewer.getAppContext(), ItemInfo.class);
-										if(position%2 == 0){
-											info.putExtra("pos", (position*2));
-										}
-										else{
-											info.putExtra("pos", ((position*2)+1));
-										}
+//										if(position%2 == 0){
+//											info.putExtra("pos", (position*2));
+//										}
+//										else{
+//											info.putExtra("pos", ((position*2)+1));
+//										}
+										
+										info.putExtra("pos", position);
 										Log.i("orrudebug","qr code already scanned with name " + oggetto.name + " and position " + position);
 										startActivity(info);
 									}
@@ -153,12 +156,10 @@ public class QrResult extends Activity {
 													Story.id_mostra = oggetto.e_id;
 													if(im != null){
 														PageViewer.values.add(oggetto);
-														if(PageViewer.values.size()%2 == 1){
-															PageViewer.leftItems.add(im);
-														} else {
-															PageViewer.rightItems.add(im);
-														}
-														Story.leftAdapter.notifyDataSetChanged();
+//														
+														PageViewer.pinterestItems.add(im);
+														Story.pinterestAdapter.notifyDataSetChanged();
+														
 														Log.i("orrudebug", "aggiunto oggetto con id: " + oggetto.id);
 													}
 													//this is wrong (just for debugging on local without images) REMOVE IT!
@@ -280,6 +281,10 @@ public class QrResult extends Activity {
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(2);
 		QrCode.start_qr.setText("no internet connection, try again!");
+	}
+	
+	void yesInternet(){
+		QrCode.start_qr.setText(QrCode.BASE_TEXT);
 	}
 	
 	@Override
