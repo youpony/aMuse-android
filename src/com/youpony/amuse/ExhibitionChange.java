@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ExhibitionChange extends Activity {
-	TextView t, alert, title;
+	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4, alert, title;
 	Button confirm, cancel;
 	Item oggetto;
 	ImageDownloader downloader;
@@ -29,14 +29,29 @@ public class ExhibitionChange extends Activity {
 		im = new String();
 		
 		imageView = new ImageView(this);
-		t = new TextView(this);
+		titolo1= new TextView(this);
+		titolo2= new TextView(this);
+		titolo3= new TextView(this);
+		titolo4= new TextView(this);
+		
+		t1 = new TextView(this);
+		t2 = new TextView(this);
+		t3 = new TextView(this);
+		t4 = new TextView(this);
 		alert = new TextView(this);
 		
 		Object og = getIntent().getExtras().get("item_value");
 		oggetto = (Item) og;
 		
 		alert = (TextView) findViewById(R.id.alertText);
-		t = (TextView) findViewById(R.id.JSONResult);
+		titolo1 = (TextView) findViewById(R.id.autoreTitle);
+		t1 = (TextView) findViewById(R.id.autoreText);
+		titolo2 = (TextView) findViewById(R.id.annoTitle);
+		t2 = (TextView) findViewById(R.id.annoText);
+		titolo3 = (TextView) findViewById(R.id.descTitle);
+		t3 = (TextView) findViewById(R.id.descText);
+		titolo4 = (TextView) findViewById(R.id.mostraTitle);
+		t4 = (TextView) findViewById(R.id.mostraText);
 		imageView = (ImageView) findViewById(R.id.imageView);
 		title = (TextView) findViewById(R.id.title);
 		
@@ -45,16 +60,27 @@ public class ExhibitionChange extends Activity {
 				"Premendo il pulsante conferma verrˆ resettata la lista e aggiunto questo oggetto ai preferiti.");
 		
 		//display object infos
-		t.setText("autore: " + oggetto.author + 
-				"\n" + "anno: " + oggetto.year + 
-				"\n" + "descrizione: " + oggetto.description +
-				"\n" + "mostra: " + oggetto.mostra );
+		if(oggetto.author!="ignoto") {
+			t1.setText(oggetto.author);
+		} else {
+			titolo1.setVisibility(2);
+		}
+		
+		if(oggetto.year!="0") {
+			t2.setText(oggetto.year);
+		} else{
+			titolo2.setVisibility(2);
+		}
+		
+		
+		t3.setText(oggetto.description);
+		t4.setText(oggetto.mostra);
 		
 		//display title
 		title.setText(oggetto.name);
 		
 		//add scroll listener on Text
-		t.setMovementMethod(new ScrollingMovementMethod());
+		t3.setMovementMethod(new ScrollingMovementMethod());
 		
 		//display image
 		if( oggetto.url != null){
