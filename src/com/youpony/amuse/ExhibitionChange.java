@@ -58,7 +58,7 @@ public class ExhibitionChange extends Activity {
 		
 		//display image
 		if( oggetto.url != null){
-			oggetto.url = downloader.download(oggetto.url, imageView);
+			im = downloader.download(oggetto.url, imageView);
 		}
 		else{
 			Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
@@ -73,14 +73,8 @@ public class ExhibitionChange extends Activity {
 					PageViewer.values.clear();
 					PageViewer.values.add(oggetto);
 					PageViewer.pinterestItems.clear();
-					Story.pinterestAdapter.clear();
 					PageViewer.pinterestItems.add(im);
 					Story.pinterestAdapter.notifyDataSetChanged();
-//					Story.leftAdapter.clear();
-//					Story.rightAdapter.clear();
-//					PageViewer.leftItems.add(im);
-//					Story.leftAdapter.notifyDataSetChanged();
-//					Story.rightAdapter.notifyDataSetChanged();
 					close();
 			}
 		});
