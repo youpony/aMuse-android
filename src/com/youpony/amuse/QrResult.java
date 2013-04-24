@@ -22,6 +22,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
@@ -53,7 +54,7 @@ public class QrResult extends Activity {
 	
 	String APIauthor;
 	public static JSONObject json;
-	TextView t;
+	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4;
 	TextView title;
 	ImageView imageView;
 	Boolean stop = false;
@@ -69,7 +70,10 @@ public class QrResult extends Activity {
 		
 		oggetto = new Item();
 		//set TextView
-		t = new TextView(this);
+		t1 = new TextView(this);
+		t2 = new TextView(this);
+		t3 = new TextView(this);
+		t4 = new TextView(this);
 		imageView = new ImageView(this);
 		downloader = new ImageDownloader();
 		
@@ -121,19 +125,36 @@ public class QrResult extends Activity {
 									else{
 										//instantiate layout
 										setContentView(R.layout.activity_qr_result);
-										t = (TextView) findViewById(R.id.JSONResult);
+										titolo1 = (TextView) findViewById(R.id.autoreTitle);
+										t1 = (TextView) findViewById(R.id.autoreText);
+										titolo2 = (TextView) findViewById(R.id.annoTitle);
+										t2 = (TextView) findViewById(R.id.annoText);
+										titolo3 = (TextView) findViewById(R.id.descTitle);
+										t3 = (TextView) findViewById(R.id.descText);
+										titolo4 = (TextView) findViewById(R.id.mostraTitle);
+										t4 = (TextView) findViewById(R.id.mostraText);
 										imageView = (ImageView) findViewById(R.id.imageView);
 										title = (TextView) findViewById(R.id.title);
 										
 										//display object infos
-										t.setText("autore: " + oggetto.author + 
-												"\n" + "anno: " + oggetto.year + 
-												"\n" + "descrizione: " + oggetto.description +
-												"\n" + "mostra: " + oggetto.mostra
-												);
 										
+										if(oggetto.author!="ignoto") {
+											t1.setText(oggetto.author);
+										} else {
+											titolo1.setVisibility(0);
+										}
+										
+										if(oggetto.year!="0") {
+											t2.setText(oggetto.year);
+										} else{
+											titolo2.setVisibility(0);
+										}
+										
+										t3.setText(oggetto.description);
+										t4.setText(oggetto.mostra);
+											
 										//add scroll listener on Text
-										t.setMovementMethod(new ScrollingMovementMethod());
+										t3.setMovementMethod(new ScrollingMovementMethod());
 										
 										//display object name
 										title.setText(oggetto.name);

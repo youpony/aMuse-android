@@ -22,7 +22,7 @@ package com.origamilabs.library.views;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.origamilabs.library.R;
+//import com.origamilabs.library.R;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -307,7 +307,8 @@ public class StaggeredGridView extends ViewGroup {
 
     public StaggeredGridView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        
+      
+        /*
         if(attrs!=null){
         	TypedArray a=getContext().obtainStyledAttributes( attrs, R.styleable.StaggeredGridView);
             mColCount = a.getInteger(R.styleable.StaggeredGridView_numColumns, 2);
@@ -316,7 +317,7 @@ public class StaggeredGridView extends ViewGroup {
         	mColCount = 2;
         	mDrawSelectorOnTop = false;
         }
-        
+        */
         final ViewConfiguration vc = ViewConfiguration.get(context);
         mTouchSlop = vc.getScaledTouchSlop();
         mMaximumVelocity = vc.getScaledMaximumFlingVelocity();

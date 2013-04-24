@@ -34,14 +34,78 @@
             android:layout_below="@+id/title"
             android:layout_width="@dimen/mediumImage" 
             android:layout_height="200dp"/>
-
-        <TextView
-            android:id="@+id/JSONResult"
+		<TextView
+            android:id="@+id/autoreTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/imageView"
-            android:textSize="17sp" />
+            android:text="Autore"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="#934828"/>
+		<TextView
+            android:id="@+id/autoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/autoreTitle"
+            android:textSize="17sp"/>
+		<TextView
+            android:id="@+id/annoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/autoreText"
+            android:text="Anno"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="#934828"/>
+		<TextView
+            android:id="@+id/annoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/annoTitle"
+            android:textSize="17sp"/>
+		<TextView
+            android:id="@+id/descTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/annoText"
+            android:text="Descrizione"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="#934828"/>
+		<TextView
+            android:id="@+id/descText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/descTitle"
+            android:textSize="17sp"/>
+		<TextView
+            android:id="@+id/mostraTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/descText"
+            android:text="Mostra"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="#934828"/>
+        <TextView
+            android:id="@+id/mostraText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/mostraTitle"
+            android:textSize="17sp"/>
     </RelativeLayout>
 </ScrollView>
     <RelativeLayout
