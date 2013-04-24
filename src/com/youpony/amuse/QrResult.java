@@ -55,6 +55,7 @@ public class QrResult extends Activity {
 	String APIauthor;
 	public static JSONObject json;
 	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4;
+	View linea1, linea2, linea3;
 	TextView title;
 	ImageView imageView;
 	Boolean stop = false;
@@ -140,6 +141,9 @@ public class QrResult extends Activity {
 										t4 = (TextView) findViewById(R.id.mostraText);
 										imageView = (ImageView) findViewById(R.id.imageView);
 										title = (TextView) findViewById(R.id.title);
+										linea1 = (View) findViewById(R.id.lineaAutore);
+										linea2 = (View) findViewById(R.id.lineaAnno);
+										linea3 = (View) findViewById(R.id.lineaDesc);
 										
 										//display object infos
 										

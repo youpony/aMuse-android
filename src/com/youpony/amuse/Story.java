@@ -68,7 +68,7 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		//DEBUGGING PURPOSES
-		debugArray = new String[]{"0&46"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		debugArray = new String[]{"0&1"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 		 
 		for(int i=0; i<debugArray.length; i++){
 			Intent qrResult = new Intent(PageViewer.getAppContext(), QrResult.class);
@@ -164,12 +164,12 @@ public class Story extends Fragment {
 		pinterest.setAdapter(pinterestAdapter);	
 	}
 	
-	private static void setButtonInvisible(){
-		send.setVisibility(1);
+	public static void setButtonInvisible(){
+		send.setText("no invio");
 	}
     
     public static void setButtonVisible(){
-    	send.setVisibility(0);
+    	send.setText("si invio");
     }
 	
 	

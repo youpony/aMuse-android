@@ -10,6 +10,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="0.78"
+        android:scrollbarStyle="outsideInset"
     >
     <RelativeLayout
         android:id="@+id/content"
@@ -26,7 +27,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:textSize="40sp" />
-
+		
         <ImageView
             android:id="@+id/imageView"
             android:layout_alignLeft="@+id/cancel"
@@ -42,8 +43,9 @@
             android:layout_below="@+id/imageView"
             android:text="Autore"
             android:textSize="20sp"
-            android:textColor="#169f3d"
+            android:textColor="@color/verdone"
             android:textStyle="bold"/>
+		
 		<TextView
             android:id="@+id/autoreText"
             android:layout_width="wrap_content"
@@ -51,6 +53,13 @@
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/autoreTitle"
             android:textSize="17sp"/>
+		<View
+		    android:id="@+id/lineaAutore" 
+		    android:layout_height="0.5dp"
+    		android:layout_width="fill_parent"
+			android:background="@color/grigione" 
+			android:layout_below="@+id/autoreText"
+			/>
 		<TextView
             android:id="@+id/annoTitle"
             android:layout_width="wrap_content"
@@ -59,7 +68,7 @@
             android:layout_below="@+id/autoreText"
             android:text="Anno"
             android:textSize="20sp"
-            android:textColor="#169f3d"
+            android:textColor="@color/verdone"
             android:textStyle="bold"/>
 		<TextView
             android:id="@+id/annoText"
@@ -68,6 +77,13 @@
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/annoTitle"
             android:textSize="17sp"/>
+		<View
+		    android:id="@+id/lineaAnno" 
+		    android:layout_height="0.5dp"
+    		android:layout_width="fill_parent"
+			android:background="@color/grigione" 
+			android:layout_below="@+id/annoText"
+			/>
 		<TextView
             android:id="@+id/descTitle"
             android:layout_width="wrap_content"
@@ -76,7 +92,7 @@
             android:layout_below="@+id/annoText"
             android:text="Descrizione"
             android:textSize="20sp"
-            android:textColor="#169f3d"
+            android:textColor="@color/verdone"
             android:textStyle="bold"/>
 		<TextView
             android:id="@+id/descText"
@@ -85,6 +101,13 @@
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/descTitle"
             android:textSize="17sp"/>
+		<View
+		    android:id="@+id/lineaDesc" 
+		    android:layout_height="0.5dp"
+    		android:layout_width="fill_parent"
+			android:background="@color/grigione" 
+			android:layout_below="@+id/descText"
+			/>
 		<TextView
             android:id="@+id/mostraTitle"
             android:layout_width="wrap_content"
@@ -93,7 +116,7 @@
             android:layout_below="@+id/descText"
             android:text="Mostra"
             android:textSize="20sp"
-            android:textColor="#169f3d"
+            android:textColor="@color/verdone"
             android:textStyle="bold"/>
         <TextView
             android:id="@+id/mostraText"
