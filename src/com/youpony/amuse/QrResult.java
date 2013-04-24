@@ -159,6 +159,7 @@ public class QrResult extends Activity {
 											titolo2.setVisibility(2);
 										}
 										
+										
 										t3.setText(oggetto.description);
 										t4.setText(oggetto.mostra);
 											

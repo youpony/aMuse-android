@@ -98,6 +98,7 @@ public class ItemInfo extends Activity {
 				Story.pinterestAdapter.notifyDataSetChanged();
 				if(PageViewer.values.size() == 0){
 					Log.i("orrudebug", "cancellata la lista");
+					Story.start = true;
 				}
 				close();
 			}
