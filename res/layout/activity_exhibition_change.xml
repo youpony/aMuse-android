@@ -18,9 +18,9 @@
         android:gravity="top"
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical" >
-		
-  		 <TextView
-        android:id="@+id/alertText"
+	
+	 <TextView
+   	   android:id="@+id/alertText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -28,33 +28,33 @@
         android:textSize="17sp"
         android:textStyle="bold" />
         
-      <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:textSize="17sp" />
+	<TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/alertText"
+		android:textSize="17sp" />
 		
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_alignLeft="@+id/cancel"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/title"
-            android:layout_width="@dimen/mediumImage" 
-            android:layout_height="200dp"/>
-		<TextView
-            android:id="@+id/autoreTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
-            android:layout_below="@+id/imageView"
-            android:text="Autore"
-            android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+	<ImageView
+		android:id="@+id/imageView"
+		android:layout_alignLeft="@+id/cancel"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/title"
+		android:layout_width="@dimen/mediumImage" 
+		android:layout_height="200dp"/>
+	<TextView
+        android:id="@+id/autoreTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignLeft="@+id/cancel"
+		android:layout_below="@+id/imageView"
+		android:text="Autore"
+		android:textSize="20sp"
+		android:textColor="@color/verdone"
+		android:textStyle="bold"/>
 		
-		<TextView
+	<TextView
             android:id="@+id/autoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
