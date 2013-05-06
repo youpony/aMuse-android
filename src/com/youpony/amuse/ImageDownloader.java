@@ -50,7 +50,9 @@ public class ImageDownloader {
 	    	 //Caching code right here
 	    	 String filename = String.valueOf(url.hashCode());
 	    	 File f = new File(getCacheDirectory(imageView.getContext()), filename);
-
+	    	 
+	    	 Log.i("orrudebug", getCacheDirectory(imageView.getContext()).toString());
+	    	 
 	    	  // Is the bitmap in our memory cache?
 	    	 Bitmap bitmap = null;
 	    	 

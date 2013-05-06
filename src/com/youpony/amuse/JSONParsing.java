@@ -19,7 +19,7 @@ public class JSONParsing extends AsyncTask<String, Void, JSONObject>{
 	String json;
 	JSONObject jFinal;
 	//set it to your local server 
-	public final static String BASEURL = "http://10.23.10.189:8000/"; //"http://youpony.pittoni.org/"; 
+	public final static String BASEURL = "http://youpony.pittoni.org/"; 
 	public final static String EXHIBITIONS = BASEURL + "api/e/";
 	public final static String ITEM = BASEURL + "api/o/";
 	

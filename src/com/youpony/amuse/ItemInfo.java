@@ -82,7 +82,8 @@ public class ItemInfo extends Activity {
 		
 		downloader = new ImageDownloader();
 		if( item.url != null){
-			item.url = downloader.download(item.url, v);
+			downloader.download(item.url, v);
+			Log.i("orrudebug", item.url);
 		}
 		
 		//manage Delete button action
