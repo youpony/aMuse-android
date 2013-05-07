@@ -149,6 +149,7 @@ public class Story extends Fragment {
                 	pinterestAdapter.notifyDataSetChanged();
                 	if(PageViewer.values.size() == 0){
                 		start = true;
+                		
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);
                 }});
