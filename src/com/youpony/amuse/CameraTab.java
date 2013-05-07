@@ -1,7 +1,15 @@
 package com.youpony.amuse;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.hardware.Camera;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 /*
  * Fragment containing Camera.
@@ -23,6 +32,8 @@ public class CameraTab extends Fragment {
 		CameraPreview mPreview;
 		FrameLayout prev;
 		private Button start_camera;
+		private static int TAKE_PICTURE = 1;
+		private Uri outputFileUri;
 		
     	public CameraTab(){	
     	}
@@ -37,7 +48,7 @@ public class CameraTab extends Fragment {
             start_camera.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (mPreview == null){
-                    	attachCamera();
+                    	TakePhoto();
                     	
                     }
                 }
@@ -45,6 +56,21 @@ public class CameraTab extends Fragment {
 			return rootView;
 		}
     	
+    	private void TakePhoto() {
+    		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    		File file = new File(Environment.getExternalStorageDirectory(), "test.jpg");
+     
+    		outputFileUri = Uri.fromFile(file);
+    		intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
+    		startActivityForResult(intent, TAKE_PICTURE);
+     
+    	}
+    	
+    	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    		
+    		    }
+    		    
+    		    
     	// camera on
         public void attachCamera(){
         	mPreview = new CameraPreview(getActivity(), mCamera);
