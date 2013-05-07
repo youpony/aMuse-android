@@ -100,6 +100,7 @@ public class ItemInfo extends Activity {
 				if(PageViewer.values.size() == 0){
 					Log.i("orrudebug", "cancellata la lista");
 					Story.start = true;
+					Story.send.setVisibility(View.INVISIBLE);
 				}
 				close();
 			}

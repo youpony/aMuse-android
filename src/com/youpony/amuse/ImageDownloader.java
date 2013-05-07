@@ -127,7 +127,7 @@ public class ImageDownloader {
 			File sdDir = android.os.Environment.getExternalStorageDirectory();  
 			
 			//TODO : Change your diretcory here
-			cacheDir = new File(sdDir,"data/tac/images");
+			cacheDir = new File(sdDir,"data/amuse/images");
 		}
 		else
 			cacheDir = context.getCacheDir();
@@ -206,7 +206,7 @@ public class ImageDownloader {
         private final WeakReference<BitmapDownloaderTask> bitmapDownloaderTaskReference;
 
         public DownloadedDrawable(BitmapDownloaderTask bitmapDownloaderTask) {
-            super(Color.BLACK);
+            super(Color.WHITE);
             bitmapDownloaderTaskReference =
                 new WeakReference<BitmapDownloaderTask>(bitmapDownloaderTask);
         }
@@ -236,8 +236,14 @@ public class ImageDownloader {
                 InputStream inputStream = null;
                 try {
                     inputStream = entity.getContent(); 
-                    final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                    return bitmap;
+                    final BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+//                    final Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null, options);
+                    // Calculate inSampleSize
+                    options.inSampleSize = calculateInSampleSize(options, 200, 200);
+                    options.inJustDecodeBounds = false;
+                    final Bitmap bitmap2 = BitmapFactory.decodeStream(inputStream, null, options);
+                    return bitmap2;
                 } finally {
                     if (inputStream != null) {
                         inputStream.close();  
@@ -256,5 +262,30 @@ public class ImageDownloader {
         }
         return null;
     }
+    
+    //get bitmap dimensions
+    
+    public static int calculateInSampleSize(
+            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    // Raw height and width of image
+    final int height = options.outHeight;
+    final int width = options.outWidth;
+    int inSampleSize = 1;
+
+    if (height > reqHeight || width > reqWidth) {
+
+        // Calculate ratios of height and width to requested height and width
+        final int heightRatio = Math.round((float) height / (float) reqHeight);
+        final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+        // Choose the smallest ratio as inSampleSize value, this will guarantee
+        // a final image with both dimensions larger than or equal to the
+        // requested height and width.
+        inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+    }
+
+    return inSampleSize;
+}
+    
 }
 

@@ -190,12 +190,13 @@ public class QrResult extends Activity {
 //														
 														PageViewer.pinterestItems.add(im);
 														Story.pinterestAdapter.notifyDataSetChanged();
-														
+
+														Story.send.setVisibility(View.VISIBLE);
 														Log.i("orrudebug", "aggiunto oggetto con id: " + oggetto.id);
 													}
 													//this is wrong (just for debugging on local without images) REMOVE IT!
 													else{
-														PageViewer.values.add(oggetto);
+														
 													}
 													close();
 											}

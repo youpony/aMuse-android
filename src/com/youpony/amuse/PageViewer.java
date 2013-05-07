@@ -1,5 +1,6 @@
 package com.youpony.amuse;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -246,6 +247,49 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	  	Log.d("orrudebug", "orrudebug - QR non va");
   	  }
   	}
+   
+    @Override
+    protected void onStop(){
+    	super.onStop();
+    }
     
+  //Fires after the OnStop() state
+    @Override
+    protected void onDestroy() {
+       super.onDestroy();
+       try {
+          trimCache(this);
+       } catch (Exception e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+       }
+    }
+
+    public static void trimCache(Context context) {
+       try {
+          File dir = android.os.Environment.getExternalStorageDirectory(); 
+          File cacheDir = new File(dir,"data/amuse/images");
+          if (cacheDir != null && cacheDir.isDirectory()) {
+             deleteDir(cacheDir);
+          }
+       } catch (Exception e) {
+          // TODO: handle exception
+       }
+    }
+
+    public static boolean deleteDir(File dir) {
+       if (dir != null && dir.isDirectory()) {
+          String[] children = dir.list();
+          for (int i = 0; i < children.length; i++) {
+             boolean success = deleteDir(new File(dir, children[i]));
+             if (!success) {
+                return false;
+             }
+          }
+       }
+
+       // The directory is now empty so delete it
+       return dir.delete();
+    }
     
 }
