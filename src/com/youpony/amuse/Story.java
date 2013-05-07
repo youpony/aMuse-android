@@ -152,6 +152,7 @@ public class Story extends Fragment {
                 	if(PageViewer.values.size() == 0){
                 		start = true;
                 		Story.send.setVisibility(View.INVISIBLE);
+
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);
                 }});
