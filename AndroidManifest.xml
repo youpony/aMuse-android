@@ -96,6 +96,12 @@
             android:name="com.youpony.amuse.SendJSONAsync"
             android:label="@string/title_activity_send_jsonasync" >
         </activity>
+         <activity
+            android:name="com.youpony.amuse.ImagePreview"
+            android:label="@string/title_activity_image_preview" 
+            android:screenOrientation="portrait"
+            android:theme="@style/resultTheme" >
+        </activity>
         
     </application>
 

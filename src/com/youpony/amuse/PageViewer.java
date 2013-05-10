@@ -4,8 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -237,6 +240,9 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
     //manage QR Code results
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
   	  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+//  	  IntentResult imageResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent)
+  	  //  	  intent result di Camera Activity ( o intent )
+  	  Uri resultPic;
   	  if (scanResult != null) {
   		Intent qrResult = new Intent(this, QrResult.class);
   		String resultString = scanResult.getContents();
@@ -244,6 +250,19 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   		startActivity(qrResult);
   	  }
   	  else{
+  		switch (requestCode) {
+  	    case 100:
+  	        if (resultCode == Activity.RESULT_OK) {
+  	        	Intent imageResult = new Intent(this, ImagePreview.class);
+	        	Log.i("orrudebug", "");
+	        	Bitmap picture = (Bitmap) intent.getExtras().get("data");
+	        	imageResult.putExtra("IMMAGINE", picture);
+	        	startActivity(imageResult);
+//  	        	Log.d("orrudebug","foto in restituzione" + intent.getDataString());
+  	        }
+  	    }
+//  		  if (intentcamera != null ) 
+//  		  startActivity(ImagePreview)
   	  	Log.d("orrudebug", "orrudebug - QR non va");
   	  }
   	}

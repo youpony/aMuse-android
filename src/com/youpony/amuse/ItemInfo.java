@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class ItemInfo extends Activity {
 
-	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4;	TextView title;
+	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4, title;
 	ImageView v;
 	int pos;
 	Item item;

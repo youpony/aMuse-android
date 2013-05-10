@@ -69,7 +69,7 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		//DEBUGGING PURPOSES
-		debugArray = new String[]{"0&6"};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		debugArray = new String[]{};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 
 
 		sView = inflater.inflate(R.layout.activity_story, container, false);
