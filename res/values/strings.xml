@@ -27,6 +27,7 @@
     <string name="title_activity_send_jsonasync">SendJSONAsync</string>
     <string name="title_activity_image_preview">ImagePreview</string>
     <color name="verdone">#016B33</color>
+    <color name="verdino">#169f3d</color>
     <color name="grigione">#999999</color>
 
 </resources>
