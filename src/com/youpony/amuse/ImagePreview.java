@@ -34,7 +34,7 @@ public class ImagePreview extends Activity {
 		Intent intent = getIntent();
 		
 		Bundle extras = intent.getExtras();
-        photo = (Bitmap) extras.get("Immagine");
+        photo = (Bitmap) extras.get("IMMAGINE");
         
         image.setImageBitmap(photo);
         
@@ -61,6 +61,7 @@ public class ImagePreview extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				
 				close();
 				
 			}

@@ -3,18 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-     <RelativeLayout
-         android:id="@+id/content"
-         android:layout_width="fill_parent"
+  
+
+     <ImageView
+         android:id="@+id/imageView"
+         android:layout_width="@dimen/mediumImage"
+         android:layout_height="400dp"
+         android:layout_marginTop="20dp"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"/>
+
+     <EditText
+         android:id="@+id/comment"
+         android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_above="@+id/buttons"
-         android:gravity="top"
-         android:scrollbarStyle="insideOverlay"
-         android:scrollbars="vertical" >
-
-   	</RelativeLayout>
-
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/imageView"
+         android:hint="@string/CommentImage" >
+     </EditText>
+     
+       
      <RelativeLayout
          android:id="@+id/buttons"
          android:layout_width="match_parent"
@@ -23,7 +32,7 @@
          android:layout_alignParentLeft="true"
          android:gravity="bottom" >
 
-         <Button
+     	 <Button
              android:id="@+id/cancel"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -38,23 +47,5 @@
              android:layout_alignParentRight="true"
              android:text="Confirm" />
      </RelativeLayout>
-
-     <ImageView
-         android:id="@+id/imageView"
-         android:layout_width="@dimen/mediumImage"
-         android:layout_height="200dp"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentTop="true" />
-
-     <EditText
-         android:id="@+id/comment"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/content"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:layout_below="@+id/imageView"
-         android:layout_marginTop="36dp"
-         android:ems="10" />
      
 </RelativeLayout>

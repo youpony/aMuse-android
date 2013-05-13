@@ -30,7 +30,6 @@
 		
         <ImageView
             android:id="@+id/imageView"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/title"
             android:layout_width="@dimen/mediumImage" 

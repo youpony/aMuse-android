@@ -2,6 +2,7 @@ package com.youpony.amuse;
 
 import java.io.Serializable;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 

@@ -30,5 +30,6 @@
     <color name="verdino">#04855f</color>
     <color name="azzurro">#3db3ba</color>
     <color name="grigione">#999999</color>
+    <string name="CommentImage">Commenta la tua foto!</string>
 
 </resources>

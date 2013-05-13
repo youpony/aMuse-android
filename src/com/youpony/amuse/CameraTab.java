@@ -55,11 +55,11 @@ public class CameraTab extends Fragment {
     	public void TakePhoto() {
     		
     		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-    		File file = new File(Environment.getExternalStorageDirectory(), "test.jpg");
-    	
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-            outputFileUri = Uri.fromFile(file);
-    		
+//    		File file = new File(Environment.getExternalStorageDirectory(), "test.jpg");
+//    	
+//            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+//            outputFileUri = Uri.fromFile(file);
+//    		
             getActivity().startActivityForResult(intent, 100);
     	}
 	} 
