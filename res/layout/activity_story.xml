@@ -27,15 +27,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="@color/verdino"
         android:orientation="vertical" >
-
+		<View
+		    android:id="@+id/lineaStory" 
+		    android:layout_height="0.5dp"
+    		android:layout_width="fill_parent"
+			android:background="@color/grigione" 
+			android:layout_alignParentTop="true"
+			/>
         <Button
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="#ffffff"
+            android:layout_below="@+id/lineaStory"
+            android:textColor="#000000"
             android:text="Send"
             android:visibility="visible" />
 

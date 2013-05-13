@@ -101,6 +101,7 @@ public class ItemInfo extends Activity {
 					Log.i("orrudebug", "cancellata la lista");
 					Story.start = true;
 					Story.send.setVisibility(View.INVISIBLE);
+					Story.line.setVisibility(View.INVISIBLE);
 				}
 				close();
 			}

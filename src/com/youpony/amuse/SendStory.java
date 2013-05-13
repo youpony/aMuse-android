@@ -101,6 +101,8 @@ public class SendStory extends Activity {
 							PageViewer.pinterestItems.clear();
 							Story.pinterestAdapter.clear();
 							Story.pinterestAdapter.notifyDataSetChanged();
+							Story.line.setVisibility(View.INVISIBLE);
+							Story.send.setVisibility(View.INVISIBLE);
 							
 							close();
 						}

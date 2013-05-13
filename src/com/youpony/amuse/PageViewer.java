@@ -276,11 +276,17 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
     @Override
     protected void onDestroy() {
        super.onDestroy();
-       try {
-          trimCache(this);
-       } catch (Exception e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
+       if(PageViewer.values.size() == 0){
+	       try {
+	          trimCache(this);
+	       } catch (Exception e) {
+	          // TODO Auto-generated catch block
+	          e.printStackTrace();
+	       }
+	       Log.i("orrudebug", "clear cache");
+       }
+       else{
+//    	   salvati la roba
        }
     }
 

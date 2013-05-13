@@ -55,6 +55,7 @@ public class Story extends Fragment {
 	
 	public static String[] debugArray;
 	public static Button send;
+	public static View line;
 	private StaggeredGridView pinterest;
 	public static ItemsAdapter pinterestAdapter;
 
@@ -75,7 +76,9 @@ public class Story extends Fragment {
 		sView = inflater.inflate(R.layout.activity_story, container, false);
 		pinterest = (StaggeredGridView) sView.findViewById(R.id.staggeredGridView);
 		send = (Button) sView.findViewById(R.id.send_button);
+		line = (View) sView.findViewById(R.id.lineaStory);
 		Story.send.setVisibility(View.INVISIBLE);
+		Story.line.setVisibility(View.INVISIBLE);
 		
 		for(int i=0; i<debugArray.length; i++){
 			Intent qrResult = new Intent(PageViewer.getAppContext(), QrResult.class);
@@ -152,6 +155,7 @@ public class Story extends Fragment {
                 	if(PageViewer.values.size() == 0){
                 		start = true;
                 		Story.send.setVisibility(View.INVISIBLE);
+                		Story.line.setVisibility(View.INVISIBLE);
 
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);

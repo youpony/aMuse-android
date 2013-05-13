@@ -174,6 +174,7 @@ public class QrResult extends Activity {
 														Story.pinterestAdapter.notifyDataSetChanged();
 
 														Story.send.setVisibility(View.VISIBLE);
+														Story.line.setVisibility(View.VISIBLE);
 														Log.i("orrudebug", "aggiunto oggetto con id: " + oggetto.id);
 													}
 													//this is wrong (just for debugging on local without images) REMOVE IT!

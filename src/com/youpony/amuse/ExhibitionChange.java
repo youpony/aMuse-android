@@ -102,6 +102,7 @@ public class ExhibitionChange extends Activity {
 					PageViewer.pinterestItems.add(im);
 					Story.pinterestAdapter.notifyDataSetChanged();
 					Story.send.setVisibility(View.VISIBLE);
+					Story.line.setVisibility(View.VISIBLE);
 					close();
 			}
 		});
