@@ -2,13 +2,35 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
+<RelativeLayout 
+    android:id="@+id/titleLayout"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_weight="0"
+    android:background="@color/azzurro"
+    >
     
+    
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Titolo opera"
+            android:textColor="@android:color/white"
+            android:textSize="40sp" 
+            android:textStyle="normal"/>
+    
+</RelativeLayout>    
+
 <ScrollView
     android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
         android:layout_weight="0.78"
         android:scrollbarStyle="outsideInset"
     >
@@ -20,18 +42,11 @@
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical" >
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:textSize="40sp" />
 		
         <ImageView
             android:id="@+id/imageView"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
             android:layout_width="@dimen/mediumImage" 
             android:layout_height="200dp"/>
 		<TextView
@@ -42,8 +57,8 @@
             android:layout_below="@+id/imageView"
             android:text="Autore"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/black"
+            android:textStyle="normal"/>
 		
 		<TextView
             android:id="@+id/autoreText"
@@ -56,7 +71,7 @@
 		    android:id="@+id/lineaAutore" 
 		    android:layout_height="0.5dp"
     		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
+			android:background="@color/azzurro" 
 			android:layout_below="@+id/autoreText"
 			/>
 		<TextView
@@ -67,8 +82,8 @@
             android:layout_below="@+id/autoreText"
             android:text="Anno"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/black"
+            android:textStyle="normal"/>
 		<TextView
             android:id="@+id/annoText"
             android:layout_width="wrap_content"
@@ -80,7 +95,7 @@
 		    android:id="@+id/lineaAnno" 
 		    android:layout_height="0.5dp"
     		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
+			android:background="@color/azzurro" 
 			android:layout_below="@+id/annoText"
 			/>
 		<TextView
@@ -91,8 +106,8 @@
             android:layout_below="@+id/annoText"
             android:text="Descrizione"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/black"
+            android:textStyle="normal"/>
 		<TextView
             android:id="@+id/descText"
             android:layout_width="wrap_content"
@@ -104,7 +119,7 @@
 		    android:id="@+id/lineaDesc" 
 		    android:layout_height="0.5dp"
     		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
+			android:background="@color/azzurro" 
 			android:layout_below="@+id/descText"
 			/>
 		<TextView
@@ -115,8 +130,8 @@
             android:layout_below="@+id/descText"
             android:text="Mostra"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/black"
+            android:textStyle="normal"/>
         <TextView
             android:id="@+id/mostraText"
             android:layout_width="wrap_content"

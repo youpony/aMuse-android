@@ -40,8 +40,6 @@ public class ImagePreview extends Activity {
         
         
         
-        
-        
 		
 		
 		//manage Cancel button action
