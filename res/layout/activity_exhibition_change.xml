@@ -2,6 +2,28 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
+<RelativeLayout 
+    android:id="@+id/titleLayout"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_weight="0"
+    android:background="@color/azzurro"
+    >
+    
+    
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Titolo opera"
+            android:textColor="@android:color/white"
+            android:textSize="40sp" 
+            android:textStyle="normal"/>
+    
+</RelativeLayout>        
+    
     
 <ScrollView
     android:layout_width="match_parent"
@@ -26,112 +48,119 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:textSize="17sp"
+        android:text="Ocio"
         android:textStyle="bold" />
-        
-	<TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/alertText"
-		android:textSize="17sp" />
 		
 	<ImageView
-		android:id="@+id/imageView"
-		android:layout_alignLeft="@+id/cancel"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/title"
-		android:layout_width="@dimen/mediumImage" 
-		android:layout_height="200dp"/>
-	<TextView
-        android:id="@+id/autoreTitle"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignLeft="@+id/cancel"
-		android:layout_below="@+id/imageView"
-		android:text="Autore"
-		android:textSize="20sp"
-		android:textColor="@color/verdone"
-		android:textStyle="bold"/>
+            android:id="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/alertText"
+            android:layout_width="@dimen/mediumImage" 
+            android:layout_height="200dp"
+            android:layout_marginBottom="4dp"/>
+		<View
+		    android:id="@+id/lineaAutore" 
+		    android:layout_height="0.5dp"
+    		android:layout_width="fill_parent"
+			android:background="@color/azzurro" 
+			android:layout_below="@+id/imageView"
+			/>
+		<TextView
+            android:id="@+id/autoreTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cancel"
+            android:layout_below="@+id/lineaAutore"
+            android:text="Autore"
+            android:textSize="20sp"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="normal"/>
 		
-	<TextView
+		<TextView
             android:id="@+id/autoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/autoreTitle"
+            android:textColor="@android:color/black"
             android:textSize="17sp"/>
 		<View
-		    android:id="@+id/lineaAutore" 
+		    android:id="@+id/lineaAnno" 
 		    android:layout_height="0.5dp"
     		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
+			android:background="@color/azzurro" 
 			android:layout_below="@+id/autoreText"
 			/>
+       
 		<TextView
             android:id="@+id/annoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
-            android:layout_below="@+id/autoreText"
+            android:layout_below="@+id/lineaAnno"
             android:text="Anno"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="normal"/>
 		<TextView
             android:id="@+id/annoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/annoTitle"
+            android:textColor="@android:color/black"
             android:textSize="17sp"/>
 		<View
-		    android:id="@+id/lineaAnno" 
+		    android:id="@+id/lineaDesc" 
 		    android:layout_height="0.5dp"
     		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
+			android:background="@color/azzurro" 
 			android:layout_below="@+id/annoText"
 			/>
+		
 		<TextView
             android:id="@+id/descTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
-            android:layout_below="@+id/annoText"
+            android:layout_below="@+id/lineaDesc"
             android:text="Descrizione"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="normal"/>
 		<TextView
             android:id="@+id/descText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/descTitle"
+            android:textColor="@android:color/black"
             android:textSize="17sp"/>
 		<View
-		    android:id="@+id/lineaDesc" 
+		    android:id="@+id/lineaMostra" 
 		    android:layout_height="0.5dp"
     		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
+			android:background="@color/azzurro" 
 			android:layout_below="@+id/descText"
 			/>
+		
 		<TextView
             android:id="@+id/mostraTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
-            android:layout_below="@+id/descText"
+            android:layout_below="@+id/lineaMostra"
             android:text="Mostra"
             android:textSize="20sp"
-            android:textColor="@color/verdone"
-            android:textStyle="bold"/>
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="normal"/>
         <TextView
             android:id="@+id/mostraText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/mostraTitle"
+            android:textColor="@android:color/black"
             android:textSize="17sp"/>
     </RelativeLayout>
 </ScrollView>

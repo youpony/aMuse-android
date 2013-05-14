@@ -53,20 +53,7 @@ public class ImagePreview extends Activity {
         
         
         
-//        imdown = new ImageDownloader();
-        
-        
-        
-//        String pathName = Environment.getExternalStorageDirectory().getPath();
-//        File path = new File(pathName);
-//        if(path.exists()){
-//            BitmapFactory.Options options = new BitmapFactory.Options();
-//            photo = BitmapFactory.decodeFile(pathName, options);
-//            image.setImageBitmap(photo);
-//        }
-         
-        
-//       url = imdown.download(pathName,image);
+
 		
        //Log.d("orrudebug", url);
 		

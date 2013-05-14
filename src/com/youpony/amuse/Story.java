@@ -24,7 +24,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.origamilabs.library.views.StaggeredGridView;
 import com.youpony.amuse.adapters.ItemsAdapter;
@@ -55,10 +57,11 @@ public class Story extends Fragment {
 	
 	public static String[] debugArray;
 	public static Button send;
-	public static View line;
 	private StaggeredGridView pinterest;
 	public static ItemsAdapter pinterestAdapter;
-
+	public static RelativeLayout buttonLayout;
+	public static ImageView tutorial;
+	
 	private View sView;
 	
 	public Story(){
@@ -70,15 +73,17 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		//DEBUGGING PURPOSES
-		debugArray = new String[]{};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		debugArray = new String[]{"0&4"};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 
 
 		sView = inflater.inflate(R.layout.activity_story, container, false);
 		pinterest = (StaggeredGridView) sView.findViewById(R.id.staggeredGridView);
 		send = (Button) sView.findViewById(R.id.send_button);
-		line = (View) sView.findViewById(R.id.lineaStory);
+//		line = (View) sView.findViewById(R.id.lineaStory);
 		Story.send.setVisibility(View.INVISIBLE);
-		Story.line.setVisibility(View.INVISIBLE);
+		
+		buttonLayout = (RelativeLayout) sView.findViewById(R.id.buttonLine);
+//		Story.line.setVisibility(View.INVISIBLE);
 		
 		for(int i=0; i<debugArray.length; i++){
 			Intent qrResult = new Intent(PageViewer.getAppContext(), QrResult.class);
@@ -86,6 +91,8 @@ public class Story extends Fragment {
 	  		qrResult.putExtra(PageViewer.EXTRA_MESSAGE, resultString);
 	  		startActivity(qrResult);
 		}
+		
+		tutorial = (ImageView) sView.findViewById(R.id.tutorial);
 		
 		pinterest.setOnItemClickListener(onItemClick);
 		pinterest.setOnItemLongClickListener(longListener);
@@ -155,7 +162,7 @@ public class Story extends Fragment {
                 	if(PageViewer.values.size() == 0){
                 		start = true;
                 		Story.send.setVisibility(View.INVISIBLE);
-                		Story.line.setVisibility(View.INVISIBLE);
+//                		Story.line.setVisibility(View.INVISIBLE);
 
                 	}
                 	Log.i("orrudebug", "cancellato l'oggetto " + removable);

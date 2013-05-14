@@ -174,7 +174,8 @@ public class QrResult extends Activity {
 														Story.pinterestAdapter.notifyDataSetChanged();
 
 														Story.send.setVisibility(View.VISIBLE);
-														Story.line.setVisibility(View.VISIBLE);
+														Story.tutorial.setVisibility(View.INVISIBLE);
+//														Story.line.setVisibility(View.VISIBLE);
 														Log.i("orrudebug", "aggiunto oggetto con id: " + oggetto.id);
 													}
 													//this is wrong (just for debugging on local without images) REMOVE IT!
@@ -288,18 +289,18 @@ public class QrResult extends Activity {
 		stop = true;
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(2);
-		QrCode.start_qr.setText("wrong QrCode, try again!");
+//		QrCode.start_qr.setText("wrong QrCode, try again!");
 	}
 	
 	void noInternet(){
 		stop = true;
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(2);
-		QrCode.start_qr.setText("no internet connection, try again!");
+//		QrCode.start_qr.setText("no internet connection, try again!");
 	}
 	
 	void yesInternet(){
-		QrCode.start_qr.setText(QrCode.BASE_TEXT);
+//		QrCode.start_qr.setText(QrCode.BASE_TEXT);
 	}
 	
 	@Override

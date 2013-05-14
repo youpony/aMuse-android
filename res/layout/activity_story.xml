@@ -21,28 +21,33 @@
             staggered:drawSelectorOnTop="true"
             staggered:numColumns="2" />
     </LinearLayout>
-
+	
+    <ImageView
+        android:id="@+id/tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/tutorial" />
+    
     <RelativeLayout
+        android:id="@+id/buttonLine"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:orientation="vertical" >
-		<View
-		    android:id="@+id/lineaStory" 
-		    android:layout_height="0.5dp"
-    		android:layout_width="fill_parent"
-			android:background="@color/grigione" 
-			android:layout_alignParentTop="true"
-			/>
+        android:orientation="vertical"
+        android:background="@android:color/transparent" >
+		
+
         <Button
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/lineaStory"
-            android:textColor="#000000"
-            android:text="Send"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/azzurro"
+            android:text="Send story"
+            android:textColor="#ffffff"
             android:visibility="visible" />
 
     </RelativeLayout>
