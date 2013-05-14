@@ -43,7 +43,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
 	
 	
-	private Uri mImageCaptureUri;
+	private Uri imageUri;
 
 	
 	public CameraTab camera;
@@ -283,9 +283,9 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	  	            
 	  	       
 	  	        	
-	  	    		
-		        	Bitmap picture = (Bitmap) intent.getExtras().get("data");
-		        	imageResult.putExtra("IMMAGINE", picture);
+//	  	    		
+//		        	Bitmap picture = (Bitmap) intent.getExtras().get("URI");
+//		        	imageResult.putExtra("IMMAGINE", intent.getExtras().getString("URI"));
 		        	
 		        	
 		        	

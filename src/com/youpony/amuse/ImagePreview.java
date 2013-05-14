@@ -43,16 +43,11 @@ public class ImagePreview extends Activity {
 		comment = (EditText) findViewById(R.id.comment);
 		
 		Intent intent = getIntent();
-		
-		Bundle extras = intent.getExtras();
-        photo = (Bitmap) extras.get("IMMAGINE");
-        
-        image.setImageBitmap(photo);
-        
-        photo = BitmapFactory.decodeFile(intent.getDataString());
-        
-        
-        
+//		
+//		Bundle extras = intent.getExtras();
+//        photo = (Bitmap) extras.get("IMMAGINE");
+//        
+//        image.setImageBitmap(photo);
 
 		
        //Log.d("orrudebug", url);
@@ -74,16 +69,6 @@ public class ImagePreview extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-//				Story.start = false;
-////				Story.id_mostra = oggetto.e_id;
-////				if(url != null){
-//					PageViewer.values.add(oggetto);
-////					
-//					PageViewer.pinterestItems.add(url);
-//					Story.pinterestAdapter.notifyDataSetChanged();
-//
-//					Story.send.setVisibility(View.VISIBLE);
-//					Story.line.setVisibility(View.VISIBLE);
 				close();
 				
 			}

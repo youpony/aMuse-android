@@ -53,19 +53,21 @@ public class CameraTab extends Fragment {
     		
     		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
     		
-//            int imageNum = 0;
-//    		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
-//            imagesFolder.mkdirs();
-//            String fileName = "image_" + String.valueOf(imageNum) + ".jpg";
-//            File output = new File(imagesFolder, fileName);
-//            while (output.exists()){
-//                imageNum++;
-//                fileName = "image_" + String.valueOf(imageNum) + ".jpg";
-//                output = new File(imagesFolder, fileName);
-//            }
-//            Uri uriSavedImage = Uri.fromFile(output);
-//            intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-//
+	     //SALVO FOTO CON NOME STRAMBO
+    		int imageNum = 0;
+    		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
+    		imagesFolder.mkdirs();
+    		String fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+    		File output = new File(imagesFolder, fileName);
+    		while (output.exists()){
+    			imageNum++;
+    			fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+    			output = new File(imagesFolder, fileName);
+    		}
+    		Uri uriSavedImage = Uri.fromFile(output);
+    		intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+    		
+	//
 //    		
     		
 //	            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
