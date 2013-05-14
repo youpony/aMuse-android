@@ -2,9 +2,7 @@ package com.youpony.amuse;
 
 import java.io.File;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,10 +12,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 /*
  * Fragment containing Camera.
@@ -38,8 +34,7 @@ public class CameraTab extends Fragment {
     	}
     	
     	@Override
-    	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                 Bundle savedInstanceState) {
+    	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     		
 			View rootView = inflater.inflate(R.layout.activity_camera, container, false);
 			prev = (FrameLayout) rootView.findViewById(R.id.camera_frame);
@@ -55,11 +50,28 @@ public class CameraTab extends Fragment {
     	public void TakePhoto() {
     		
     		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-//    		File file = new File(Environment.getExternalStorageDirectory(), "test.jpg");
-//    	
-//            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-//            outputFileUri = Uri.fromFile(file);
+    		
+//            int imageNum = 0;
+//    		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
+//            imagesFolder.mkdirs();
+//            String fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+//            File output = new File(imagesFolder, fileName);
+//            while (output.exists()){
+//                imageNum++;
+//                fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+//                output = new File(imagesFolder, fileName);
+//            }
+//            Uri uriSavedImage = Uri.fromFile(output);
+//            intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+//
 //    		
+    		
+//	            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+//            outputFileUri = intent.getData();
+//            intent.putExtra(outputFileUri+"", "URI");
+//            Log.d("orrudebug",outputFileUri+"");
+//    		
+    		 
             getActivity().startActivityForResult(intent, 100);
     	}
 	} 

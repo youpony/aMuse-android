@@ -1,9 +1,14 @@
 package com.youpony.amuse;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +23,10 @@ public class ImagePreview extends Activity {
 	EditText comment;
 	Button cancel, confirm;
 	Bitmap photo;
+	ImageDownloader imdown;
+	Item oggetto;
+	String url;
+	File banana;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -25,6 +34,8 @@ public class ImagePreview extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_image);
 		
+		
+		oggetto=new Item();
 		image= new ImageView(this);
 		comment=new EditText(this);
 		
@@ -38,11 +49,26 @@ public class ImagePreview extends Activity {
         
         image.setImageBitmap(photo);
         
+        photo = BitmapFactory.decodeFile(intent.getDataString());
         
         
         
+//        imdown = new ImageDownloader();
         
+        
+        
+//        String pathName = Environment.getExternalStorageDirectory().getPath();
+//        File path = new File(pathName);
+//        if(path.exists()){
+//            BitmapFactory.Options options = new BitmapFactory.Options();
+//            photo = BitmapFactory.decodeFile(pathName, options);
+//            image.setImageBitmap(photo);
+//        }
+         
+        
+//       url = imdown.download(pathName,image);
 		
+       //Log.d("orrudebug", url);
 		
 		//manage Cancel button action
 		cancel = (Button) findViewById(R.id.cancel);
@@ -61,7 +87,16 @@ public class ImagePreview extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+//				Story.start = false;
+////				Story.id_mostra = oggetto.e_id;
+////				if(url != null){
+//					PageViewer.values.add(oggetto);
+////					
+//					PageViewer.pinterestItems.add(url);
+//					Story.pinterestAdapter.notifyDataSetChanged();
+//
+//					Story.send.setVisibility(View.VISIBLE);
+//					Story.line.setVisibility(View.VISIBLE);
 				close();
 				
 			}
