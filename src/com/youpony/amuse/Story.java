@@ -24,6 +24,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -59,6 +60,7 @@ public class Story extends Fragment {
 	private StaggeredGridView pinterest;
 	public static ItemsAdapter pinterestAdapter;
 	public static RelativeLayout buttonLayout;
+	public static ImageView tutorial;
 	
 	private View sView;
 	
@@ -71,7 +73,7 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		//DEBUGGING PURPOSES
-		debugArray = new String[]{"0&5"};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		debugArray = new String[]{};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 
 
 		sView = inflater.inflate(R.layout.activity_story, container, false);
@@ -89,6 +91,8 @@ public class Story extends Fragment {
 	  		qrResult.putExtra(PageViewer.EXTRA_MESSAGE, resultString);
 	  		startActivity(qrResult);
 		}
+		
+		tutorial = (ImageView) sView.findViewById(R.id.tutorial);
 		
 		pinterest.setOnItemClickListener(onItemClick);
 		pinterest.setOnItemLongClickListener(longListener);

@@ -21,7 +21,14 @@
             staggered:drawSelectorOnTop="true"
             staggered:numColumns="2" />
     </LinearLayout>
-
+	
+    <ImageView
+        android:id="@+id/tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/tutorial" />
+    
     <RelativeLayout
         android:id="@+id/buttonLine"
         android:layout_width="fill_parent"

@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 /*
@@ -30,7 +31,7 @@ public class CameraTab extends Fragment {
 
 		Camera mCamera;
 		FrameLayout prev;
-		private Button start_camera;
+		private ImageButton start_camera;
 		public static int TAKE_PICTURE = 1;
 		private Uri outputFileUri;
 		
@@ -43,7 +44,7 @@ public class CameraTab extends Fragment {
     		
 			View rootView = inflater.inflate(R.layout.activity_camera, container, false);
 			prev = (FrameLayout) rootView.findViewById(R.id.camera_frame);
-            start_camera = (Button) rootView.findViewById(R.id.start_camera);
+            start_camera = (ImageButton) rootView.findViewById(R.id.start_camera);
             start_camera.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     	TakePhoto();
