@@ -36,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:orientation="vertical"
-        android:background="@color/azzurro" >
+        android:background="@android:color/transparent" >
 		
 
         <Button
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
+            android:background="@color/azzurro"
             android:text="Send story"
             android:textColor="#ffffff"
             android:visibility="visible" />
