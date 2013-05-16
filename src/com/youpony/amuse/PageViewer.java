@@ -304,17 +304,17 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	    	    
   	    	   
   	    	 //Get our saved file into a bitmap object:
-  	    	   File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + "image_" +CameraTab.imageNum +".jpg");
-  	    	   Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 100, 70);
-  	    
+  	    	
+  	    	  File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
+  	    	  Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 100, 70);
   	    	  
+  	    	  Log.d("orrudebug", "percorso B" + file.getPath());
   	    	  
   	          Intent imageResult = new Intent(this, ImagePreview.class);
     
 	    	  imageResult.putExtra("IMMAGINE", bitmap);
 	
 	    	  startActivity(imageResult);
-	
 
 	    	  
   	        }
@@ -323,69 +323,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	  	
     
 
-  	    	  
-  	    	  
-  	    	  
-//  	    	  
-//  	    	  
-//  	    	  Log.d("orrudebug", "pronto per passare");
-//  	          //Get our saved file into a bitmap object:
-//  	    	  File file = new File(Environment.getExternalStorageDirectory()+ File.separator + "aMuse"+ File.separator + "image_" + CameraTab.imageNum +".jpg");
-//  	    	  Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 1000, 700);
-//  	      
-//  	    	  Intent imageResult = new Intent(this, ImagePreview.class);
-//  	    	  imageResult.putExtra("IMMAGINE", bitmap);
-//  	    	  startActivity(imageResult);
-  	    	  
-  	    	  
-  	    	  
-  	    	  
-  	    	  
-  	    	  
-//	  	        	Uri selectedImage = intent.getData();
-//	  	        	
-//	  	        	String[] filePathColumn = {MediaStore.Images.Media.DATA};
-//
-//	  	            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-//	  	            cursor.moveToFirst();
-//
-//	  	            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//	  	            String filePath = cursor.getString(columnIndex);
-//	  	            cursor.close();
-//	  	        	
-
-//	  	            Log.d("orrudebug",filePath);
-	  	            
-	  	        	
-//	  	        	Uri mImageCaptureUri = (Uri) getIntent().getExtras().get(MediaStore.EXTRA_OUTPUT); 
-////	  	        			intent.getExtras().get("URIFOTO");
-//	  	        	imageResult.putExtra("URIFOTO2", mImageCaptureUri);
-////	  	    		
-//		        	Bitmap picture = (Bitmap) intent.getExtras().get("URI");
-//		        	imageResult.putExtra("IMMAGINE", picture);
-		        	
-	  	        	
-//	  	        	mImageCaptureUri= (Uri) intent.getExtras().get("URIFOTO");
-//	  	        	imageResult.putExtra("URI", mImageCaptureUri);
-//		        	
-		        	
-		        	
-		        	
-//		        	mImageCaptureUri = intent.getData();
-//		        	imageResult.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
-//		        	
-	//	            String path = mImageCaptureUri.getPath();
-	//	            
-	//	            Log.d("orrudebug",path);
-	//	        	
-		        	
-	//  	        	Log.d("orrudebug","foto in restituzione" + intent.getDataString());
-//  		  if (intentcamera != null ) 
-//  		  startActivity(ImagePreview)
-//  	  	Log.d("orrudebug", "orrudebug - QR non va");
-  	  
-  	
-   
     public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) {
     	
     	// BEST QUALITY MATCH

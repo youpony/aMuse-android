@@ -23,7 +23,7 @@ import android.widget.ImageButton;
 public class CameraTab extends Fragment {
 
 	
-		public static int imageNum=0;
+		public static int imageNum;
 		Camera mCamera;
 		FrameLayout prev;
 		private ImageButton start_camera;
@@ -64,14 +64,22 @@ public class CameraTab extends Fragment {
 //    		
 ////    		intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
 //    		
+    		imageNum=0;
+    		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
+    		imagesFolder.mkdirs();
+    		String fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+    		File output = new File(imagesFolder, fileName);
+    		while (output.exists()){
+    			imageNum++;
+    			fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+    			output = new File(imagesFolder, fileName);
+    		}
+    		Uri uriSavedImage = Uri.fromFile(output);
+    		intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+
     		
-    		
-    		File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse"+ "image_" +imageNum + ".jpg");
-    		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-//    		
-//    		File file = new File(Environment.getExternalStorageDirectory()+File.separator + "image.jpg");
+//    		File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse"+ "image_" +imageNum + ".jpg");
 //    		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-    		
     		
     		getActivity().startActivityForResult(intent, 100);
     		

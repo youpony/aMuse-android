@@ -63,9 +63,8 @@ public class ImagePreview extends Activity {
 //        
         image.setImageBitmap(photo);
 
-		
        //Log.d("orrudebug", url);
-		
+
 		//manage Cancel button action
 		cancel = (Button) findViewById(R.id.cancel);
 		cancel.setOnClickListener(new OnClickListener() {
