@@ -36,7 +36,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
 	
-	
+	public static File pacchetto;
 	Bitmap bitmap;
 	public CameraTab camera;
 	public Story story;
@@ -305,16 +305,16 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	    	   
   	    	 //Get our saved file into a bitmap object:
   	    	
-  	    	  File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
-  	    	  Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 100, 70);
-  	    	  
-  	    	  Log.d("orrudebug", "percorso B" + file.getPath());
-  	    	  
-  	          Intent imageResult = new Intent(this, ImagePreview.class);
-    
-	    	  imageResult.putExtra("IMMAGINE", bitmap);
-	
-	    	  startActivity(imageResult);
+            pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
+            Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 100, 70);
+
+            Log.d("orrudebug", "percorso B " + pacchetto.getPath());
+
+            Intent imageResult = new Intent(this, ImagePreview.class);
+
+            imageResult.putExtra("IMMAGINE", bitmap);
+
+            startActivity(imageResult);
 
 	    	  
   	        }

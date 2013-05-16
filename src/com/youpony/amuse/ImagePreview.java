@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -54,7 +55,14 @@ public class ImagePreview extends Activity {
 //		}
 
 		photo=(Bitmap) intent.getExtras().get("IMMAGINE");
-		
+
+
+
+        url = PageViewer.pacchetto.getAbsolutePath();
+        Log.d("orrudebug", "percorso bam giù nel canestro " + url);
+
+        //ABBIAMO IL PERCORSO DELL'IMMAGINE, ORA LO BUTTIAMO NEL DOWNLOADER
+
 //		
 //		Bundle extras = intent.getExtras();
 //		Uri imageUri = (Uri) extras.get("URIFOTO2");
