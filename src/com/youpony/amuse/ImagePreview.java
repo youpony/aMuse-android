@@ -5,17 +5,12 @@ import java.io.File;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class ImagePreview extends Activity {
 	
@@ -26,7 +21,6 @@ public class ImagePreview extends Activity {
 	ImageDownloader imdown;
 	Item oggetto;
 	String url;
-	File banana;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -42,12 +36,32 @@ public class ImagePreview extends Activity {
 		image = (ImageView) findViewById(R.id.imageView);
 		comment = (EditText) findViewById(R.id.comment);
 		
+
+
 		Intent intent = getIntent();
 //		
+//		Uri imageUri = intent.getData();
+//		
+//		Log.d("orrudebug", imageUri.toString());
+//        try {
+//			photo = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+		photo=(Bitmap) intent.getExtras().get("IMMAGINE");
+		
+//		
 //		Bundle extras = intent.getExtras();
+//		Uri imageUri = (Uri) extras.get("URIFOTO2");
+		
 //        photo = (Bitmap) extras.get("IMMAGINE");
 //        
-//        image.setImageBitmap(photo);
+        image.setImageBitmap(photo);
 
 		
        //Log.d("orrudebug", url);

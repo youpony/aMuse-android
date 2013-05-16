@@ -12,10 +12,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 /*
  * Fragment containing Camera.
@@ -25,12 +23,10 @@ import android.widget.ImageView;
 public class CameraTab extends Fragment {
 
 	
-
+		public static int imageNum=0;
 		Camera mCamera;
 		FrameLayout prev;
 		private ImageButton start_camera;
-		public static int TAKE_PICTURE = 1;
-		private Uri outputFileUri;
 		
     	public CameraTab(){	
     	}
@@ -53,29 +49,32 @@ public class CameraTab extends Fragment {
     		
     		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
     		
-	     //SALVO FOTO CON NOME STRAMBO
-    		int imageNum = 0;
-    		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
-    		imagesFolder.mkdirs();
-    		String fileName = "image_" + String.valueOf(imageNum) + ".jpg";
-    		File output = new File(imagesFolder, fileName);
-    		while (output.exists()){
-    			imageNum++;
-    			fileName = "image_" + String.valueOf(imageNum) + ".jpg";
-    			output = new File(imagesFolder, fileName);
-    		}
-    		Uri uriSavedImage = Uri.fromFile(output);
-    		intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-    		
-	//
+//	     //SALVO FOTO CON NOME STRAMBO
+////    		imageNum = 0;
+//    		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
+//    		imagesFolder.mkdirs();
+//    		String fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+//    		File output = new File(imagesFolder, fileName);
+//    		while (output.exists()){
+//    			imageNum++;
+//    			fileName = "image_" + String.valueOf(imageNum) + ".jpg";
+//    			output = new File(imagesFolder, fileName);
+//    		}
+//    		Uri uriSavedImage = Uri.fromFile(output);
+//    		
+////    		intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
 //    		
     		
-//	            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-//            outputFileUri = intent.getData();
-//            intent.putExtra(outputFileUri+"", "URI");
-//            Log.d("orrudebug",outputFileUri+"");
+    		
+    		File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse"+ "image_" +imageNum + ".jpg");
+    		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
 //    		
+//    		File file = new File(Environment.getExternalStorageDirectory()+File.separator + "image.jpg");
+//    		intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+    		
+    		
+    		getActivity().startActivityForResult(intent, 100);
+    		
     		 
-            getActivity().startActivityForResult(intent, 100);
     	}
 	} 

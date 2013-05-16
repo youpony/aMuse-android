@@ -2,21 +2,15 @@ package com.youpony.amuse;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Locale;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.net.Uri;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -43,9 +37,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
 	
 	
-	private Uri imageUri;
-
-	
+	Bitmap bitmap;
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
@@ -262,11 +254,94 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	  		startActivity(qrResult);
 	  	  }
   	  	else{
-	  		switch (requestCode) {
-	  	    case 100:
-	  	        if (resultCode == Activity.RESULT_OK) {
-	  	        	Intent imageResult = new Intent(this, ImagePreview.class);
-	  	        	
+  	  		Log.d("orrudebug","entrata nella camera con code " + requestCode);
+  	  		
+  	  	  //Check that request code matches ours:
+  	      if (requestCode == 100){
+  	    	  
+  	    	 
+  	    	  
+  	    	/* // METODO IMMAGINI COMPRESSE
+  	    	   
+  	    	  
+  	    	 //Check if your application folder exists in the external storage, if not create it:
+  	        File imageStorageFolder = new File(Environment.getExternalStorageDirectory()+File.separator+File.separator + "aMuse");
+  	        if (!imageStorageFolder.exists())
+  	        {
+  	            imageStorageFolder.mkdirs();
+  	            Log.d("orrudebug" , "Folder created at: "+imageStorageFolder.toString());
+  	        }
+  	 
+  	        //Check if data in not null and extract the Bitmap:
+  	        if (intent != null)
+  	        {
+  	            String filename = "image_";
+  	            String fileNameExtension = ".jpg";
+  	            File sdCard = Environment.getExternalStorageDirectory();
+  	            String imageFolder = File.separator + "aMuse"+ File.separator;
+  	            File destinationFile = new File(sdCard, imageFolder + filename + CameraTab.imageNum + fileNameExtension);
+  	            Log.d("orrudebug", "the destination for image file is: " + destinationFile );
+  	            if (intent.getExtras() != null)
+  	            {
+  	                bitmap = (Bitmap)intent.getExtras().get("data");
+  	                try
+  	                {
+  	                    FileOutputStream out = new FileOutputStream(destinationFile);
+  	                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+  	                    out.flush();
+  	                    out.close();
+  	                } 
+  	                catch (Exception e) 
+  	                {
+  	                    Log.e("orrudebug", "ERROR:" + e.toString());
+  	                }
+  	            }
+  	            }
+  	          */
+  	           
+  	           
+  	    	  //METODO IMMAGINI ORIGINALI
+  	    	    
+  	    	   
+  	    	 //Get our saved file into a bitmap object:
+  	    	   File file = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + "image_" +CameraTab.imageNum +".jpg");
+  	    	   Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 100, 70);
+  	    
+  	    	  
+  	    	  
+  	          Intent imageResult = new Intent(this, ImagePreview.class);
+    
+	    	  imageResult.putExtra("IMMAGINE", bitmap);
+	
+	    	  startActivity(imageResult);
+	
+
+	    	  
+  	        }
+  	      }
+  	  	}
+  	  	
+    
+
+  	    	  
+  	    	  
+  	    	  
+//  	    	  
+//  	    	  
+//  	    	  Log.d("orrudebug", "pronto per passare");
+//  	          //Get our saved file into a bitmap object:
+//  	    	  File file = new File(Environment.getExternalStorageDirectory()+ File.separator + "aMuse"+ File.separator + "image_" + CameraTab.imageNum +".jpg");
+//  	    	  Bitmap bitmap = decodeSampledBitmapFromFile(file.getAbsolutePath(), 1000, 700);
+//  	      
+//  	    	  Intent imageResult = new Intent(this, ImagePreview.class);
+//  	    	  imageResult.putExtra("IMMAGINE", bitmap);
+//  	    	  startActivity(imageResult);
+  	    	  
+  	    	  
+  	    	  
+  	    	  
+  	    	  
+  	    	  
 //	  	        	Uri selectedImage = intent.getData();
 //	  	        	
 //	  	        	String[] filePathColumn = {MediaStore.Images.Media.DATA};
@@ -278,35 +353,75 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 //	  	            String filePath = cursor.getString(columnIndex);
 //	  	            cursor.close();
 //	  	        	
-	  	            
+
 //	  	            Log.d("orrudebug",filePath);
 	  	            
-	  	       
 	  	        	
-//	  	    		
+//	  	        	Uri mImageCaptureUri = (Uri) getIntent().getExtras().get(MediaStore.EXTRA_OUTPUT); 
+////	  	        			intent.getExtras().get("URIFOTO");
+//	  	        	imageResult.putExtra("URIFOTO2", mImageCaptureUri);
+////	  	    		
 //		        	Bitmap picture = (Bitmap) intent.getExtras().get("URI");
-//		        	imageResult.putExtra("IMMAGINE", intent.getExtras().getString("URI"));
+//		        	imageResult.putExtra("IMMAGINE", picture);
+		        	
+	  	        	
+//	  	        	mImageCaptureUri= (Uri) intent.getExtras().get("URIFOTO");
+//	  	        	imageResult.putExtra("URI", mImageCaptureUri);
+//		        	
 		        	
 		        	
 		        	
-		        	
-		        	
-	//	        	mImageCaptureUri = intent.getData();
+//		        	mImageCaptureUri = intent.getData();
+//		        	imageResult.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+//		        	
 	//	            String path = mImageCaptureUri.getPath();
 	//	            
 	//	            Log.d("orrudebug",path);
 	//	        	
-		        	startActivity(imageResult);
+		        	
 	//  	        	Log.d("orrudebug","foto in restituzione" + intent.getDataString());
-	  	        }
-	  	    }
 //  		  if (intentcamera != null ) 
 //  		  startActivity(ImagePreview)
-  	  	Log.d("orrudebug", "orrudebug - QR non va");
-  	  }
-  	}
+//  	  	Log.d("orrudebug", "orrudebug - QR non va");
+  	  
+  	
    
-    @Override
+    public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) {
+    	
+    	// BEST QUALITY MATCH
+        
+    	 //First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+     
+        // Calculate inSampleSize, Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        int inSampleSize = 1;
+     
+        if (height > reqHeight) 
+        {
+            inSampleSize = Math.round((float)height / (float)reqHeight);
+        }
+        int expectedWidth = width / inSampleSize;
+     
+        if (expectedWidth > reqWidth) 
+        {
+            //if(Math.round((float)width / (float)reqWidth) > inSampleSize) // If bigger SampSize..
+            inSampleSize = Math.round((float)width / (float)reqWidth);
+        }
+     
+        options.inSampleSize = inSampleSize;
+     
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+     
+        return BitmapFactory.decodeFile(path, options);
+	}
+
+	@Override
     protected void onStop(){
     	super.onStop();
     }
