@@ -37,7 +37,6 @@ import com.google.zxing.integration.android.IntentResult;
 public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
 	
 	public static File pacchetto;
-	Bitmap bitmap;
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
@@ -255,72 +254,34 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	  	  }
   	  	else{
   	  		Log.d("orrudebug","entrata nella camera con code " + requestCode);
-  	  		
-  	  	  //Check that request code matches ours:
-  	      if (requestCode == 100){
-  	    	  
-  	    	 
-  	    	  
-  	    	/* // METODO IMMAGINI COMPRESSE
-  	    	   
-  	    	  
-  	    	 //Check if your application folder exists in the external storage, if not create it:
-  	        File imageStorageFolder = new File(Environment.getExternalStorageDirectory()+File.separator+File.separator + "aMuse");
-  	        if (!imageStorageFolder.exists())
-  	        {
-  	            imageStorageFolder.mkdirs();
-  	            Log.d("orrudebug" , "Folder created at: "+imageStorageFolder.toString());
-  	        }
-  	 
-  	        //Check if data in not null and extract the Bitmap:
-  	        if (intent != null)
-  	        {
-  	            String filename = "image_";
-  	            String fileNameExtension = ".jpg";
-  	            File sdCard = Environment.getExternalStorageDirectory();
-  	            String imageFolder = File.separator + "aMuse"+ File.separator;
-  	            File destinationFile = new File(sdCard, imageFolder + filename + CameraTab.imageNum + fileNameExtension);
-  	            Log.d("orrudebug", "the destination for image file is: " + destinationFile );
-  	            if (intent.getExtras() != null)
-  	            {
-  	                bitmap = (Bitmap)intent.getExtras().get("data");
-  	                try
-  	                {
-  	                    FileOutputStream out = new FileOutputStream(destinationFile);
-  	                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-  	                    out.flush();
-  	                    out.close();
-  	                } 
-  	                catch (Exception e) 
-  	                {
-  	                    Log.e("orrudebug", "ERROR:" + e.toString());
-  	                }
-  	            }
-  	            }
-  	          */
-  	           
-  	           
-  	    	  //METODO IMMAGINI ORIGINALI
-  	    	    
-  	    	   
-  	    	 //Get our saved file into a bitmap object:
-  	    	
-            pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
-            Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 100, 70);
 
-            Log.d("orrudebug", "percorso B " + pacchetto.getPath());
+            //Butta fuori dalla camera se premi X
+            if (resultCode != RESULT_OK) return;
 
-            Intent imageResult = new Intent(this, ImagePreview.class);
+            //Check that request code matches ours:
+  	        if (requestCode == 100){
 
-            imageResult.putExtra("IMMAGINE", bitmap);
+                Log.d("orrudebug", "cosa + requestCode" +  requestCode);
 
-            startActivity(imageResult);
+                //METODO IMMAGINI ORIGINALI
 
-	    	  
+                pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
+                Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
+
+                Log.d("orrudebug", "percorso B " + pacchetto.getPath());
+
+                Intent imageResult = new Intent(this, ImagePreview.class);
+
+                imageResult.putExtra("IMMAGINE", bitmap);
+
+                startActivity(imageResult);
+
   	        }
   	      }
   	  	}
-  	  	
+
+
+    //TODO: le foto scattate sono sempre in landscape, e se volessi farla in verticale?
     
 
     public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) {
