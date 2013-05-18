@@ -1,31 +1,18 @@
 package com.youpony.amuse;
 
-import java.io.File;
-import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.origamilabs.library.views.StaggeredGridView;
@@ -37,22 +24,8 @@ import com.youpony.amuse.adapters.ItemsAdapter;
  */
 public class Story extends Fragment {
 	
-	
-//	private ListView listViewLeft;
-//	private ListView listViewRight;
-	
-	//call Story.<leftorright>Adapter.notifyDataChanged() from outer classes when item list is modified
-//	public static ItemsAdapter leftAdapter;
-//	public static ItemsAdapter rightAdapter;
-
-//	int[] leftViewsHeights;
-//	int[] rightViewsHeights;
-	
-//	ListView lv1;
-	//public static ArrayAdapter<Item> files;
 	public static int id_mostra;
 	public static boolean start = true;
-	int current = 0;
 	int removable;
 	
 	public static String[] debugArray;
@@ -79,12 +52,10 @@ public class Story extends Fragment {
 		sView = inflater.inflate(R.layout.activity_story, container, false);
 		pinterest = (StaggeredGridView) sView.findViewById(R.id.staggeredGridView);
 		send = (Button) sView.findViewById(R.id.send_button);
-//		line = (View) sView.findViewById(R.id.lineaStory);
 		Story.send.setVisibility(View.INVISIBLE);
 		
 		buttonLayout = (RelativeLayout) sView.findViewById(R.id.buttonLine);
-//		Story.line.setVisibility(View.INVISIBLE);
-		
+
 		for(int i=0; i<debugArray.length; i++){
 			Intent qrResult = new Intent(PageViewer.getAppContext(), QrResult.class);
 	  		String resultString = debugArray[i];
@@ -191,9 +162,7 @@ public class Story extends Fragment {
 	
 	
 	public static boolean findName(String name) {
-		//Log.i("orrudebug", "size : " + PageViewer.values.size());
 		for(int i=0; i<PageViewer.values.size(); i++){
-			//Log.i("orrudebug", name + " " + PageViewer.values.get(i));
 			if(PageViewer.values.get(i).name.equals(name)){
 				//Log.i("orrudebug", "sto iterando, ho trovato");
 				
@@ -204,7 +173,6 @@ public class Story extends Fragment {
 	}
 	public static int findPos(String name){
 		for(int i=0; i<PageViewer.values.size(); i++){
-			//Log.i("orrudebug", name + " " + PageViewer.values.get(i));
 			if(PageViewer.values.get(i).name.equals(name)){
 				return i;
 			}

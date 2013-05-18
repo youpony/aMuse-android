@@ -19,6 +19,7 @@ import android.widget.ImageButton;
  * Swipe left page.
  */
 
+
 public class CameraTab extends Fragment {
 
 	
@@ -47,8 +48,6 @@ public class CameraTab extends Fragment {
     		
     		Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
     		
-//	     //SALVO FOTO CON NOME STRAMBO
-
     		imageNum=0;
     		File imagesFolder = new File(Environment.getExternalStorageDirectory(), "aMuse");
     		imagesFolder.mkdirs();

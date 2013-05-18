@@ -1,21 +1,12 @@
 package com.youpony.amuse;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.*;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,9 +14,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * 	CURRENTLY IMPLEMENTS FULLSCREEN SWIPE WITHOUT CLICKABLE TABS!
@@ -247,28 +241,21 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
     	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
     	if (scanResult != null) {
+            Log.d("orrudebug","entrato nel qr, ma che request code ha: " + requestCode);
 	  		Intent qrResult = new Intent(this, QrResult.class);
 	  		String resultString = scanResult.getContents();
 	  		qrResult.putExtra(EXTRA_MESSAGE, resultString);
 	  		startActivity(qrResult);
 	  	  }
-  	  	else{
-  	  		Log.d("orrudebug","entrata nella camera con code " + requestCode);
-
+  	  	else {
             //Butta fuori dalla camera se premi X
             if (resultCode != RESULT_OK) return;
 
             //Check that request code matches ours:
   	        if (requestCode == 100){
 
-                Log.d("orrudebug", "cosa + requestCode" +  requestCode);
-
-                //METODO IMMAGINI ORIGINALI
-
                 pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
                 Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
-
-                Log.d("orrudebug", "percorso B " + pacchetto.getPath());
 
                 Intent imageResult = new Intent(this, ImagePreview.class);
 

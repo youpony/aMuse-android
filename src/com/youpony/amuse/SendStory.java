@@ -8,7 +8,6 @@ import org.json.JSONObject;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -19,12 +18,10 @@ import android.widget.TextView;
 
 public class SendStory extends Activity {
 
-	TextView email, myEmail, name;
+	TextView email, name;
 	EditText emailForm,  nameForm;
 	String emailString, nameString;
 	Button send, cancel;
-	Item oggetto;
-	private String JSON;
 	AlertDialog.Builder error;
 	
 	@Override
@@ -71,7 +68,7 @@ public class SendStory extends Activity {
 			nameString = nameForm.getText().toString();
 			error = new AlertDialog.Builder(SendStory. this);
 			error.setTitle("Formato email non corretto!");
-			error.setMessage("Per favore controlla il formato dei dati inseriti, l'email non è corretta.");
+			error.setMessage("Per favore controlla il formato dei dati inseriti, l'email non ÔøΩ corretta.");
 			if(!emailString.contains("@")){
 				error.show();
 				Log.i("orrudebug", "sbagliato email");
