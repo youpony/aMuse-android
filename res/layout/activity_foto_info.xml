@@ -3,47 +3,55 @@
               android:layout_height="fill_parent"
               android:orientation="vertical">
     <RelativeLayout
-        android:id="@+id/titleLayout"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_weight="0"
-        android:background="@color/azzurro"
-        >
+            android:id="@+id/titleLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="0"
+            android:background="@color/azzurro"
+            >
 
         <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="Titolo opera"
-            android:textColor="@android:color/white"
-            android:textSize="40sp"
-            android:textStyle="normal"/>
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Foto"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="normal"/>
+
     </RelativeLayout>
 
-
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_weight="0.78"
-        android:scrollbarStyle="outsideInset"
-        android:fillViewport="false">
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="0.78"
+            android:scrollbarStyle="outsideInset"
+            >
+        <RelativeLayout
+                android:id="@+id/content"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="top"
+                android:scrollbarStyle="insideOverlay"
+                android:scrollbars="vertical" >
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:layout_width="@dimen/mediumImage"
-            android:layout_height="200dp"
-            android:layout_marginBottom="4dp"/>
+
+            <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_width="@dimen/mediumImage"
+                    android:layout_height="350dp"
+                    android:layout_marginBottom="4dp"/>
+        </RelativeLayout>
+
     </ScrollView>
-
-
 
     <RelativeLayout
             android:id="@+id/buttons"

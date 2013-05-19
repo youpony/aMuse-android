@@ -18,7 +18,9 @@ public class ItemInfo extends Activity {
 	int pos;
 	Item item;
 	ImageDownloader downloader;
-	
+
+    //TODO EMOZIONI DA FARE VECC
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,18 +57,8 @@ public class ItemInfo extends Activity {
 		
 		//display object infos
 		
-		if(item.author!="ignoto") {
-			t1.setText(item.author);
-		} else {
-			titolo1.setVisibility(2);
-		}
-		
-		if(item.year!="0") {
-			t2.setText(item.year);
-		} else{
-			titolo2.setVisibility(2);
-		}
-		
+        t1.setText(item.author);
+        t2.setText(item.year);
 		t3.setText(item.description);
 		t4.setText(item.mostra);
 			
@@ -127,7 +119,7 @@ public class ItemInfo extends Activity {
 	}
 	
 	void close(){
-		ItemInfo.this.finish();
+		this.finish();
 		PageViewer.mViewPager.setCurrentItem(1);
 	}
 	

@@ -13,9 +13,7 @@
   </component>
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
-      <GlobalState>
-        <option name="visible" value="false" />
-      </GlobalState>
+      <GlobalState />
     </option>
   </component>
   <component name="AndroidLayouts">
@@ -28,9 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b53564f9-5053-4d2c-9683-61814359bdff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/ImagePreview.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/ImagePreview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_foto_info.xml" afterPath="$PROJECT_DIR$/res/layout/activity_foto_info.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_qr_result.xml" afterPath="$PROJECT_DIR$/res/layout/activity_qr_result.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aMuse-android.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,17 +39,18 @@
     <file path="/ImagePreview.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368988700739" ignored="false" />
     <file path="/CameraTab.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368870108751" ignored="false" />
     <file path="/fragment.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368989501117" ignored="false" />
-    <file path="/PageViewer.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368958446438" ignored="false" />
+    <file path="/PageViewer.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368999339894" ignored="false" />
     <file path="/a.xml" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734339685" ignored="false" />
     <file path="/a.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734239625" ignored="false" />
     <file path="/a.groovy" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734338272" ignored="false" />
     <file path="/a.html" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734338509" ignored="false" />
     <file path="/QrResult.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368987690253" ignored="false" />
     <file path="/Item.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368987235056" ignored="false" />
-    <file path="/ItemInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368992111488" ignored="false" />
-    <file path="/FotoInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368990178788" ignored="false" />
-    <file path="/Story.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368990989292" ignored="false" />
+    <file path="/ItemInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368995322996" ignored="false" />
+    <file path="/FotoInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368998338528" ignored="false" />
+    <file path="/Story.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369000075057" ignored="false" />
     <file path="/ImageDownloader.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368992740030" ignored="false" />
+    <file path="/activity_foto_info.xml" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368997649808" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,24 +115,6 @@
         <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="173" column="96" selection-start="5616" selection-end="5616" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageViewer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageDownloader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,11 +122,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Item.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Item.java">
+      <file leaf-file-name="PageViewer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="48" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="256" column="39" selection-start="8754" selection-end="8829" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageDownloader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,22 +153,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Story.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Story.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Story.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="38" selection-start="1213" selection-end="1213" vertical-scroll-proportion="-1.4490196">
+            <state line="17" column="46" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2337#2992#0" expanded="true" />
+                <element signature="e#2984#2985#0" expanded="true" />
+                <element signature="e#3054#3284#0" expanded="true" />
+                <element signature="e#3278#3279#0" expanded="true" />
+                <element signature="e#3390#4596#0" expanded="true" />
+                <element signature="e#3892#4529#0" expanded="true" />
+                <element signature="e#4527#4528#0" expanded="true" />
+                <element signature="e#4592#4593#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QrCode.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrCode.java">
+      <file leaf-file-name="FotoInfo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="13" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="33" column="9" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1477#2013#0" expanded="true" />
+                <element signature="e#2002#2003#0" expanded="true" />
+                <element signature="e#2149#2287#0" expanded="true" />
+                <element signature="e#2276#2277#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,34 +189,34 @@
       <file leaf-file-name="ItemInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="36" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
+            <state line="61" column="0" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2431#2873#0" expanded="true" />
-                <element signature="e#2868#2869#0" expanded="true" />
-                <element signature="e#2993#3093#0" expanded="true" />
-                <element signature="e#3088#3089#0" expanded="true" />
+                <element signature="e#2328#2770#0" expanded="true" />
+                <element signature="e#2765#2766#0" expanded="true" />
+                <element signature="e#2890#2990#0" expanded="true" />
+                <element signature="e#2985#2986#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScrollerCompat.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/origamilabs/library/views/ScrollerCompat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="7" selection-start="2671" selection-end="2671" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="activity_foto_info.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/activity_foto_info.xml">
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="897" selection-end="897" vertical-scroll-proportion="0.0">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="44" selection-start="926" selection-end="926" vertical-scroll-proportion="-11.666667">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="48" selection-start="148" selection-end="148" vertical-scroll-proportion="0.11627907">
               <folding />
             </state>
           </provider>
@@ -237,13 +247,14 @@
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/QrCode.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/Item.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java" />
-        <option value="$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_foto_info.xml" />
-        <option value="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" />
-        <option value="$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/ImagePreview.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_qr_result.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_foto_info.xml" />
+        <option value="$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" />
+        <option value="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" />
+        <option value="$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java" />
       </list>
     </option>
   </component>
@@ -425,20 +436,36 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="136" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="138" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="136" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="141" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="936" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="936" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="141" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="138" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -600,12 +627,12 @@
       <workItem from="1368869802392" duration="3956000" />
       <workItem from="1368956199739" duration="1523000" />
       <workItem from="1368962033624" duration="746000" />
-      <workItem from="1368986226264" duration="6586000" />
+      <workItem from="1368986226264" duration="13548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21202000" />
+    <option name="totallyTimeSpent" value="28164000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -631,19 +658,19 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.4875312" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.4875312" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6733167" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6733167" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6733167" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793018" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.67206985" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793018" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5124688" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="23" y="366" width="1394" height="167" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32917705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -723,15 +750,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/JSONParsing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="423" selection-end="423" vertical-scroll-proportion="0.31007752">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/SendStory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="13" selection-start="466" selection-end="466" vertical-scroll-proportion="-0.09855454">
@@ -755,19 +773,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_qr_result.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/widget/RelativeLayout.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="423" selection-end="423" vertical-scroll-proportion="0.26104417">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="96" selection-start="5616" selection-end="5616" vertical-scroll-proportion="0.0">
+        <state line="7" column="13" selection-start="196" selection-end="196" vertical-scroll-proportion="0.11627907">
           <folding />
         </state>
       </provider>
@@ -779,63 +787,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/widget/RelativeLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="196" selection-end="196" vertical-scroll-proportion="0.11627907">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_foto_info.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="897" selection-end="897" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="36" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2431#2873#0" expanded="true" />
-            <element signature="e#2868#2869#0" expanded="true" />
-            <element signature="e#2993#3093#0" expanded="true" />
-            <element signature="e#3088#3089#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/origamilabs/library/views/ScrollerCompat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="7" selection-start="2671" selection-end="2671" vertical-scroll-proportion="0.0">
+        <state line="92" column="7" selection-start="2671" selection-end="2671" vertical-scroll-proportion="0.748062">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_qr_result.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="18" selection-start="0" selection-end="6430" vertical-scroll-proportion="0.88353413">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="96" selection-start="5616" selection-end="5616" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="4" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0">
+        <state line="256" column="39" selection-start="8754" selection-end="8829" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Item.java">
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="34" column="0" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -848,10 +840,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Story.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="38" selection-start="1213" selection-end="1213" vertical-scroll-proportion="-1.4490196">
+        <state line="17" column="46" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#2337#2992#0" expanded="true" />
+            <element signature="e#2984#2985#0" expanded="true" />
+            <element signature="e#3054#3284#0" expanded="true" />
+            <element signature="e#3278#3279#0" expanded="true" />
+            <element signature="e#3390#4596#0" expanded="true" />
+            <element signature="e#3892#4529#0" expanded="true" />
+            <element signature="e#4527#4528#0" expanded="true" />
+            <element signature="e#4592#4593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="9" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1477#2013#0" expanded="true" />
+            <element signature="e#2002#2003#0" expanded="true" />
+            <element signature="e#2149#2287#0" expanded="true" />
+            <element signature="e#2276#2277#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_foto_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="44" selection-start="926" selection-end="926" vertical-scroll-proportion="-11.666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="0" selection-start="1789" selection-end="1789" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2328#2770#0" expanded="true" />
+            <element signature="e#2765#2766#0" expanded="true" />
+            <element signature="e#2890#2990#0" expanded="true" />
+            <element signature="e#2985#2986#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="48" selection-start="148" selection-end="148" vertical-scroll-proportion="0.11627907">
+          <folding />
         </state>
       </provider>
     </entry>
