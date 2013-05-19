@@ -240,8 +240,9 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 
     	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
+        //TODO: controllare che se il qr è errato dia errore, serve debug via telefono
+
     	if (scanResult != null) {
-            Log.d("orrudebug","entrato nel qr, ma che request code ha: " + requestCode);
 	  		Intent qrResult = new Intent(this, QrResult.class);
 	  		String resultString = scanResult.getContents();
 	  		qrResult.putExtra(EXTRA_MESSAGE, resultString);
@@ -266,7 +267,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	        }
   	      }
   	  	}
-
 
     //TODO: le foto scattate sono sempre in landscape, e se volessi farla in verticale?
     
