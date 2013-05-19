@@ -42,10 +42,13 @@ public class ImagePreview extends Activity {
         url = PageViewer.pacchetto.getAbsolutePath();
         Log.d("orrudebug", "percorso bam giù nel canestro " + url);
 
-        //ABBIAMO IL PERCORSO DELL'IMMAGINE, ORA LO DOBBIAMO BUTTARLO NEL DOWNLOADER
-
-
         image.setImageBitmap(photo);
+
+        //TODO: ABBIAMO IL PERCORSO DELL'IMMAGINE, ORA LO DOBBIAMO BUTTARLO NEL DOWNLOADER
+
+        oggetto.type="FOTO";
+        oggetto.url=url;
+
 
         //manage Cancel button action
 		cancel = (Button) findViewById(R.id.cancel);
@@ -64,6 +67,13 @@ public class ImagePreview extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+
+                PageViewer.values.add(oggetto);
+                PageViewer.pinterestItems.add(url);
+                Story.pinterestAdapter.notifyDataSetChanged();
+
+                Story.send.setVisibility(View.VISIBLE);
+                Story.tutorial.setVisibility(View.INVISIBLE);
 				close();
 				
 			}

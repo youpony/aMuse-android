@@ -158,7 +158,10 @@ public class QrResult extends Activity {
 											Log.i("orrudebug", "non c'� l'immagine di questo oggetto");
 										}
 										//NB: IMPEDIRE IL CARICAMENTO DEL LAYOUT PRIMA CHE L'IMMAGINE SIA SCARICATA
-										
+
+                                        oggetto.type="QR";
+
+
 										//manage Confirm button action
 										confirm = (Button) findViewById(R.id.confirm);
 										confirm.setOnClickListener(new OnClickListener() {
@@ -168,8 +171,8 @@ public class QrResult extends Activity {
 													Story.id_mostra = oggetto.e_id;
 													if(im != null){
 														PageViewer.values.add(oggetto);
-//														
-														PageViewer.pinterestItems.add(im);
+														Log.d("orrudebug","tipo qr? verifichiamo: "+ oggetto.type);
+                                                        PageViewer.pinterestItems.add(im);
 														Story.pinterestAdapter.notifyDataSetChanged();
 
 														Story.send.setVisibility(View.VISIBLE);
