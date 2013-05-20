@@ -1,6 +1,8 @@
 package com.youpony.amuse;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -18,16 +20,19 @@ public class FotoInfo extends Activity {
     int pos;
     Item item;
     ImageDownloader downloader;
+    Bitmap bitmap;
 
+    //TODO SALVARE IL COMMENTO
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qr_result);
+        setContentView(R.layout.activity_foto_info);
         Bundle b = getIntent().getExtras();
         pos = b.getInt("pos");
         Log.d("orrudebug","pos "+ pos);
         item = new Item();
+
         v = new ImageView(this);
         try{
             item = PageViewer.values.get(pos);
@@ -38,6 +43,13 @@ public class FotoInfo extends Activity {
         v = (ImageView) findViewById(R.id.imageView);
 
         title = (TextView) findViewById(R.id.title);
+
+        bitmap = BitmapFactory.decodeFile(item.url);
+
+        Log.d("orrudebug","funziona l'url? " +item.url);
+
+        v.setImageBitmap(bitmap);
+
 
 //        downloader = new ImageDownloader();
 //        if( item.url != null){

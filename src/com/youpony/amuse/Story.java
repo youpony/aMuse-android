@@ -49,7 +49,7 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		//DEBUGGING PURPOSES
-		debugArray = new String[]{};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
+		debugArray = new String[]{"0&7"};//, "0&6", "0&7", "0&4", "0&1", "0&3"};//,"0&33","0&41","0&27","0&14","0&13","0&26","0&28","0&29","0&17","0&15","0&16","0&18","0&9"};
 
 
 		sView = inflater.inflate(R.layout.activity_story, container, false);
@@ -87,9 +87,6 @@ public class Story extends Fragment {
 			@Override
 			public void onItemClick(StaggeredGridView parent, View view, int position, long id) {
 
-
-                //TODO a seconda se un QR o una foto si apre un layout diverso
-
                 oggetto=PageViewer.values.get(position);
 
                 if (oggetto.type=="QR"){
@@ -98,7 +95,10 @@ public class Story extends Fragment {
                     startActivity(info);
                 }
                 else{
-                    //DA IMPLEMENTARE LAYOUT DIVERSO, PROBLEMI DI CONTEXT
+                    //DA IMPLEMENTARE LAYOUT DIVERSO
+                    Intent info = new Intent(PageViewer.getAppContext(), FotoInfo.class);
+                    info.putExtra("pos", position);
+                    startActivity(info);
                 }
 			}
 
