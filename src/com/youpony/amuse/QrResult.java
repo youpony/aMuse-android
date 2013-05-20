@@ -348,3 +348,5 @@ public class QrResult extends Activity {
 	
 
 }
+
+//TODO CAMBIARE IL QR DA & A .
