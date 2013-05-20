@@ -2,11 +2,14 @@ package com.youpony.amuse;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils.StringSplitter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,6 +42,7 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
+	public static SharedPreferences saving;
 	
 	private static Context context;
 	public final static String EXTRA_MESSAGE = "qrCode RESULT";
@@ -48,6 +53,8 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	
 	public static ArrayList<String> pinterestItems = new ArrayList<String>();
 	public static ArrayList<Item> values;
+	Set<String> listaItem;
+	Set<String> listaPic;
 
 	/**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -109,6 +116,13 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
         }
         */
         mViewPager.setCurrentItem(1);
+        listaItem = new HashSet<String>();
+        listaPic = new HashSet<String>();
+        saving = getSharedPreferences("SAVING", Context.MODE_PRIVATE);
+        saving.getStringSet("LISTA_PIC", listaPic);
+        for(int i=0; i<listaPic.size(); i++){
+        	Log.i("orrudebug", listaPic.toArray()[i].toString());
+        }
     }
 
     @Override
@@ -287,6 +301,18 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
        }
        else{
 //    	   salvati la roba
+    	   
+    	   SharedPreferences.Editor editsaving = saving.edit();
+    	   for(int i=0; i<PageViewer.values.size(); i++){
+    		   listaItem.add(PageViewer.values.get(i).id);
+    	   }
+    	   for(int i=0; i<PageViewer.pinterestItems.size(); i++){
+    		   listaPic.add(PageViewer.pinterestItems.get(i));
+    	   }
+    	   editsaving.putStringSet("LISTA_ITEM",listaItem);
+    	   editsaving.putStringSet("LISTA_PIC", listaPic);
+    	   
+    	   
        }
     }
 
