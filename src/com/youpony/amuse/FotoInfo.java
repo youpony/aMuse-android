@@ -48,7 +48,7 @@ public class FotoInfo extends Activity {
 
         Log.d("orrudebug","funziona l'url? " +item.url);
 
-        bitmap = PageViewer.decodeSampledBitmapFromFile(item.url,200,140);
+        bitmap = PageViewer.decodeSampledBitmapFromFile(item.url,400,280);
 
         v.setImageBitmap(bitmap);
 

@@ -37,20 +37,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b53564f9-5053-4d2c-9683-61814359bdff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" afterPath="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_foto_info.xml" afterPath="$PROJECT_DIR$/res/layout/activity_foto_info.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aMuse-android.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369120216242" ignored="false" />
+    <file path="/Dummy.txt" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369124771956" ignored="false" />
     <file path="/ImagePreview.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369060125396" ignored="false" />
     <file path="/CameraTab.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368870108751" ignored="false" />
     <file path="/fragment.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369054316652" ignored="false" />
-    <file path="/PageViewer.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369063728947" ignored="false" />
+    <file path="/PageViewer.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369128412559" ignored="false" />
     <file path="/a.xml" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734339685" ignored="false" />
     <file path="/a.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734239625" ignored="false" />
     <file path="/a.groovy" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368734338272" ignored="false" />
@@ -58,7 +54,7 @@
     <file path="/QrResult.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369121852536" ignored="false" />
     <file path="/Item.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368987235056" ignored="false" />
     <file path="/ItemInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1368995322996" ignored="false" />
-    <file path="/FotoInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369122885097" ignored="false" />
+    <file path="/FotoInfo.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369123775268" ignored="false" />
     <file path="/Story.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369120747801" ignored="false" />
     <file path="/ImageDownloader.java" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369122740503" ignored="false" />
     <file path="/activity_foto_info.xml" changelist="b53564f9-5053-4d2c-9683-61814359bdff" time="1369121318108" ignored="false" />
@@ -124,28 +120,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PageViewer.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="PageViewer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="96" selection-start="8570" selection-end="8570" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QrCode.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrCode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="13" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageDownloader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="29" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0">
+            <state line="270" column="0" selection-start="9243" selection-end="9243" vertical-scroll-proportion="0.37450722">
               <folding />
             </state>
           </provider>
@@ -154,16 +132,34 @@
       <file leaf-file-name="ImagePreview.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImagePreview.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
+            <state line="66" column="28" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FotoInfo.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FotoInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="68" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.6531049">
+            <state line="48" column="56" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemsAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/adapters/ItemsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="0" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaggeredGridView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/origamilabs/library/views/StaggeredGridView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1670" column="33" selection-start="58988" selection-end="58988" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -197,12 +193,12 @@
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/ItemInfo.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/JSONParsing.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/SendStory.java" />
-        <option value="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_foto_info.xml" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/QrResult.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/Story.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java" />
         <option value="$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java" />
       </list>
     </option>
   </component>
@@ -261,7 +257,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -380,6 +375,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -387,14 +383,14 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="136" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="138" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="136" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="141" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="936" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="936" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="936" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="141" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="138" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -411,7 +407,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0123456789ABCDEF" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="options.searchVisible" value="true" />
@@ -586,12 +582,13 @@
       <workItem from="1369071010197" duration="166000" />
       <workItem from="1369074766415" duration="105000" />
       <workItem from="1369076951492" duration="56000" />
-      <workItem from="1369120214188" duration="2799000" />
+      <workItem from="1369120214188" duration="4538000" />
+      <workItem from="1369124769584" duration="1787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48027000" />
+    <option name="totallyTimeSpent" value="51553000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -615,31 +612,31 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6733167" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32855093" sideWeight="0.6733167" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.6733167" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.382793" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6708229" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24533716" sideWeight="0.20199502" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24533716" sideWeight="0.32668328" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793018" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.382793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="23" y="366" width="1394" height="167" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.382793" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="23" y="366" width="1394" height="167" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793018" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24533716" sideWeight="0.41521198" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24533716" sideWeight="0.617207" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254364" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6733167" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32855093" sideWeight="0.6733167" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.6733167" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3990025" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -709,18 +706,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/CameraTab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ExhibitionChange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/JSONParsing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="13" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0">
@@ -764,18 +749,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_foto_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="4" selection-start="955" selection-end="955" vertical-scroll-proportion="2.0370371">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
+        <state line="25" column="4" selection-start="955" selection-end="955" vertical-scroll-proportion="2.0370371">
           <folding />
         </state>
       </provider>
@@ -789,35 +767,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/Story.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="41" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.0">
+        <state line="51" column="41" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.71705425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImagePreview.java">
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/QrCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
+        <state line="16" column="13" selection-start="390" selection-end="390" vertical-scroll-proportion="0.1744186">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/adapters/ItemsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="29" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0">
+        <state line="69" column="0" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/origamilabs/library/views/StaggeredGridView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="96" selection-start="8570" selection-end="8570" vertical-scroll-proportion="0.0">
+        <state line="1670" column="33" selection-start="58988" selection-end="58988" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/FotoInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="68" selection-start="1396" selection-end="1396" vertical-scroll-proportion="0.6531049">
+        <state line="48" column="56" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImageDownloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="20" selection-start="2043" selection-end="2043" vertical-scroll-proportion="0.81395346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/ImagePreview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="28" selection-start="1481" selection-end="1481" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/youpony/amuse/PageViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="270" column="0" selection-start="9243" selection-end="9243" vertical-scroll-proportion="0.37450722">
           <folding />
         </state>
       </provider>
