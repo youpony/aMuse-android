@@ -276,9 +276,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	      }
   	  	}
 
-    //TODO: le foto scattate sono sempre in landscape, e se volessi farla in verticale?
-
-
 
     public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) {
     	
