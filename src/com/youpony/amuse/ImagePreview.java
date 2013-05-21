@@ -170,3 +170,5 @@ public class ImagePreview extends Activity {
 
 }
 
+//TODO SEND PHOTO WITH STORY
+//TODO FIX FOTOINFO LAYOUT, BOTTONS ON BOTTOM ALWAYS

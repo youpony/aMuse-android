@@ -26,12 +26,12 @@
 
      <ImageView
          android:id="@+id/imageView"
-         android:layout_centerHorizontal="true"
-         android:layout_alignParentTop="true"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"/>
+         android:layout_below="@+id/titleLayout"
+         android:layout_centerHorizontal="true"
+         android:layout_marginLeft="4dp"
+         android:layout_marginRight="4dp"/>
 
      <EditText
          android:id="@+id/comment"

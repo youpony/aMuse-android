@@ -26,9 +26,7 @@
 <ScrollView
     android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="4dp"
         android:layout_weight="0.78"
         android:scrollbarStyle="outsideInset"
@@ -46,14 +44,15 @@
             android:id="@+id/imageView"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_width="@dimen/mediumImage" 
-            android:layout_height="200dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"/>
          <TextView
             android:id="@+id/sentiment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/imageView"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>    
@@ -69,7 +68,6 @@
             android:id="@+id/autoreTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaAutore"
             android:text="Author"
             android:textSize="20sp"
@@ -80,7 +78,6 @@
             android:id="@+id/autoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/autoreTitle"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>
@@ -96,7 +93,6 @@
             android:id="@+id/annoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaAnno"
             android:text="Year"
             android:textSize="20sp"
@@ -106,7 +102,6 @@
             android:id="@+id/annoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/annoTitle"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>
@@ -122,7 +117,6 @@
             android:id="@+id/descTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaDesc"
             android:text="Description"
             android:textSize="20sp"
@@ -132,7 +126,6 @@
             android:id="@+id/descText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/descTitle"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>
@@ -148,7 +141,6 @@
             android:id="@+id/mostraTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaMostra"
             android:text="Exhibition"
             android:textSize="20sp"
@@ -158,7 +150,6 @@
             android:id="@+id/mostraText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/mostraTitle"
             android:textColor="@android:color/black"
             android:textSize="17sp"/>
