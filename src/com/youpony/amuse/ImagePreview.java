@@ -74,7 +74,7 @@ public class ImagePreview extends Activity {
             e.printStackTrace();
         }
 
-        photo.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+        photo.compress(Bitmap.CompressFormat.JPEG, 70, fOut);
 
         try {
             MediaStore.Images.Media.insertImage(getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
@@ -90,32 +90,28 @@ public class ImagePreview extends Activity {
         //TODO ROTATE PHOTO HERE
 
         Matrix matrix = new Matrix();
-        matrix.postRotate(90);
-
 
         File imageFile = new File(oggetto.url);
 
-        try {
-            exif = new ExifInterface(imageFile.getAbsolutePath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ExifInterface exif = null;
+		try {
+			exif = new ExifInterface(imageFile.getAbsolutePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int rotation = (int)exifOrientationToDegrees(
+                exif.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                        ExifInterface.ORIENTATION_NORMAL));
+		
+		matrix.preRotate(rotation);
+		Log.i("orrudebug", "orientato: " + rotation);
+		
+		Bitmap resizedBitmap = Bitmap.createBitmap(
+		     photo, 0, 0, photo.getWidth(), photo.getHeight(), matrix, true);
 
-        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-        Log.d("orrudebug", "Exif: " + orientation);
-        if (orientation == 6) {
-            matrix.postRotate(90);
-        }
-        else if (orientation == 3) {
-            matrix.postRotate(180);
-        }
-        else if (orientation == 8) {
-            matrix.postRotate(270);
-        }
-
-        rotated = Bitmap.createBitmap(photo, 0, 0, photo.getWidth(), photo.getHeight(), matrix, true);
-
-        image.setImageBitmap(photo);
+        image.setImageBitmap(resizedBitmap);
 
 
         Log.d("orrudebug", "commento asd "+ oggetto.itemCommento);
@@ -160,6 +156,17 @@ public class ImagePreview extends Activity {
 		ImagePreview.this.finish();
 		PageViewer.mViewPager.setCurrentItem(1);
 	}
+	
+	private static float exifOrientationToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+            return 180;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270;
+        }
+        return 0;
+    }
 
 }
 

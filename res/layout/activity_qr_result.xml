@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaAutore"
-            android:text="Autore"
+            android:text="Author"
             android:textSize="20sp"
             android:textColor="@android:color/darker_gray"
             android:textStyle="normal"/>
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaAnno"
-            android:text="Anno"
+            android:text="Year"
             android:textSize="20sp"
             android:textColor="@android:color/darker_gray"
             android:textStyle="normal"/>
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaDesc"
-            android:text="Descrizione"
+            android:text="Description"
             android:textSize="20sp"
             android:textColor="@android:color/darker_gray"
             android:textStyle="normal"/>
@@ -150,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/cancel"
             android:layout_below="@+id/lineaMostra"
-            android:text="Mostra"
+            android:text="Exhibition"
             android:textSize="20sp"
             android:textColor="@android:color/darker_gray"
             android:textStyle="normal"/>
