@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -23,6 +24,7 @@ public class QrResult extends Activity {
 	
 	String id, exib;
 	String a, n, y, d, m, im, oid;
+	double emotion;
 	int i;
 	
 	//set JSON object fields
@@ -34,10 +36,11 @@ public class QrResult extends Activity {
 	private static final String ex_name = "name";
 	private static final String image = "images";
 	private static final String o_id = "id";
+	private static final String sent = "sentiment";
 	
 	String APIauthor;
 	public static JSONObject json;
-	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4;
+	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4, tsent;
 	View linea1, linea2, linea3;
 	TextView title;
 	ImageView imageView;
@@ -62,6 +65,7 @@ public class QrResult extends Activity {
 		t2 = new TextView(this);
 		t3 = new TextView(this);
 		t4 = new TextView(this);
+		tsent = new TextView(this);
 		imageView = new ImageView(this);
 		downloader = new ImageDownloader();
 		
@@ -126,8 +130,18 @@ public class QrResult extends Activity {
 										linea1 = (View) findViewById(R.id.lineaAutore);
 										linea2 = (View) findViewById(R.id.lineaAnno);
 										linea3 = (View) findViewById(R.id.lineaDesc);
-										
+										tsent = (TextView) findViewById(R.id.sentiment);
 										//display object infos
+										
+										if(oggetto.emo < 0){
+											tsent.setTextColor(-65536);
+											tsent.setText("Tweets about this item are negative!");
+										}
+										else{
+											tsent.setTextColor(Color.rgb(1,107,33));
+											tsent.setText("Tweets about this item are positive!");
+										}
+										
 										
 										if(oggetto.author!="ignoto") {
 											t1.setText(oggetto.author);
@@ -233,6 +247,12 @@ public class QrResult extends Activity {
 					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
 					e.printStackTrace();
 				}
+				try{
+					emotion = c.getDouble(sent);
+				} catch (JSONException e) {
+					Log.i("orrudebug", "hai sbagliato API, chiama e ostia contro Luca Colleoni");
+					e.printStackTrace();
+				}
 				try {
 					d = c.getString(description);
 				} catch (JSONException e) {
@@ -281,6 +301,7 @@ public class QrResult extends Activity {
 		oggetto.mostra = m;
 		oggetto.url = im;
 		oggetto.id = oid;
+		oggetto.emo = emotion;
 	}
 
 	public void close(){

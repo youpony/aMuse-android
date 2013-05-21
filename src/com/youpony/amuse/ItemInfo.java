@@ -1,6 +1,7 @@
 package com.youpony.amuse;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 
 public class ItemInfo extends Activity {
 
-	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4, title;
+	TextView t1,t2,t3,t4,titolo1,titolo2,titolo3,titolo4, title, tsent;
 	ImageView v;
 	int pos;
 	Item item;
@@ -32,6 +33,7 @@ public class ItemInfo extends Activity {
 		titolo2= new TextView(this);
 		titolo3= new TextView(this);
 		titolo4= new TextView(this);
+		tsent = new TextView(this);
 		
 		t1 = new TextView(this);
 		t2 = new TextView(this);
@@ -54,7 +56,7 @@ public class ItemInfo extends Activity {
 		t4 = (TextView) findViewById(R.id.mostraText);
 		v = (ImageView) findViewById(R.id.imageView);
 		title = (TextView) findViewById(R.id.title);
-		
+		tsent = (TextView) findViewById(R.id.sentiment);
 		//display object infos
 		
         t1.setText(item.author);
@@ -75,6 +77,15 @@ public class ItemInfo extends Activity {
 		if( item.url != null){
 			downloader.download(item.url, v);
 			Log.i("orrudebug", item.url);
+		}
+		
+		if(item.emo < 0){
+			tsent.setTextColor(-65536);
+			tsent.setText("Tweets about this item are negative!");
+		}
+		else{
+			tsent.setTextColor(Color.rgb(1,107,33));
+			tsent.setText("Tweets about this item are positive!");
 		}
 		
 		//manage Delete button action

@@ -30,6 +30,7 @@
     <color name="verdino">#04855f</color>
     <color name="azzurro">#3db3ba</color>
     <color name="grigione">#999999</color>
+    <color name="rosso">#D10F0D</color>
     <string name="CommentImage">Comment your photo!</string>
     <string name="title_activity_foto_info">foto_info</string>
 
