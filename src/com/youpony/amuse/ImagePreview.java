@@ -4,45 +4,49 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class ImagePreview extends Activity {
-	
+
 	ImageView image;
 	EditText comment;
 	Button cancel, confirm;
 	Bitmap photo;
-	
+	Item oggetto;
+	String url;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 	
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_image);
 		
+		
+		oggetto=new Item();
 		image= new ImageView(this);
 		comment=new EditText(this);
 		
 		image = (ImageView) findViewById(R.id.imageView);
 		comment = (EditText) findViewById(R.id.comment);
 		
+
 		Intent intent = getIntent();
-		
-		Bundle extras = intent.getExtras();
-        photo = (Bitmap) extras.get("IMMAGINE");
-        
+
+		photo=(Bitmap) intent.getExtras().get("IMMAGINE");
+
+        url = PageViewer.pacchetto.getAbsolutePath();
+
         image.setImageBitmap(photo);
-        
-        
-        
-		
-		
-		//manage Cancel button action
+
+        oggetto.type="FOTO";
+        oggetto.url=url;
+
+
+        //manage Cancel button action
 		cancel = (Button) findViewById(R.id.cancel);
 		cancel.setOnClickListener(new OnClickListener() {
 			
@@ -59,7 +63,13 @@ public class ImagePreview extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+
+                PageViewer.values.add(oggetto);
+                PageViewer.pinterestItems.add(url);
+                Story.pinterestAdapter.notifyDataSetChanged();
+
+                Story.send.setVisibility(View.VISIBLE);
+                Story.tutorial.setVisibility(View.INVISIBLE);
 				close();
 				
 			}

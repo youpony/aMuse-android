@@ -2,13 +2,9 @@ package com.youpony.amuse;
 
 import java.io.Serializable;
 
-import android.graphics.Bitmap;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class Item implements Serializable{
 	
-	String name, author, year, description, mostra, url, id ;
+	String name, author, year, description, mostra, url, id, type;
 	int e_id;
 	Item(){
 	}

@@ -43,7 +43,6 @@ public class QrResult extends Activity {
 	Boolean stop = false;
 	Item oggetto;
 	Button confirm, cancel;
-	String immagine;
 	ImageDownloader downloader;
 	
 	@Override
@@ -156,10 +155,13 @@ public class QrResult extends Activity {
 											im = downloader.download(im, imageView);
 										}
 										else{
-											Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
+											Log.i("orrudebug", "non c'ÔøΩ l'immagine di questo oggetto");
 										}
 										//NB: IMPEDIRE IL CARICAMENTO DEL LAYOUT PRIMA CHE L'IMMAGINE SIA SCARICATA
-										
+
+                                        oggetto.type="QR";
+
+
 										//manage Confirm button action
 										confirm = (Button) findViewById(R.id.confirm);
 										confirm.setOnClickListener(new OnClickListener() {
@@ -169,8 +171,8 @@ public class QrResult extends Activity {
 													Story.id_mostra = oggetto.e_id;
 													if(im != null){
 														PageViewer.values.add(oggetto);
-//														
-														PageViewer.pinterestItems.add(im);
+														Log.d("orrudebug","tipo qr? verifichiamo: "+ oggetto.type);
+                                                        PageViewer.pinterestItems.add(im);
 														Story.pinterestAdapter.notifyDataSetChanged();
 
 														Story.send.setVisibility(View.VISIBLE);
@@ -346,3 +348,5 @@ public class QrResult extends Activity {
 	
 
 }
+
+//TODO CAMBIARE IL QR DA & A .

@@ -1,23 +1,14 @@
 package com.youpony.amuse;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.net.Uri;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.os.Environment;
+import android.support.v4.app.*;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils.StringSplitter;
 import android.util.Log;
@@ -26,9 +17,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * 	CURRENTLY IMPLEMENTS FULLSCREEN SWIPE WITHOUT CLICKABLE TABS!
@@ -39,6 +33,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class PageViewer extends FragmentActivity /*implements ActionBar.TabListener*/ {
 	
+	public static File pacchetto;
 	public CameraTab camera;
 	public Story story;
 	public QrCode qrcode;
@@ -46,10 +41,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	
 	private static Context context;
 	public final static String EXTRA_MESSAGE = "qrCode RESULT";
-	
-	public static ArrayList<String> leftItems = new ArrayList<String>();
-	public static ArrayList<String> rightItems = new ArrayList<String>();
-	
 	
 	public static ArrayList<String> pinterestItems = new ArrayList<String>();
 	public static ArrayList<Item> values;
@@ -253,35 +244,78 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
     
     //manage QR Code results
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-  	  IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-//  	  IntentResult imageResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent)
-  	  //  	  intent result di Camera Activity ( o intent )
-  	  Uri resultPic;
-  	  if (scanResult != null) {
-  		Intent qrResult = new Intent(this, QrResult.class);
-  		String resultString = scanResult.getContents();
-  		qrResult.putExtra(EXTRA_MESSAGE, resultString);
-  		startActivity(qrResult);
-  	  }
-  	  else{
-  		switch (requestCode) {
-  	    case 100:
-  	        if (resultCode == Activity.RESULT_OK) {
-  	        	Intent imageResult = new Intent(this, ImagePreview.class);
-	        	Log.i("orrudebug", "");
-	        	Bitmap picture = (Bitmap) intent.getExtras().get("data");
-	        	imageResult.putExtra("IMMAGINE", picture);
-	        	startActivity(imageResult);
-//  	        	Log.d("orrudebug","foto in restituzione" + intent.getDataString());
+    	
+    	super.onActivityResult(requestCode, resultCode, intent); 
+
+    	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+
+        //TODO: controllare che se il qr è errato dia errore, serve debug via telefono
+
+    	if (scanResult != null) {
+	  		Intent qrResult = new Intent(this, QrResult.class);
+	  		String resultString = scanResult.getContents();
+	  		qrResult.putExtra(EXTRA_MESSAGE, resultString);
+	  		startActivity(qrResult);
+	  	  }
+  	  	else {
+            //Butta fuori dalla camera se premi X
+            if (resultCode != RESULT_OK) return;
+
+            //Check that request code matches ours:
+  	        if (requestCode == 100){
+
+                pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
+                Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
+
+                Intent imageResult = new Intent(this, ImagePreview.class);
+
+                imageResult.putExtra("IMMAGINE", bitmap);
+
+                startActivity(imageResult);
+
   	        }
-  	    }
-//  		  if (intentcamera != null ) 
-//  		  startActivity(ImagePreview)
-  	  	Log.d("orrudebug", "orrudebug - QR non va");
-  	  }
-  	}
-   
-    @Override
+  	      }
+  	  	}
+
+    //TODO: le foto scattate sono sempre in landscape, e se volessi farla in verticale?
+    
+
+    public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) {
+    	
+    	// BEST QUALITY MATCH
+        
+    	 //First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+     
+        // Calculate inSampleSize, Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        int inSampleSize = 1;
+     
+        if (height > reqHeight) 
+        {
+            inSampleSize = Math.round((float)height / (float)reqHeight);
+        }
+        int expectedWidth = width / inSampleSize;
+     
+        if (expectedWidth > reqWidth) 
+        {
+            //if(Math.round((float)width / (float)reqWidth) > inSampleSize) // If bigger SampSize..
+            inSampleSize = Math.round((float)width / (float)reqWidth);
+        }
+     
+        options.inSampleSize = inSampleSize;
+     
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+     
+        return BitmapFactory.decodeFile(path, options);
+	}
+
+	@Override
     protected void onStop(){
     	super.onStop();
     }
