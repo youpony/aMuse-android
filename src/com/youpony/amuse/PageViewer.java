@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.*;
@@ -20,6 +22,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Locale;
@@ -62,6 +65,7 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
      * The {@link ViewPager} that will host the section contents.
      */
     public static ViewPager mViewPager;
+    ExifInterface exif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -266,11 +270,11 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	        if (requestCode == 100){
 
                 pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
-                Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
+//                Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
 
                 Intent imageResult = new Intent(this, ImagePreview.class);
 
-                imageResult.putExtra("IMMAGINE", bitmap);
+                imageResult.putExtra("IMMAGINE", pacchetto.getAbsolutePath());
 
                 startActivity(imageResult);
 
@@ -279,7 +283,8 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	  	}
 
     //TODO: le foto scattate sono sempre in landscape, e se volessi farla in verticale?
-    
+
+
 
     public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight) {
     	
