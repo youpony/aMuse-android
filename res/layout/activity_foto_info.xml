@@ -47,7 +47,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"/>
+                    />
             <TextView
                     android:id="@+id/comment"
                     android:layout_width="wrap_content"
