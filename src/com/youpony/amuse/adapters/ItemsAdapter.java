@@ -68,7 +68,6 @@ public class ItemsAdapter extends ArrayAdapter<String>{
 	
     // resize the image proportionately so it fits the entire space
 	private void setImageBitmap(String item, ImageView imageView){
-        Log.d("orrudebug","item è "+item);
         Bitmap bitmap = BitmapFactory.decodeFile(item);
 		float i = ((float) imageWidth) / ((float) bitmap.getWidth());
 		float imageHeight = i * (bitmap.getHeight());

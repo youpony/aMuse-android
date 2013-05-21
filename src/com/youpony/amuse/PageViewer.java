@@ -254,8 +254,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 
     	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
-        //TODO: controllare che se il qr è errato dia errore, serve debug via telefono
-
     	if (scanResult != null) {
 	  		Intent qrResult = new Intent(this, QrResult.class);
 	  		String resultString = scanResult.getContents();
@@ -270,12 +268,8 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
   	        if (requestCode == 100){
 
                 pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
-//                Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
-
                 Intent imageResult = new Intent(this, ImagePreview.class);
-
                 imageResult.putExtra("IMMAGINE", pacchetto.getAbsolutePath());
-
                 startActivity(imageResult);
 
   	        }

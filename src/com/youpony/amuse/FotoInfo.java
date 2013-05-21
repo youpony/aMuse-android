@@ -3,13 +3,16 @@ package com.youpony.amuse;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,8 +26,8 @@ public class FotoInfo extends Activity {
     Item item;
     ImageDownloader downloader;
     Bitmap bitmap;
+    TextView comment;
 
-    //TODO SALVARE IL COMMENTO
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,8 @@ public class FotoInfo extends Activity {
         setContentView(R.layout.activity_foto_info);
         Bundle b = getIntent().getExtras();
         pos = b.getInt("pos");
-        Log.d("orrudebug","pos "+ pos);
         item = new Item();
+
 
         v = new ImageView(this);
         try{
@@ -46,9 +49,13 @@ public class FotoInfo extends Activity {
 
         title = (TextView) findViewById(R.id.title);
 
-        Log.d("orrudebug","funziona l'url? " +item.url);
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
 
-        bitmap = PageViewer.decodeSampledBitmapFromFile(item.url,400,280);
+        bitmap = PageViewer.decodeSampledBitmapFromFile(item.url,width,height);
 
         v.setImageBitmap(bitmap);
 
@@ -59,7 +66,10 @@ public class FotoInfo extends Activity {
 //            Log.i("orrudebug", item.url);
 //        }
 
+        comment=new TextView(this);
 
+        comment = (TextView) findViewById(R.id.comment);
+        comment.setText(item.itemCommento);
 
         //manage Delete button action
         Button delete = (Button) findViewById(R.id.confirm);

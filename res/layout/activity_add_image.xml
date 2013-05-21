@@ -3,16 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-  
+    <RelativeLayout
+            android:id="@+id/titleLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="0"
+            android:background="@color/azzurro"
+            >
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Add Photo"
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="normal"/>
+
+    </RelativeLayout>
 
      <ImageView
          android:id="@+id/imageView"
-         android:layout_width="@dimen/mediumImage"
-         android:layout_height="300dp"
-         android:layout_marginTop="20dp"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:layout_alignParentTop="true"/>
+         android:layout_centerHorizontal="true"
+         android:layout_alignParentTop="true"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="8dp"
+         android:layout_marginRight="8dp"/>
 
      <EditText
          android:id="@+id/comment"
@@ -22,8 +41,8 @@
          android:layout_below="@+id/imageView"
          android:hint="@string/CommentImage" >
      </EditText>
-     
-       
+
+
      <RelativeLayout
          android:id="@+id/buttons"
          android:layout_width="match_parent"
@@ -47,5 +66,5 @@
              android:layout_alignParentRight="true"
              android:text="Confirm" />
      </RelativeLayout>
-     
+
 </RelativeLayout>

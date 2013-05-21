@@ -3,9 +3,11 @@ package com.youpony.amuse;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,7 +26,7 @@ public class ImagePreview extends Activity {
 	Button cancel, confirm;
 	Bitmap photo;
 	Item oggetto;
-	String url;
+	String url, stringCommento;
     ImageDownloader downloader;
 
 
@@ -52,15 +54,16 @@ public class ImagePreview extends Activity {
         oggetto.type="FOTO";
         oggetto.bigPic=url;
 
-        //ad oggetto.url dai l'indirizzo in cache con imageDownloader
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
 
-        //BISOGNA SALVARE LA FOTO IN BASSA QUALITA' DA QUALCHE PARTE E LAVORARE CON QUELLA, QUANDO SI MANDA LA FOTO SI USA QUELLA NORMALE
 
 
-        photo = PageViewer.decodeSampledBitmapFromFile(url,400,240);
+        photo = PageViewer.decodeSampledBitmapFromFile(url,width,height);
         oggetto.url = (String) ImageDownloader.getCacheDirectory(image.getContext()).toString() + File.separator + "image_" + CameraTab.imageNum +".jpg";
-
-        Log.d("orrudebug","nanana "+ oggetto.url);
 
         String path = oggetto.url;
         OutputStream fOut = null;
@@ -71,9 +74,7 @@ public class ImagePreview extends Activity {
             e.printStackTrace();
         }
 
-        photo.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
-//        fOut.flush();
-//        fOut.close();
+        photo.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
 
         try {
             MediaStore.Images.Media.insertImage(getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
@@ -81,16 +82,15 @@ public class ImagePreview extends Activity {
             e.printStackTrace();
         }
 
-//                imagedodown di oggetto.url
-
         downloader = new ImageDownloader();
         if( oggetto.url != null){
-//            FIX THIS
             downloader.download(oggetto.url, image);
-            Log.d("orrudebug", "lala " + oggetto.url);
         }
 
         image.setImageBitmap(photo);
+
+
+        Log.d("orrudebug", "commento asd "+ oggetto.itemCommento);
 
 
         //manage Cancel button action
@@ -110,6 +110,10 @@ public class ImagePreview extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+
+                if (comment.getText().toString().length() != 0) {
+                    oggetto.itemCommento=String.valueOf(comment.getText());
+                }
 
                 PageViewer.values.add(oggetto);
                 PageViewer.pinterestItems.add(oggetto.url);
