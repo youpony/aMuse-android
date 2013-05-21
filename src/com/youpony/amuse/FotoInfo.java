@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class FotoInfo extends Activity {
 
     TextView title;
@@ -40,13 +42,13 @@ public class FotoInfo extends Activity {
         catch (Exception e){
             Log.i("orrudebug", "can't find object with position " + pos);
         }
-        v = (ImageView) findViewById(R.id.imageView);
+        v = (ImageView) findViewById(R.id.imageprev);
 
         title = (TextView) findViewById(R.id.title);
 
-        bitmap = BitmapFactory.decodeFile(item.url);
-
         Log.d("orrudebug","funziona l'url? " +item.url);
+
+        bitmap = PageViewer.decodeSampledBitmapFromFile(item.url,200,140);
 
         v.setImageBitmap(bitmap);
 
@@ -56,6 +58,8 @@ public class FotoInfo extends Activity {
 //            downloader.download(item.url, v);
 //            Log.i("orrudebug", item.url);
 //        }
+
+
 
         //manage Delete button action
         Button delete = (Button) findViewById(R.id.confirm);

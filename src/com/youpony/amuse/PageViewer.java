@@ -251,7 +251,7 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
             //Check that request code matches ours:
   	        if (requestCode == 100){
 
-                pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
+                pacchetto = new File(Environment.getExternalStorageDirectory()+File.separator + "aMuse" + File.separator+ "image_" + CameraTab.imageNum +".jpg");
                 Bitmap bitmap = decodeSampledBitmapFromFile(pacchetto.getAbsolutePath(), 200, 140);
 
                 Intent imageResult = new Intent(this, ImagePreview.class);

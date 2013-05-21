@@ -316,7 +316,7 @@ public class QrResult extends Activity {
 	private void setApi(Intent intent){
 		String message = intent.getStringExtra(PageViewer.EXTRA_MESSAGE);
 		String tmp[];
-		String del = "&";
+		String del = ".";
 		if(message != null){
 			Log.i("orrudebug", "scan presente!");
 			if(message.contains("&")){
@@ -349,4 +349,4 @@ public class QrResult extends Activity {
 
 }
 
-//TODO CAMBIARE IL QR DA & A .
+//TODO CAMBIARE IL QR DA & A . (FATTO)
