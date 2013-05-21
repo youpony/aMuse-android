@@ -58,11 +58,13 @@ public class ImagePreview extends Activity {
 
 
         photo = PageViewer.decodeSampledBitmapFromFile(url,400,240);
-        oggetto.url = (String) ImageDownloader.getCacheDirectory(image.getContext()).toString() + File.separator;
+        oggetto.url = (String) ImageDownloader.getCacheDirectory(image.getContext()).toString() + File.separator + "image_" + CameraTab.imageNum +".jpg";
+
+        Log.d("orrudebug","nanana "+ oggetto.url);
 
         String path = oggetto.url;
         OutputStream fOut = null;
-        File file = new File(path, "image_" + CameraTab.imageNum +".jpg");
+        File file = new File(path);
         try {
             fOut = new FileOutputStream(file);
         } catch (FileNotFoundException e) {
@@ -84,8 +86,8 @@ public class ImagePreview extends Activity {
         downloader = new ImageDownloader();
         if( oggetto.url != null){
 //            FIX THIS
-            oggetto.url = downloader.download(oggetto.url, image);
-            Log.i("orrudebug", oggetto.url);
+            downloader.download(oggetto.url, image);
+            Log.d("orrudebug", "lala " + oggetto.url);
         }
 
         image.setImageBitmap(photo);

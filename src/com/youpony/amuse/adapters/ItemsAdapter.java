@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +68,8 @@ public class ItemsAdapter extends ArrayAdapter<String>{
 	
     // resize the image proportionately so it fits the entire space
 	private void setImageBitmap(String item, ImageView imageView){
-		Bitmap bitmap = BitmapFactory.decodeFile(item);
+        Log.d("orrudebug","item è "+item);
+        Bitmap bitmap = BitmapFactory.decodeFile(item);
 		float i = ((float) imageWidth) / ((float) bitmap.getWidth());
 		float imageHeight = i * (bitmap.getHeight());
 		FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) imageView.getLayoutParams();

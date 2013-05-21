@@ -85,7 +85,7 @@ public class ImageDownloader {
 	    	returned = f.getPath();
 	    	bitmap = null;  
 	     }
-	     
+	     Log.d("orrudebug", "returned uscendo da imgdown " + returned);
 	     return returned;
 	}
 	
