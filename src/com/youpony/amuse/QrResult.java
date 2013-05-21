@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QrResult extends Activity {
 
@@ -292,6 +293,9 @@ public class QrResult extends Activity {
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(2);
 //		QrCode.start_qr.setText("wrong QrCode, try again!");
+		Toast toast = Toast.makeText(getApplicationContext(), "Wrong QR code, try again!", 200);
+		toast.show();
+		
 	}
 	
 	void noInternet(){
@@ -299,6 +303,8 @@ public class QrResult extends Activity {
 		QrResult.this.finish();
 		PageViewer.mViewPager.setCurrentItem(2);
 //		QrCode.start_qr.setText("no internet connection, try again!");
+		Toast toast = Toast.makeText(getApplicationContext(), "No internet connection, try again!", 200);
+		toast.show();
 	}
 	
 	void yesInternet(){
@@ -316,19 +322,21 @@ public class QrResult extends Activity {
 	private void setApi(Intent intent){
 		String message = intent.getStringExtra(PageViewer.EXTRA_MESSAGE);
 		String tmp[];
-		String del = ".";
+		String del = "\\.";
 		if(message != null){
-			Log.i("orrudebug", "scan presente!");
-			if(message.contains("&")){
+			Log.i("orrudebug", "scan presente: " + message);
+			if(message.contains(".")){
 				tmp = message.split(del, 2);
 				try { 
 					exib = tmp[0];
+					Log.i("orrudebug", "exib: " + exib);
 					} 
 				catch(NumberFormatException nFE) { 
 					wrongQr();
 				}
 				try { 
 					id = tmp[1];
+					Log.i("orrudebug", "id: " + id);
 					} 
 				catch(NumberFormatException nFE) { 
 					wrongQr();
