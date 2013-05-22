@@ -92,7 +92,7 @@ public class SendStory extends Activity {
 							jsonarray.put(jsonId);
 						}
 						else{
-							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,40,40);//PageViewer.values.get(i).w ,PageViewer.values.get(i).h );
+							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,PageViewer.values.get(i).w,PageViewer.values.get(i).h);
 							ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 							bigPic.compress(Bitmap.CompressFormat.JPEG, 0, baos); 
 							byte[] b = baos.toByteArray();
@@ -115,12 +115,12 @@ public class SendStory extends Activity {
 						if(response != null){
 							Log.i("orrudebug", "storia inviata correttamente");
 							//clear della story e reset
-							PageViewer.values.clear();
-							PageViewer.pinterestItems.clear();
-							Story.pinterestAdapter.clear();
+//							PageViewer.values.clear();
+//							PageViewer.pinterestItems.clear();
+//							Story.pinterestAdapter.clear();
 							Story.pinterestAdapter.notifyDataSetChanged();
 //							Story.line.setVisibility(View.INVISIBLE);
-							Story.send.setVisibility(View.INVISIBLE);
+//							Story.send.setVisibility(View.INVISIBLE);
 							
 							close();
 						}
