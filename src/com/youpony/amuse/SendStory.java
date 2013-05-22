@@ -83,6 +83,7 @@ public class SendStory extends Activity {
 				try {
 					json.put("email", emailString);
 					json.put("name", nameString);
+					json.put("exhibition", Story.id_mostra);
 					JSONArray jsonarray = new JSONArray();
 					for(int i=0; i<PageViewer.values.size(); i++){
 						if(PageViewer.values.get(i).type.equals("QR")){
@@ -91,19 +92,13 @@ public class SendStory extends Activity {
 							jsonarray.put(jsonId);
 						}
 						else{
-							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,10,10);//PageViewer.values.get(i).w ,PageViewer.values.get(i).h );
+							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,PageViewer.values.get(i).w,PageViewer.values.get(i).h);
 							ByteArrayOutputStream baos = new ByteArrayOutputStream();  
 							bigPic.compress(Bitmap.CompressFormat.JPEG, 0, baos); 
 							byte[] b = baos.toByteArray();
 							
-							String encoded = Base64.encodeToString(b, 0 , b.length, Base64.CRLF);
-							encoded = encoded.replaceAll("\n", "").replaceAll("\r", "").replaceAll("/", "");
-							if(encoded.length() % 3 == 1){
-								encoded = encoded.substring(0, encoded.length()-1);
-							}
-							else if(encoded.length() % 3 == 2){
-								encoded = encoded.substring(0, encoded.length()-2);
-							}
+							String encoded = Base64.encodeToString(b, 0 , b.length, Base64.DEFAULT);
+							
 							Log.i("orrudebug", "image: " + encoded.length());
 														
 							JSONObject jsonId = new JSONObject();
@@ -120,12 +115,12 @@ public class SendStory extends Activity {
 						if(response != null){
 							Log.i("orrudebug", "storia inviata correttamente");
 							//clear della story e reset
-							PageViewer.values.clear();
-							PageViewer.pinterestItems.clear();
-							Story.pinterestAdapter.clear();
+//							PageViewer.values.clear();
+//							PageViewer.pinterestItems.clear();
+//							Story.pinterestAdapter.clear();
 							Story.pinterestAdapter.notifyDataSetChanged();
 //							Story.line.setVisibility(View.INVISIBLE);
-							Story.send.setVisibility(View.INVISIBLE);
+//							Story.send.setVisibility(View.INVISIBLE);
 							
 							close();
 						}
