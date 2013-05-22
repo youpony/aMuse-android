@@ -94,7 +94,6 @@ public class Story extends Fragment {
                     startActivity(info);
                 }
                 else{
-                    //DA IMPLEMENTARE LAYOUT DIVERSO
                     Intent info = new Intent(PageViewer.getAppContext(), FotoInfo.class);
                     info.putExtra("pos", position);
                     startActivity(info);
@@ -135,7 +134,7 @@ public class Story extends Fragment {
             adb.setTitle("Delete?");
             
             
-            adb.setMessage("Are you sure you want to delete " + position);
+            adb.setMessage("Are you sure you want to delete this item?");
             
             adb.setNegativeButton("Cancel", null);
             adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
@@ -168,11 +167,11 @@ public class Story extends Fragment {
 	}
 	
 	public static void setButtonInvisible(){
-		send.setText("no invio");
+		send.setText("send");
 	}
     
     public static void setButtonVisible(){
-    	send.setText("si invio");
+    	send.setText("not sent");
     }
 	
 	

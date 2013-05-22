@@ -30,8 +30,8 @@ public class SendStory extends Activity {
 		setContentView(R.layout.activity_send_story);
 		email = (TextView) findViewById(R.id.emailTitle);
 		name = (TextView) findViewById(R.id.nameTitle);
-		email.setText("Inserisci qui la mail del destinatario:");
-		name.setText("inserisci qui il tuo nome:");
+		email.setText("Insert email here:");
+		name.setText("insert your name here:");
 		emailForm = (EditText) findViewById(R.id.emailForm);
 		nameForm = (EditText) findViewById(R.id.nameForm);
 		
