@@ -3,12 +3,9 @@ package com.youpony.amuse;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.graphics.Point;
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,19 +13,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 public class ImagePreview extends Activity {
 
 	ImageView image;
 	EditText comment;
 	Button cancel, confirm;
-	Bitmap photo,rotated;
+	Bitmap photo;
 	Item oggetto;
-	String url, stringCommento;
+	String url;
     ImageDownloader downloader;
-    ExifInterface exif;
-    int rotation;
 
 
     @Override
@@ -48,7 +46,6 @@ public class ImagePreview extends Activity {
 
 		Intent intent = getIntent();
 
-
         url = (String) intent.getExtras().get("IMMAGINE");
 
 
@@ -57,6 +54,7 @@ public class ImagePreview extends Activity {
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
+        display.getSize(size);
         display.getSize(size);
         int width = size.x;
         int height = size.y;
@@ -89,44 +87,39 @@ public class ImagePreview extends Activity {
             downloader.download(oggetto.url, image);
         }
 
-        //TODO ROTATE PHOTO HERE
+//        //TODO ROTATE PHOTO HERE
+//
+//        this.getContentResolver().notifyChange(uriduri, null);
+//        Matrix matrix = new Matrix();
+//
+//        File imageFile = new File(oggetto.url);
+//
+//        try {
+//            exif = new ExifInterface(imageFile.getAbsolutePath());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+//
+//        switch (orientation) {
+//            case ExifInterface.ORIENTATION_ROTATE_270:
+//                rotation = 270;
+//                break;
+//            case ExifInterface.ORIENTATION_ROTATE_180:
+//                rotation = 180;
+//                break;
+//            case ExifInterface.ORIENTATION_ROTATE_90:
+//                rotation = 90;
+//                break;
+//        }
+//		matrix.preRotate(rotation);
+//		Log.i("orrudebug", "orientato: " + rotation);
+//
+//		Bitmap resizedBitmap = Bitmap.createBitmap(
+//		     photo, 0, 0, photo.getWidth(), photo.getHeight(), matrix, true);
 
-        Matrix matrix = new Matrix();
-
-        File imageFile = new File(oggetto.url);
-
-        ExifInterface exif = null;
-		try {
-			exif = new ExifInterface(imageFile.getAbsolutePath());
-		} catch (IOException e) {
-            Log.d("orrudebug", "non sono entrato eh");
-			e.printStackTrace();
-		}
-
-        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-
-        switch (orientation) {
-            case ExifInterface.ORIENTATION_ROTATE_270:
-                rotation = 270;
-                break;
-            case ExifInterface.ORIENTATION_ROTATE_180:
-                rotation = 180;
-                break;
-            case ExifInterface.ORIENTATION_ROTATE_90:
-                rotation = 90;
-                break;
-        }
-		matrix.preRotate(rotation);
-		Log.i("orrudebug", "orientato: " + rotation);
-		
-		Bitmap resizedBitmap = Bitmap.createBitmap(
-		     photo, 0, 0, photo.getWidth(), photo.getHeight(), matrix, true);
-
-        image.setImageBitmap(resizedBitmap);
-
-
-        Log.d("orrudebug", "commento asd "+ oggetto.itemCommento);
-
+        image.setImageBitmap(photo);
 
         //manage Cancel button action
 		cancel = (Button) findViewById(R.id.cancel);
@@ -168,17 +161,6 @@ public class ImagePreview extends Activity {
 		PageViewer.mViewPager.setCurrentItem(1);
 	}
 	
-	private static float exifOrientationToDegrees(int exifOrientation) {
-        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
-            return 90;
-        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
-            return 180;
-        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
-            return 270;
-        }
-        return 0;
-    }
-
 }
 
 //TODO SEND PHOTO WITH STORY
