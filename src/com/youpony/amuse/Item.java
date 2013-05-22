@@ -8,6 +8,8 @@ public class Item implements Serializable{
 	String name, author, year, description, mostra, url, id, type, bigPic, itemCommento;
 	double emo;
 	
+	int w, h;
+	
 	int e_id;
 	Item(){
 	}

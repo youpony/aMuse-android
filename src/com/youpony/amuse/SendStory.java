@@ -1,5 +1,7 @@
 package com.youpony.amuse;
 
+import java.io.ByteArrayOutputStream;
+
 import org.apache.http.HttpResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,6 +10,8 @@ import org.json.JSONObject;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.graphics.Bitmap;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -60,6 +64,7 @@ public class SendStory extends Activity {
 		}
 	};
 	
+	
 	OnClickListener sendListener = new OnClickListener(){
 
 		@Override
@@ -67,8 +72,8 @@ public class SendStory extends Activity {
 			emailString = emailForm.getText().toString();
 			nameString = nameForm.getText().toString();
 			error = new AlertDialog.Builder(SendStory. this);
-			error.setTitle("Formato email non corretto!");
-			error.setMessage("Per favore controlla il formato dei dati inseriti, l'email non � corretta.");
+			error.setTitle("Wrong email!");
+			error.setMessage("Please check your email.");
 			if(!emailString.contains("@")){
 				error.show();
 				Log.i("orrudebug", "sbagliato email");
@@ -80,9 +85,24 @@ public class SendStory extends Activity {
 					json.put("name", nameString);
 					JSONArray jsonarray = new JSONArray();
 					for(int i=0; i<PageViewer.values.size(); i++){
-						JSONObject jsonId = new JSONObject();
-						jsonId.put("item_pk", PageViewer.values.get(i).id);
-						jsonarray.put(jsonId);
+						if(PageViewer.values.get(i).type.equals("QR")){
+							JSONObject jsonId = new JSONObject();
+							jsonId.put("item_pk", PageViewer.values.get(i).id);
+							jsonarray.put(jsonId);
+						}
+						else{
+							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,PageViewer.values.get(i).w ,PageViewer.values.get(i).h );
+							ByteArrayOutputStream baos = new ByteArrayOutputStream();  
+							bigPic.compress(Bitmap.CompressFormat.JPEG, 20, baos); 
+							byte[] b = baos.toByteArray();
+							
+							String encoded = Base64.encodeToString(b, Base64.DEFAULT);
+							Log.i("orrudebug", "image: " + encoded.length());
+														
+							JSONObject jsonId = new JSONObject();
+							jsonId.put("image", encoded);
+							jsonarray.put(jsonId);
+						}
 					}
 					json.put("posts", jsonarray);
 				} catch (JSONException e) {
