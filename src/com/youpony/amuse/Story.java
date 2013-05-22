@@ -49,7 +49,7 @@ public class Story extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {	
 
 		//DEBUGGING PURPOSES
-		debugArray = new String[]{"0.7"};
+		debugArray = new String[]{};
 
 		sView = inflater.inflate(R.layout.activity_story, container, false);
 		pinterest = (StaggeredGridView) sView.findViewById(R.id.staggeredGridView);
@@ -177,18 +177,22 @@ public class Story extends Fragment {
 	
 	public static boolean findName(String name) {
 		for(int i=0; i<PageViewer.values.size(); i++){
-			if(PageViewer.values.get(i).name.equals(name)){
-				//Log.i("orrudebug", "sto iterando, ho trovato");
-				
-				return true;
+			if(PageViewer.values.get(i).type.equals("QR")){
+				if(PageViewer.values.get(i).name.equals(name)){
+					//Log.i("orrudebug", "sto iterando, ho trovato");
+					
+					return true;
+				}
 			}
 		}
 		return false;
 	}
 	public static int findPos(String name){
 		for(int i=0; i<PageViewer.values.size(); i++){
-			if(PageViewer.values.get(i).name.equals(name)){
-				return i;
+			if(PageViewer.values.get(i).type.equals("QR")){
+				if(PageViewer.values.get(i).name.equals(name)){
+					return i;
+				}
 			}
 		}
 		return 0;
