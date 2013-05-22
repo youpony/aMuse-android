@@ -325,7 +325,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
 	       try {
 	          trimCache(this);
 	       } catch (Exception e) {
-	          // TODO Auto-generated catch block
 	          e.printStackTrace();
 	       }
 	       Log.i("orrudebug", "clear cache");
@@ -355,7 +354,6 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
              deleteDir(cacheDir);
           }
        } catch (Exception e) {
-          // TODO: handle exception
        }
     }
 

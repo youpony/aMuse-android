@@ -97,7 +97,6 @@ public class ImagePreview extends Activity {
 		try {
 			exif = new ExifInterface(imageFile.getAbsolutePath());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -171,4 +170,3 @@ public class ImagePreview extends Activity {
 }
 
 //TODO SEND PHOTO WITH STORY
-//TODO FIX FOTOINFO LAYOUT, BOTTONS ON BOTTOM ALWAYS

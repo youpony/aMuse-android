@@ -20,8 +20,6 @@ public class ItemInfo extends Activity {
 	Item item;
 	ImageDownloader downloader;
 
-    //TODO EMOZIONI DA FARE VECC
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

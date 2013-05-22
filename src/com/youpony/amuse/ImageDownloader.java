@@ -125,8 +125,6 @@ public class ImageDownloader {
     
 		if (sdState.equals(android.os.Environment.MEDIA_MOUNTED)) {
 			File sdDir = android.os.Environment.getExternalStorageDirectory();  
-			
-			//TODO : Change your directory here
 			cacheDir = new File(sdDir,"data/amuse/images");
 		}
 		else
