@@ -96,7 +96,14 @@ public class SendStory extends Activity {
 							bigPic.compress(Bitmap.CompressFormat.JPEG, 0, baos); 
 							byte[] b = baos.toByteArray();
 							
-							String encoded = Base64.encodeToString(b, Base64.DEFAULT);
+							String encoded = Base64.encodeToString(b, 0 , b.length, Base64.CRLF);
+							encoded = encoded.replaceAll("\n", "").replaceAll("\r", "").replaceAll("/", "");
+							if(encoded.length() % 3 == 1){
+								encoded = encoded.substring(0, encoded.length()-1);
+							}
+							else if(encoded.length() % 3 == 2){
+								encoded = encoded.substring(0, encoded.length()-2);
+							}
 							Log.i("orrudebug", "image: " + encoded.length());
 														
 							JSONObject jsonId = new JSONObject();
