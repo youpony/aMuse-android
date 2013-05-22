@@ -28,6 +28,7 @@ public class ImagePreview extends Activity {
 	String url, stringCommento;
     ImageDownloader downloader;
     ExifInterface exif;
+    int rotation;
 
 
     @Override
@@ -97,13 +98,23 @@ public class ImagePreview extends Activity {
 		try {
 			exif = new ExifInterface(imageFile.getAbsolutePath());
 		} catch (IOException e) {
+            Log.d("orrudebug", "non sono entrato eh");
 			e.printStackTrace();
 		}
-		
-		int rotation = (int)exifOrientationToDegrees(
-                exif.getAttributeInt(ExifInterface.TAG_ORIENTATION,
-                        ExifInterface.ORIENTATION_NORMAL));
-		
+
+        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                rotation = 270;
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                rotation = 180;
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                rotation = 90;
+                break;
+        }
 		matrix.preRotate(rotation);
 		Log.i("orrudebug", "orientato: " + rotation);
 		
