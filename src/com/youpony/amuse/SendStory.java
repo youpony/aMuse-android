@@ -91,9 +91,9 @@ public class SendStory extends Activity {
 							jsonarray.put(jsonId);
 						}
 						else{
-							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,PageViewer.values.get(i).w ,PageViewer.values.get(i).h );
+							Bitmap bigPic = PageViewer.decodeSampledBitmapFromFile(PageViewer.values.get(i).url,10,10);//PageViewer.values.get(i).w ,PageViewer.values.get(i).h );
 							ByteArrayOutputStream baos = new ByteArrayOutputStream();  
-							bigPic.compress(Bitmap.CompressFormat.JPEG, 20, baos); 
+							bigPic.compress(Bitmap.CompressFormat.JPEG, 0, baos); 
 							byte[] b = baos.toByteArray();
 							
 							String encoded = Base64.encodeToString(b, Base64.DEFAULT);
