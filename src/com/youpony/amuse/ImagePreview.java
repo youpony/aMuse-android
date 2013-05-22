@@ -60,7 +60,8 @@ public class ImagePreview extends Activity {
         display.getSize(size);
         int width = size.x;
         int height = size.y;
-
+        oggetto.w = width;
+        oggetto.h = height;
 
 
         photo = PageViewer.decodeSampledBitmapFromFile(url,width,height);

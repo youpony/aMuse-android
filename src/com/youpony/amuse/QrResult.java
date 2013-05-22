@@ -170,7 +170,7 @@ public class QrResult extends Activity {
 											im = downloader.download(im, imageView);
 										}
 										else{
-											Log.i("orrudebug", "non c'ÔøΩ l'immagine di questo oggetto");
+											Log.i("orrudebug", "non c'è l'immagine di questo oggetto");
 										}
 										//NB: IMPEDIRE IL CARICAMENTO DEL LAYOUT PRIMA CHE L'IMMAGINE SIA SCARICATA
 

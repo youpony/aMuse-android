@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/myemailTitle"
         android:layout_below="@+id/emailForm"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameTitle"
-        android:layout_alignLeft="@+id/emailForm"
+        android:layout_centerHorizontal="true"
         android:ems="10" />
 
     <Button
