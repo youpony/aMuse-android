@@ -112,13 +112,14 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
         }
         */
         mViewPager.setCurrentItem(1);
-        listaItem = new HashSet<String>();
+        /*listaItem = new HashSet<String>();
         listaPic = new HashSet<String>();
         saving = getSharedPreferences("SAVING", Context.MODE_PRIVATE);
         saving.getStringSet("LISTA_PIC", listaPic);
         for(int i=0; i<listaPic.size(); i++){
         	Log.i("orrudebug", listaPic.toArray()[i].toString());
         }
+        */
     }
 
     @Override
@@ -332,7 +333,7 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
        else{
 //    	   salvati la roba
     	   
-    	   SharedPreferences.Editor editsaving = saving.edit();
+    	   /*SharedPreferences.Editor editsaving = saving.edit();
     	   for(int i=0; i<PageViewer.values.size(); i++){
     		   listaItem.add(PageViewer.values.get(i).id);
     	   }
@@ -341,7 +342,7 @@ public class PageViewer extends FragmentActivity /*implements ActionBar.TabListe
     	   }
     	   editsaving.putStringSet("LISTA_ITEM",listaItem);
     	   editsaving.putStringSet("LISTA_PIC", listaPic);
-    	   
+    	   */
     	   
        }
     }

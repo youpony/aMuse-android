@@ -65,8 +65,14 @@ public class Story extends Fragment {
 	  		startActivity(qrResult);
 		}
 		
-		tutorial = (ImageView) sView.findViewById(R.id.tutorial);
-		
+		if(PageViewer.values.size() < 1){
+			tutorial = (ImageView) sView.findViewById(R.id.tutorial);
+			tutorial.setVisibility(View.VISIBLE);
+		}
+		else{
+			tutorial = (ImageView) sView.findViewById(R.id.tutorial);
+			tutorial.setVisibility(View.INVISIBLE);
+		}
 		pinterest.setOnItemClickListener(onItemClick);
 		pinterest.setOnItemLongClickListener(longListener);
 		
